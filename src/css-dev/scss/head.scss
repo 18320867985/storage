@@ -1,0 +1,31 @@
+
+/**head**/
+    
+    
+//head-logo
+.head-logo{
+    padding: 10px;
+    background: $bg-head;
+    
+    $w:88px;
+    $h:73px;
+    img{
+      
+        float: left;
+        width: $w;
+        height: $h;
+         margin-left: 20px;
+    }
+    h4{
+       float: left;
+        padding: 0 ;
+        margin: 0 0 0 20px;
+          
+        height: $h;
+        line-height: $h;
+        font-size: 24px;
+        font-weight: 200;
+      
+        color:$text-white;
+    }
+}

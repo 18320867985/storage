@@ -12,6 +12,7 @@ body {
     margin-left: auto;
 }
 
+
 .container-fluid-12 {
     width: 100%;
     margin-right: auto;
@@ -385,28 +386,28 @@ select option {
 /*webkit*/
 
 input::-webkit-input-placeholder {
-    color: $text-placeholder;
+   
 }
 
 
 /*IE10+*/
 
 input:-ms-input-placeholder {
-    color: $text-placeholder;
+    
 }
 
 
 /*Firefox4-18*/
 
 input:-moz-placeholder {
-    color: $text-placeholder;
+   
 }
 
 
 /*Firefox19+*/
 
 input::-moz-placeholder {
-    color: $text-placeholder;
+   
 }
 
 //超出隐藏为
@@ -492,7 +493,7 @@ input::-moz-placeholder {
 /* a link*/
 
 a:hover {
-    color: $text-danger !important;
+  
 }
 
 

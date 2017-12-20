@@ -84,116 +84,174 @@ common = function ($) {
 
 	};
 }(window.jQuery || window.Zepto);
+/*
+ * 默认js
+ * 添加 class="bs-date " 
+	<input type="text" class="form-control bs-date " value="" placeholder="订单开始时间" />
+ * 
+ */
 
+var bsDate = function ($) {
 
-var pickerSelect = function (mui) {
+	var _init = function _init() {
+		// bs 日历插件
+		$('.bs-date').datetimepicker({
 
-	// 	一级选择
-	var _oneSelect = function oneSelect(selector, data) {
+			format: "yyyy-mm-dd  ", //'yyyy-mm-dd hh:ii'
+			showMeridian: true,
+			autoclose: true,
+			todayBtn: true,
+			minView: 3 //选择日期
+			//forceParse :true  //转换格式
 
-		var userPicker = new mui.PopPicker();
-		userPicker.setData(data);
-
-		var showUserPickerButton = document.querySelector(selector);
-
-		showUserPickerButton.addEventListener('tap', function (event) {
-			userPicker.show(function (items) {
-				event.target.blur();
-				showUserPickerButton.value = items[0].text;
-				showUserPickerButton.setAttribute("data-value", items[0].value);
-				//返回 false 可以阻止选择框的关闭
-				//return false;
-			});
-		}, false);
-	};
-
-	// 省份-级联示例
-	var _getParam = function _getParam(obj, prop) {
-		return obj[prop] || '';
-	};
-
-	// 	二级选择
-	var _twoSelect = function twoSelect(selector) {
-
-		//级联示例
-		var cityPicker = new mui.PopPicker({
-			layer: 2
 		});
-		cityPicker.setData(cityData);
-		var showCityPickerButton = document.querySelector(selector);
 
-		showCityPickerButton.addEventListener('tap', function (event) {
-			cityPicker.show(function (items) {
-				event.target.blur();
-				showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text');
-				//返回 false 可以阻止选择框的关闭
-				//return false;
-			});
-		}, false);
-	};
+		//日期不准输入
+		$('.bs-date').focus(function () {
 
-	// 三级选择
-	var _threeSelect = function threeSelect(selector) {
-
-		//级联示例
-		var cityPicker = new mui.PopPicker({
-			layer: 3
-		});
-		cityPicker.setData(cityData3);
-		var showCityPickerButton = document.querySelector(selector);
-
-		showCityPickerButton.addEventListener('tap', function (event) {
-			cityPicker.show(function (items) {
-				event.target.blur();
-				showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text') + "-" + _getParam(items[2], 'text');
-				//返回 false 可以阻止选择框的关闭
-				//return false;
-			});
-		}, false);
-	};
-
-	// 日期选择  class="mui-date" type="datetime,date ,time,month"
-	var _dateSelect = function dateSelect(dateSelect) {
-
-		dateSelect = dateSelect || ".dateSelect";
-		var btns = $(dateSelect);
-
-		btns.each(function (i, btn) {
-
-			btn.addEventListener('tap', function (event) {
-				var _self = this;
-				this.blur();
-				if (_self.picker) {
-					_self.picker.show(function (rs) {
-						_self.value = rs.text;
-						_self.picker.dispose();
-						_self.picker = null;
-					});
-				} else {
-					var optionsJson = this.getAttribute('data-options') || '{}';
-					var options = JSON.parse(optionsJson);
-					var id = this.getAttribute('id');
-
-					_self.picker = new mui.DtPicker(options);
-					_self.picker.show(function (rs) {
-						_self.value = rs.text;
-
-						_self.picker.dispose();
-						_self.picker = null;
-					});
-				}
-			}, false);
+			$(this).blur();
 		});
 	};
 
 	return {
-		oneSelect: _oneSelect,
-		twoSelect: _twoSelect,
-		threeSelect: _threeSelect,
-		dateSelect: _dateSelect
-
+		init: _init
 	};
-}(mui);
+}(window.jQuery);
+/**
+ * iframe
+ * **/
+
+var iframe = function ($) {
+
+	// 设置iframe 高度
+	var _setHeight = function _setHeight() {
+		var windows_h = $(document).height() + 50;
+		$(window.parent.document).find(".parent-window").css("height", windows_h);
+	};
+
+	return {
+		setHeight: _setHeight
+	};
+}(window.jQuery);
+//
+//
+//var pickerSelect=(function(mui){
+//	
+//	
+//			// 	一级选择
+//		var _oneSelect=	function oneSelect(selector, data) {
+//
+//				var userPicker = new mui.PopPicker();
+//				userPicker.setData(data);
+//
+//				var showUserPickerButton = document.querySelector(selector);
+//
+//				showUserPickerButton.addEventListener('tap', function(event) {
+//					userPicker.show(function(items) {
+//						event.target.blur();
+//						showUserPickerButton.value = items[0].text;
+//						showUserPickerButton.setAttribute("data-value", items[0].value);
+//						//返回 false 可以阻止选择框的关闭
+//						//return false;
+//					});
+//				}, false);
+//
+//			}
+//
+//			// 省份-级联示例
+//			var _getParam = function(obj, prop) {
+//				return obj[prop] || '';
+//			};
+//
+//			// 	二级选择
+//	var _twoSelect=		function twoSelect(selector) {
+//
+//				//级联示例
+//				var cityPicker = new mui.PopPicker({
+//					layer: 2
+//				});
+//				cityPicker.setData(cityData);
+//				var showCityPickerButton = document.querySelector(selector);
+//
+//				showCityPickerButton.addEventListener('tap', function(event) {
+//					cityPicker.show(function(items) {
+//						event.target.blur();
+//						showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text');
+//						//返回 false 可以阻止选择框的关闭
+//						//return false;
+//					});
+//				}, false);
+//
+//			}
+//
+//			// 三级选择
+//			var _threeSelect=function threeSelect(selector) {
+//
+//				//级联示例
+//				var cityPicker = new mui.PopPicker({
+//					layer: 3
+//				});
+//				cityPicker.setData(cityData3);
+//				var showCityPickerButton = document.querySelector(selector);
+//
+//				showCityPickerButton.addEventListener('tap', function(event) {
+//					cityPicker.show(function(items) {
+//						event.target.blur();
+//						showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text')+ "-" + _getParam(items[2], 'text');
+//						//返回 false 可以阻止选择框的关闭
+//						//return false;
+//					});
+//				}, false);
+//
+//			}
+//
+//			// 日期选择  class="mui-date" type="datetime,date ,time,month"
+//		var _dateSelect=	function dateSelect(dateSelect) {
+//
+//				dateSelect = dateSelect || ".dateSelect";
+//				var btns = $(dateSelect);
+//
+//				btns.each(function(i, btn) {
+//
+//					btn.addEventListener('tap', function(event) {
+//						var _self = this;
+//						this.blur();
+//						if(_self.picker) {
+//							_self.picker.show(function(rs) {
+//								_self.value = rs.text;
+//								_self.picker.dispose();
+//								_self.picker = null;
+//							});
+//						} else {
+//							var optionsJson = this.getAttribute('data-options') || '{}';
+//							var options = JSON.parse(optionsJson);
+//							var id = this.getAttribute('id');
+//
+//							_self.picker = new mui.DtPicker(options);
+//							_self.picker.show(function(rs) {
+//								_self.value = rs.text;
+//
+//								_self.picker.dispose();
+//								_self.picker = null;
+//							});
+//						}
+//
+//					}, false);
+//
+//				});
+//			}
+//		
+//		
+//		return{
+//			oneSelect:_oneSelect,
+//			twoSelect:_twoSelect,
+//			threeSelect:_threeSelect,
+//			dateSelect:_dateSelect
+//				
+//		}
+//	
+//	
+//})(mui);
 /*
 				 滚动监听
 				 <body data-spy="spy" data-target="#scroll_ttl">
@@ -804,182 +862,3 @@ var threeAddress = function () {
 		});
 	});
 }(window.jQuery || window.Zepto);
-;(function () {
-
-	obj = {
-		// 头部菜单折叠
-		setMenu: function setMenu() {
-
-			$(".navbar-toggle").click(function (e) {
-				e.stopPropagation();
-				if ($(this).attr("data-bl")) {
-
-					$(this).removeAttr("data-bl");
-					slide_l(false);
-				} else {
-
-					$(this).attr("data-bl", true);
-					slide_l(true);
-
-					if ($(window).width() < 768) {
-						$(document).one("click", function () {
-							$(".navbar-toggle").removeAttr("data-bl");
-							slide_l(false);
-						});
-					}
-				}
-			});
-
-			// 张开菜单
-			function slide_l(bl) {
-
-				if (bl) {
-
-					$("body").css("background", "#ccc");
-					$(".menu-slide").stop().animate({
-						right: 0
-
-					}, 600);
-				} else {
-					$("body").css("background", "#fff");
-					$(".menu-slide").stop().animate({
-						right: "-" + $(".menu-slide").outerWidth()
-
-					}, 400);
-				}
-			}
-
-			// 点击doucment关闭 菜单
-
-			$(".menu-slide .dropdown-menu  a").on("click", function (event) {
-				event.stopPropagation();
-			});
-		},
-
-		/*
-   <!--视频播放器-->
-  	<div class="v-temp" id="v-temp">
-  		<span class="glyphicon glyphicon-remove-circle  v-close"></span>
-  				<video class="v-video" id="v-video" width="400" height="300" controls="controls">
-  				</video>
-  			</div>
-  	<div class=" ">
-  		<!--视频-->
-  		<div class="video-temp">
-  			<!--hidden-->
-  			<div class="video-content v-hide">
-  				<source src="video/test.mp4" type="video/mp4"></source>
-  				<source src="myvideo.ogv" type="video/ogg"></source>
-  				<source src="myvideo.webm" type="video/webm"></source>
-  				<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
-  			 		<param name="movie" value="myvideo.swf" />
-  			 		<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
-  	 			</object>
-  
-  				<p>当前浏览器不支持 video直接播放，<br />点击这里下载视频：
-  					<a href="video/test.mp4">下载视频</a>
-  				</p>
-  			</div>
-  			<img src="images/场景系列01.png" alt="当前浏览器不支持html5的 video元素,请升级你的浏览器" />
-  		</div>
-  	
-  		<div class="v-desc">
-  			<h2>ALHAMBRA</h2>
-  			<p class="p1">1837年以来 Tirffan & CO蒂芙尼</p>
-  			<p class="p2">传奇杰作引领风格 见证着世间无数至臻至美 爱情故事</p>
-  
-  		</div>
-  		<img class="v-play" src="images/icon--播放按钮.png" alt="play" />
-  
-  	</div>
-   
-   */
-		// open video
-		htmlVideo: function htmlVideo() {
-
-			// 打开视频
-			$(".v-play").click(function () {
-				var video = document.getElementById("v-video");
-				if (!video.canPlayType) {
-					alert("当前浏览器不支持html5的 video元素,请升级你的浏览器");
-					return;
-				}
-				$(".v-temp").show();
-				var v = $(this).parent().find(".video-content").html();
-				video.innerHTML = v;
-				video.load();
-				video.play();
-			});
-
-			// 关闭视频
-			$(".v-temp  .v-close").click(function () {
-				var video = document.getElementById("v-video");
-
-				video.pause();
-				$(this).closest(".v-temp").hide();
-			});
-		},
-
-		zhiding: function zhiding() {
-
-			$(window).scroll(function () {
-
-				if ($(window).scrollTop() > 500) {
-					$(".zhiding").show();
-				} else {
-					$(".zhiding").hide();
-				}
-			});
-
-			//
-			$(".zhiding").click(function () {
-				$("body,html").animate({
-					scrollTop: 0
-				}, 500);
-			});
-		}
-
-		// exec
-	};obj.setMenu();
-	obj.htmlVideo();
-	obj.zhiding();
-})(window.jQuery || window.Zepto);
-var index = function () {
-
-	function lbt() {
-
-		// 轮播图		
-		setCarouselLfBtn();
-
-		$(window).resize(function () {
-			setCarouselLfBtn();
-		});
-
-		function setCarouselLfBtn() {
-			if ($(window).width() > 767) {
-				$(' .carousel.slide ').mouseenter(function () {
-
-					$(this).find('.left.carousel-control,.right.carousel-control').stop().show();
-				});
-
-				$(' .carousel.slide').mouseleave(function () {
-
-					$(this).find('.left.carousel-control,.right.carousel-control').stop().hide();
-				});
-			} else {
-
-				$('.carousel.slide').find('.left.carousel-control,.right.carousel-control').hide();
-			}
-		}
-	}
-
-	return {
-
-		init: function init() {
-
-			lbt(); //轮播图
-
-		}
-	};
-}();
-/*es6*/
