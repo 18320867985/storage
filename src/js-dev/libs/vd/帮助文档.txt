@@ -1,0 +1,64 @@
+
+	// 1.初始化表单验证对象
+	var vd1=vd.create(".form1");  // 表单的 class的名称
+	vd1.init();                   // 初始化表单验证 
+		
+		
+	/* 2. 验证每组 添加class="vd-box" 的大框
+	  每一个item 添加class="vd-item"  
+	*/
+	
+	
+	/* 3
+	 * 验证类型
+	 
+	 1.非空验证 => 验证属性： vd-req  
+	  验证错误提示信息：vd-req-msg="此字段不能为空"
+	 
+	 2.正则验证 => 验证属性： vd-pattern="^1\d{10}$" 
+	   验证错误提示信息：vd-pattern-msg="此字段格式不对"
+	 
+	 3.ajax远程验证 => 验证属性： vd-remote="json/remote.json"
+	  长度达到才验证：vd-remote-length="6"  
+	  验证错误提示信息： vd-remote-msg="验证码不对"
+	 
+	 4.比较验证=>  验证属性：  vd-compare="pwd" 
+	 pwd是比较的name="pwd"的字段名称 
+	    验证错误提示信息：vd-compare-msg="两次密码不能相同"
+	 vd-compare-emit="pwd2"  是比较的字段name="pwd"元素上触发的字段
+	 	
+	 5.单选按钮=>  验证属性： vd-rd  
+	  选中的为:vd-rd-ok  
+	   验证错误提示信息： vd-rd-msg="单选不能为空"
+	 [name="gp"为同一组 ]	
+	 
+	 
+	 6.checkbox验证=> 验证属性：  vd-ck   选中的为:vd-ck-ok  选中的值：vd-ck-true="1"
+	   没选中的值vd-ck-false="0" 
+	   验证错误提示信息：vd-ck-msg="没有同意协议" 
+	 
+	 
+	 */
+	
+	
+	4.提交触发
+	$(".vd-btn").on("click", function() {
+	
+					// 是否验证成功
+					vd1.isSuccess(function(obj) {
+						
+						alert(JSON.stringify(obj));
+					},function(obj) {
+					
+					alert(obj.errorMsg)
+					// error 
+//					mui.alert(obj.errorMsg," ","确认",function(){
+					obj.el.focus();
+//					});
+//					
+					
+					});	
+			});
+	 
+	 
+	 

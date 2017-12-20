@@ -1,0 +1,12 @@
+
+{
+    "files": [
+      	 "src/js-dev/ts/*.ts"       
+
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}
+

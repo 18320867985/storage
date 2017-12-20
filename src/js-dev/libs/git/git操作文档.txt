@@ -1,0 +1,20 @@
+
+	git clone https://github.com/18320867985/sujin-wx.git //从github 克隆项目
+
+ 	/* 清除缓存*/
+
+	1.git rm -r --cached
+
+	2. git add -A 
+
+	/* 做版本控制*/
+
+	3. git commit -m " 版本说明 2017-8-26 12:45" 
+
+	/* 推送到服务端*/
+
+	4. git push  https://github.com/18320867985/sujin-wx
+
+
+
+

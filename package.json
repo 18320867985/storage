@@ -1,0 +1,46 @@
+{
+  "name": "gulp-wx",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.4.2",
+    "gulp-cleancss": "^0.2.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-less": "^3.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-typescript": "^3.2.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-plugin-transform-remove-strict-mode": "",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "jihong_wx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18320867985/xsn_bx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/18320867985/xsn_bx/issues"
+  },
+  "homepage": "https://github.com/18320867985/xsn_bx#readme"
+}

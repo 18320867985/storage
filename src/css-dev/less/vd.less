@@ -1,0 +1,76 @@
+
+/*错误显示*/
+.vd-box .vd-req,
+.vd-box .vd-pattern,
+.vd-box .vd-remote,
+.vd-box .vd-compare {
+    display: none;
+    color: red;
+}
+
+
+/* 错误 */
+
+.vd-box .vd-req.vd-error,
+.vd-box .vd-pattern.vd-error,
+.vd-box .vd-remote.vd-error,
+.vd-box .vd-compare.vd-error {
+    display: inline-block;
+}
+
+
+/*当前的元素 ok*/
+
+.vd-box.vd-ok .vd-item {
+    color: green !important;
+    border-bottom: 1px solid green !important;
+}
+
+.vd-box.vd-ok textarea.vd-item {
+    color: green !important;
+    border: 1px solid green !important;
+}
+
+.vd-box.vd-ok label {
+    color: green !important;
+}
+
+.vd-dep-btn.vd-ok{
+    color: green !important;
+}
+
+/*提交按钮*/
+.vd-btn.vd-ok{
+    
+  //  color:#fff !important;
+  //  background:green !important;
+}
+
+
+
+
+/*当前的元素error*/
+
+.vd-box.vd-error .vd-item.vd-error {
+    color: red !important;
+    border-bottom: 1px solid red !important;
+}
+.vd-box.vd-error textarea.vd-item.vd-error {
+    color: red !important;
+    border: 1px solid red !important;
+}
+
+
+.vd-box.vd-error label {
+    color: red !important;
+}
+.vd-dep-btn.vd-error{
+    color: red !important;
+}
+
+/*提交按钮*/
+.vd-btn.vd-error{
+    
+   // color:#fff !important;
+   // background: red;
+}

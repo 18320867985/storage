@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		
+		
+		
+	
+		<div class="Handlebars1"></div>
+		<hr />
+		<h1>for</h1>
+		<div class="Handlebars2"></div>
+		
+		<script id="entry-template" type="text/template">
+			<div class="entry">
+				<h1>{{title}}</h1>
+				<div class="body">
+					{{body}}
+				</div>
+			</div>
+		</script>
+		
+		<script id="entry-template2" type="text/template">
+			<div class="entry">
+				<h1>日期时间过滤</h1>
+				 <ul>
+				 	{{#people}}
+					 	<li>
+					 		 之前的格式： {{ firstName }}<br>
+					 		<!--日期时间过滤-->
+							  {{#date firstName "yyyy-MM-dd" }}
+							   <a href="">{{firstName}}</a>
+							  {{/date}}
+							  
+							 	
+					 	</li>
+				 	{{/people}}
+				 </ul>
+				 
+				 <hr />
+				 <h1>比较相等</h1>
+				  <ul>
+				 	{{#people}}
+					 	<li>
+					 	
+					 	
+							  {{#gg firstName 1 }}
+							   <a href="">{{firstName}}</a>
+							   {{else}}
+							   
+							   <p>no data</p>
+							  {{/gg}}
+							  
+							  
+							
+					 	</li>
+				 	{{/people}}
+				 </ul>
+				 
+				 <h1>比较大于</h1>
+				  <ul>
+				 	{{#people}}
+					 	<li>
+					 	
+					 	 {{ lastName }}
+							  {{#gt  lastName 2 }}
+							   <a href="">{{firstName}}</a>
+							   {{else}}
+							   
+							  	 <p>no data</p>
+							  {{/gt}}
+							  
+							  
+							
+					 	</li>
+				 	{{/people}}
+				 </ul>
+				 
+				  <h1>比较小于</h1>
+				  <ul>
+				 	{{#people}}
+					 	<li>
+					 	
+					 	
+							  {{#gl  lastName 2 }}
+							   <a href="">{{lastName}}</a>
+							   {{else}}
+							   
+							  	 <p>no data</p>
+							  {{/gl}}
+							  
+							  
+							
+					 	</li>
+				 	{{/people}}
+				 </ul>
+				 
+			</div>
+		</script>
+
+		<script src="handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+	
+     
+			var template = Handlebars.compile( document.getElementById("entry-template").innerHTML);
+			var context = {title: "My New Post", body: "This is my first post!"};
+			var html  = template(context);
+			
+			document.querySelector(".Handlebars1").innerHTML=html;
+			
+			// for
+			var data2={
+					  people: [
+					    {firstName: "/Date(1472048779952)/", lastName: "1"},
+					    {firstName: "1472048779952", lastName: "2"},
+					    {firstName: "1472048779952", lastName: "3"}
+					  ]
+				};
+					
+			var template2=Handlebars.compile(document.getElementById("entry-template2").innerHTML);
+			var html2=template2(data2);
+			document.querySelector(".Handlebars2").innerHTML=html2;
+			
+			
+		</script>
+	</body>
+
+</html>

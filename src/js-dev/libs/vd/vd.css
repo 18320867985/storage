@@ -1,0 +1,65 @@
+
+/*错误显示*/
+.vd-box .vd-req,
+.vd-box .vd-pattern,
+.vd-box .vd-remote,
+.vd-box .vd-compare {
+	display: none;
+	color: red;
+}
+
+
+/* 错误 */
+
+.vd-box .vd-req.vd-error,
+.vd-box .vd-pattern.vd-error,
+.vd-box .vd-remote.vd-error,
+.vd-box .vd-compare.vd-error {
+	display: inline-block;
+}
+
+
+/*当前的元素 ok*/
+
+.vd-box.vd-ok .vd-item {
+	color: green;
+	border: 1px solid green;
+}
+
+.vd-box.vd-ok label {
+	color: green;
+}
+
+.vd-dep-btn.vd-ok{
+	color: green;
+}
+
+/*提交按钮*/
+.vd-btn.vd-ok{
+	
+	color:green;
+}
+
+
+
+
+/*当前的元素error*/
+
+.vd-box.vd-error .vd-item.vd-error {
+	color: red;
+	border: 1px solid red;
+}
+
+
+.vd-box.vd-error label {
+	color: red;
+}
+.vd-dep-btn.vd-error{
+	color: red;
+}
+
+/*提交按钮*/
+.vd-btn.vd-error{
+	
+	color:red;
+}

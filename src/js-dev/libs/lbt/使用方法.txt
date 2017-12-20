@@ -1,0 +1,20 @@
+大图jQuery多屏首页焦点图代码，兼容主流浏览器，推荐下载！
+
+使用方法：
+1、head区域引用文件jquery1.42.min.js，jquery.superslide.2.1.1.js， lrtk.css
+2、在文件中加入<!-- 代码 开始 --><!-- 代码 结束 -->区域代码
+3、js参数调用说明：
+titCell：导航元素对象（鼠标的触发元素对象）
+mainCell：切换元素的包裹层对象
+effect：动画效果（默认："fade"）
+fade：渐显；|| left：左滚动；|| fold：淡入淡出
+autoPlay：自动运行（默认：false）
+delayTime：毫秒（默认：500）；切换效果持续时间（一次切换效果执行所用的时间长度）。pt>
+autoPage：默认为false；支持自定义分页html，$为数字替换位置。例如autoPage:"<li><a>$</a></li>"，如果不想输出数字：autoPage:"<li><a></a></li>"。
+prevCell：前一个/页按钮对象。默认（".prev"）
+nextCell：后一个/页按钮对象。默认（".next"）
+
+case "fade":
+case "fold":
+case "top":
+case "left":

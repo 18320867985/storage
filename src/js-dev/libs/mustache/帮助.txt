@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>mustache</h1>
+		<div id="big">
+			
+		</div>
+		<script src="jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="mustache.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--mustacheÄ£°å-->
+		<script type="text/html" id="must">
+		{{#must}}
+			<ul>	
+				<li>{{name}}
+			<a href="">{{list}}</a>
+				</li>
+				
+			</ul>
+			{{/must}}
+		</script>
+		
+		<script type="text/javascript" >
+			
+		//1
+			$.getJSON("test.json",function(data){
+			
+			var html=	Mustache.to_html($("#must").html(),{must:data.list});
+		
+			$("#big").append(html);
+			});
+			
+			
+			//2
+			var lists=[{name:"mini",list:"a"},{name:"bibi"}]
+			var html=	Mustache.to_html($("#must").html(),{must:data});
+			$("#big").append(html);
+	
+		//°ïÖúÍøÕ¾
+	//https://my.oschina.net/u/921053/blog/205339	
+
+</script>
+		
+	</body>
+</html>

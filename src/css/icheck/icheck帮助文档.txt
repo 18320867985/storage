@@ -1,0 +1,23 @@
+	
+	1.<link rel="stylesheet" type="text/css" href="skins/all.css"/>//全部
+		
+  	或引入 
+
+	<link rel="stylesheet" type="text/css" href="skins/flat/red.css"/> 单个的
+
+	2.引入 jquery 文件 和 icheck 文件
+
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="icheck.js" type="text/javascript" charset="utf-8"></script>
+
+	3.激活icheck
+	$(document).ready(function(){
+	
+		$('input').iCheck({
+  		  checkboxClass: 'icheckbox_square-red', //注意square-red 的 -red主题为红色 ，-blue主题为蓝色
+ 	  	 radioClass: 'iradio_square-red',
+	    	increaseArea: '20%' // optional
+		});
+ 
+	});

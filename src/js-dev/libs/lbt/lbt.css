@@ -1,0 +1,82 @@
+/* css 重置 */
+
+img {
+	border: none;
+}
+
+
+
+/*本例css*/
+
+.index-cont-lbt-big {
+	width: 970px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+.index-cont-lbt-big img {
+	width: 970px;
+	height: 400px;
+}
+
+
+/*数字按钮样式*/
+
+.index-cont-lbt-big .num {
+	overflow: hidden;
+	height: 25px;
+	position: absolute;
+	bottom: 12px;
+	left: 15px;
+	zoom: 1;
+	z-index: 3;
+	text-align: center;
+	width:970px;
+}
+
+.index-cont-lbt-big .num li {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-weight: 400;
+	font-family: "微软雅黑", Arial;
+	color: #FFFFFF;
+	background: #444444;
+	margin-right: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	display: inline-block;
+	float: none;
+}
+
+/*当前项*/
+.index-cont-lbt-big .num li.on {
+	background: #FF7700;
+}
+
+
+
+
+
+/*上一个  下一个*/
+
+.index-cont-lbt-big .prev,
+.index-cont-lbt-big .next {
+	display:none;
+	width: 40px;
+	height: 100px;
+	background: url(../../images/Home/btn.png) no-repeat;
+	position: absolute;
+	top: 135px;
+}
+
+.index-cont-lbt-big .prev {
+	left: 0;
+}
+
+.index-cont-lbt-big .next {
+	right: 0;
+	background-position: right;
+}

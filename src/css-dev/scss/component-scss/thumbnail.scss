@@ -1,0 +1,34 @@
+
+
+    //  缩略图
+    
+    .thumbnail-content {
+        
+        overflow:  hidden;
+        
+    }
+    
+    .thumbnail-allitems{
+        
+        position: relative;
+        
+    }
+   
+   
+   .thumbnail-item{
+       float: left !important;
+   }
+   
+   .thumbnail-num{
+       position: absolute;
+       
+      width: 50px;
+      margin: 0 auto ;
+      text-align: center;
+   
+      background:  #f0f0f0;
+      background: rgba(#f0f0f0,0.8);
+      
+       
+   }
+   
