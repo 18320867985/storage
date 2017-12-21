@@ -7686,7 +7686,7 @@ select option {
 .head-logo {
   padding: 10px;
   background: #3d6fae; }
-  .head-logo img {
+  .head-logo .logo {
     float: left;
     width: 88px;
     height: 73px;
@@ -7700,3 +7700,90 @@ select option {
     font-size: 24px;
     font-weight: 200;
     color: #fff; }
+  .head-logo .pull-right {
+    position: relative;
+    margin-right: 3%; }
+  .head-logo .head-img {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    margin-right: 20px;
+    border-radius: 50%; }
+  .head-logo .iconfont {
+    position: relative;
+    top: 30px;
+    font-size: 32px;
+    color: #fff; }
+    .head-logo .iconfont:hover {
+      cursor: pointer; }
+    .head-logo .iconfont + .iconfont {
+      margin-left: 20px; }
+    .head-logo .iconfont.icon-mima {
+      font-size: 36px; }
+
+/**footer**/
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  background: #3d6fae; }
+  .footer .cont {
+    padding: 10px;
+    text-align: center; }
+
+/**admin**/
+.admin-left {
+  height: 100%;
+  width: 13%; }
+  .admin-left .ttl-1 {
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    padding-left: 15px;
+    height: 50px;
+    line-height: 50px; }
+  .admin-left .box-big {
+    width: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #e1e1e1;
+    height: 400px; }
+    .admin-left .box-big ul {
+      margin: 0;
+      padding: 0; }
+      .admin-left .box-big ul li {
+        padding: 15px;
+        border-bottom: 1px solid #e1e1e1;
+        -webkit-transition: all .5s;
+        transition: all .5s; }
+        .admin-left .box-big ul li:hover {
+          cursor: pointer; }
+        .admin-left .box-big ul li a {
+          margin-left: 10px;
+          font-size: 14px; }
+        .admin-left .box-big ul li + li {
+          border-top: none; }
+        .admin-left .box-big ul li.active {
+          background: #3d6fae; }
+          .admin-left .box-big ul li.active span {
+            color: #fff; }
+          .admin-left .box-big ul li.active a {
+            color: #fff !important; }
+
+.admin-right {
+  width: 87%; }
+  .admin-right .ttl-1 {
+    border-bottom: 1px solid #e1e1e1; }
+    .admin-right .ttl-1 li {
+      float: left;
+      height: 49px;
+      line-height: 49px;
+      padding: 0 25px;
+      border-right: 1px solid #e1e1e1; }
+      .admin-right .ttl-1 li:hover {
+        cursor: pointer; }
+  .admin-right .parent-window {
+    margin-top: 20px;
+    border: none; }

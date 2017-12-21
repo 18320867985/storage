@@ -1,0 +1,17 @@
+
+
+/**footer**/
+    .footer{
+        
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color:$text-white;
+        background: $bg-head;
+        
+        .cont{
+            padding: 10px;
+           text-align: center;
+        }
+    }
