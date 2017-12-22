@@ -7736,54 +7736,103 @@ select option {
 
 /**admin**/
 .admin-left {
+  position: relative;
   height: 100%;
-  width: 13%; }
+  width: 14%; }
   .admin-left .ttl-1 {
     border: 1px solid #e1e1e1;
     border-top: none;
     padding-left: 15px;
-    height: 50px;
-    line-height: 50px; }
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px; }
   .admin-left .box-big {
     width: 100%;
     overflow: auto;
     overflow-x: hidden;
     border-right: 1px solid #e1e1e1;
     height: 400px; }
-    .admin-left .box-big ul {
+    .admin-left .box-big .nemu-1 {
       margin: 0;
       padding: 0; }
-      .admin-left .box-big ul li {
-        padding: 15px;
+      .admin-left .box-big .nemu-1 > li {
+        padding: 12px;
         border-bottom: 1px solid #e1e1e1;
         -webkit-transition: all .5s;
         transition: all .5s; }
-        .admin-left .box-big ul li:hover {
+        .admin-left .box-big .nemu-1 > li:hover {
           cursor: pointer; }
-        .admin-left .box-big ul li a {
+        .admin-left .box-big .nemu-1 > li .iconfont {
+          margin-right: 10px;
+          font-size: 24px; }
+        .admin-left .box-big .nemu-1 > li a {
           margin-left: 10px;
-          font-size: 14px; }
-        .admin-left .box-big ul li + li {
+          font-size: 16px; }
+        .admin-left .box-big .nemu-1 > li + li {
           border-top: none; }
-        .admin-left .box-big ul li.active {
+        .admin-left .box-big .nemu-1 > li.active {
           background: #3d6fae; }
-          .admin-left .box-big ul li.active span {
+          .admin-left .box-big .nemu-1 > li.active span {
             color: #fff; }
-          .admin-left .box-big ul li.active a {
+          .admin-left .box-big .nemu-1 > li.active > a {
             color: #fff !important; }
+    .admin-left .box-big .nemu-2 {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      z-index: 2;
+      display: none;
+      width: 180px;
+      margin: 0;
+      padding: 10px 0;
+      min-height: 100px;
+      background: #fff;
+      -webkit-box-shadow: 2px 2px 5px #999,2px -2px 5px #ccc;
+              box-shadow: 2px 2px 5px #999,2px -2px 5px #ccc; }
+      .admin-left .box-big .nemu-2 li > a {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 10px 25px;
+        color: #323232;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        -webkit-transition: all .4s;
+        transition: all .4s; }
+        .admin-left .box-big .nemu-2 li > a:hover {
+          background: #f0f0f0; }
+      .admin-left .box-big .nemu-2 li.active > a {
+        background: #5989c5;
+        color: #fff; }
+
+.no-rgba .nemu-2 {
+  border: 1px solid #ddd; }
 
 .admin-right {
-  width: 87%; }
+  width: 86%; }
   .admin-right .ttl-1 {
+    height: 43px;
+    width: 100%;
     border-bottom: 1px solid #e1e1e1; }
     .admin-right .ttl-1 li {
+      position: relative;
       float: left;
-      height: 49px;
-      line-height: 49px;
-      padding: 0 25px;
-      border-right: 1px solid #e1e1e1; }
+      height: 43px;
+      line-height: 43px;
+      padding: 0 30px 0 20px;
+      border-right: 1px solid #e1e1e1;
+      font-size: 14px; }
       .admin-right .ttl-1 li:hover {
         cursor: pointer; }
+      .admin-right .ttl-1 li .close {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        color: #333; }
+        .admin-right .ttl-1 li .close:hover {
+          color: red; }
   .admin-right .parent-window {
     margin-top: 20px;
     border: none; }

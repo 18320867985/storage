@@ -8,20 +8,15 @@
 		<link rel="stylesheet" type="text/css" href="../css/all.css"/>
 		<style type="text/css">
 			body{padding: 100px;}
-			
-			table{
-				background: red;
-				table-layout: fixed;
-				
-				border:  1px solid #ddd;
+			.test{
+				border: 1px solid red;
+				padding: 100px;
 			}
 			
-			th,td{
+			a{
+				padding: 20px;
 				border: 1px solid #ddd;
-
 			}
-			
-			
 		</style>
 		
 
@@ -29,104 +24,30 @@
 
 	<body>
 		
-		<select>
-			<optgroup label="js">
-				<option value="">
-					==请选择==
-				</option>
-				<option value="0">
-					jquery
-				</option>
-				
-				<option value="1">
-					 vuejs
-				</option>
-				
-				<option value="2">
-					 html5
-				</option>
-			</optgroup>
-		</select>
-		
-
-	 
- <ul>
-  	<li class="comp-btn"> 
- 		<a class="comp-btn-item">技术牛逼</a>
-  	</li>
-  	<li class="comp-btn"> 
- 		<a class="comp-btn-item">信息大师</a>
-  	</li>
-  </ul>
-  
-<table>
-	<thead>
-		<tr>
-			<th>
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-				ttl 
-			</th>
-			<th>
-				ttl 
-			</th>
-			<th>
-				ttl 
-			</th>
-			<th>
-				ttl 
-			</th>
-		</tr>
-	</thead>
-</table>
-
+		<div class="test">
+			<a href="">aaaaa</a>
+			
+		</div>
+	
 		<script src="../js/config.js"    type="text/javascript" charset="utf-8"></script>
 		<script src="../js/all.js"  	 type="text/javascript" charset="utf-8"></script>
-		
 	
-		
 		<!--[if lte IE 8]>
 			<script src="../js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 		
 	<script type="text/javascript">
-		$("select").on("change",function(){
-			var v=$(this).val();
-			if(v===""){
-				alert("你还没有选择");
-				return ;
-			}
-			alert(v);
-		})
-		
-		$(function(){
-			// 选中点击事件
-		$(".comp-btn").on("comp_btn_select",function(event,element){			
+	
+	
+	$(".test").bind("click",["123","100"],testfn);
+	
+		function testfn(data){
 			
-			// element 当前点击的元素
-			alert($(element));
-		});
-		
-		// 取消点击事件
-		$(".comp-btn").on("comp_btn_unselect",function(event,element){			
-			
-			// element 当前点击的元素
-			alert($(element));
-		});
-			
-		})
+			console.log(data.type==="click")
+		}
+	
+	
+	
 	</script>
 	
 	
