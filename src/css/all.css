@@ -7787,8 +7787,8 @@ select option {
       padding: 10px 0;
       min-height: 100px;
       background: #fff;
-      -webkit-box-shadow: 2px 2px 5px #999,2px -2px 5px #ccc;
-              box-shadow: 2px 2px 5px #999,2px -2px 5px #ccc; }
+      -webkit-box-shadow: 2px 2px 5px #999, 2px -2px 5px #ccc;
+              box-shadow: 2px 2px 5px #999, 2px -2px 5px #ccc; }
       .admin-left .box-big .nemu-2 li > a {
         display: block;
         width: 100%;
@@ -7813,9 +7813,10 @@ select option {
 .admin-right {
   width: 86%; }
   .admin-right .ttl-1 {
+    position: relative;
+    z-index: 1;
     height: 43px;
-    width: 100%;
-    border-bottom: 1px solid #e1e1e1; }
+    width: 100%; }
     .admin-right .ttl-1 li {
       position: relative;
       float: left;
@@ -7833,6 +7834,15 @@ select option {
         color: #333; }
         .admin-right .ttl-1 li .close:hover {
           color: red; }
-  .admin-right .parent-window {
-    margin-top: 20px;
-    border: none; }
+      .admin-right .ttl-1 li.active {
+        color: #337ab7;
+        border-bottom: 1px solid #fff; }
+  .admin-right .iframe-big {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    top: -1px;
+    border-top: 1px solid #e1e1e1; }
+    .admin-right .iframe-big .iframe-box {
+      margin-top: 20px;
+      border: none; }

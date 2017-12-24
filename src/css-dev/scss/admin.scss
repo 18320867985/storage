@@ -64,49 +64,39 @@
             display: none;
             width: 180px;
             margin: 0;
-            padding: 10px 0 ;
+            padding: 10px 0;
             min-height: 100px;
             background: $text-white;
-            box-shadow: 2px 2px 5px #999,2px -2px 5px #ccc;
+            box-shadow: 2px 2px 5px #999, 2px -2px 5px #ccc;
             li {
-           
                 >a {
                     display: block;
                     width: 100%;
                     margin: 0;
                     padding: 10px 25px;
-                    color:$text-ash;
+                    color: $text-ash;
                     font-size: 14px;
-                    text-overflow:ellipsis;
-                    overflow:hidden;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                     white-space: nowrap;
-                    
                     transition: all .4s;
-                 
-                   
-                     &:hover{
-                       background: #f0f0f0;
-                     
-                   }
-                   
-                 
+                    &:hover {
+                        background: #f0f0f0;
+                    }
                 }
-                
-                     
-                   &.active >a{
-                       background: lighten( $bg-head,10%);
-                       color:  $text-white;
-                   } 
+                &.active>a {
+                    background: lighten( $bg-head, 10%);
+                    color: $text-white;
+                }
             }
         }
     }
 }
 
 // 兼容 ie8
-.no-rgba{
-     .nemu-2{
-       
-       border: 1px solid #ddd; 
+.no-rgba {
+    .nemu-2 {
+        border: 1px solid #ddd;
     }
 }
 
@@ -114,9 +104,11 @@
 .admin-right {
     width: 86%;
     .ttl-1 {
-           height: 43px;
-           width: 100%;
-        border-bottom: 1px solid $br;
+        position: relative;
+        z-index: 1;
+        height:  43px;
+        width: 100%;
+        //  border-bottom: 1px solid $br;
         li {
             position: relative;
             float: left;
@@ -125,6 +117,7 @@
             padding: 0 30px 0 20px;
             border-right: 1px solid $br;
             font-size: 14px;
+          
             &:hover {
                 cursor: pointer;
             }
@@ -137,10 +130,26 @@
                     color: red;
                 }
             }
+            
+           &.active{
+               color:$brand-primary;
+               border-bottom: 1px solid $text-white;
+           } 
         }
+        
+        
     }
-    .parent-window {
-        margin-top: 20px;
-        border: none;
+    // iframe
+    .iframe-big {
+        position: relative;
+         z-index: -1;
+        width: 100%;
+      top:-1px;
+        border-top: 1px solid $br;
+        // iframe-boox
+        .iframe-box {
+            margin-top: 20px;
+            border: none;
+        }
     }
 }
