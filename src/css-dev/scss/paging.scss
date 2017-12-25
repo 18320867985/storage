@@ -1,0 +1,99 @@
+
+
+.paging {
+    width: 100%;
+   
+}
+
+$paing-color:$bg-head;
+
+$ping-rd:0;
+
+
+.paging .item {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: $ping-rd;
+    background: #fff;
+    vertical-align: middle;
+}
+
+
+/*鼠标移动的样式 */
+
+.paging a:hover {
+    cursor: pointer;
+   color: #fff !important;
+    border: 1px solid lighten($bg-head,5%);
+    border-radius: $ping-rd;
+    background: lighten($bg-head,5%);
+  
+}
+
+
+/*激活的样式*/
+
+.paging a.active {
+    color: $paing-color;
+    border: 1px solid lighten($bg-head,5%);
+}
+
+
+/*禁用的样式*/
+
+.paging span.disabled {
+    color: #777;
+}
+
+
+/*数字禁用的样式*/
+
+.paging .disabled.num {
+    color: #666;
+    border: none;
+}
+
+.paging .item+.item {
+    margin-left: 10px;
+}
+
+
+/*跳转页*/
+
+.paging .skip-txt {
+    width: 50px;
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: $ping-rd;
+    text-indent: 5px;
+}
+
+.paging .skip-btn {
+    margin-left: 3px;
+    padding: 5px 10px !important;
+  
+   
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: $ping-rd;
+    background: $bg-head;
+}
+
+.paging .skip-btn:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: $ping-rd;
+    background: darken($bg-head,10%);
+}
+
+
+/*总页数*/
+
+.paging .count-num {
+    margin-left: 10px;
+}
+
+.paging .count-num strong {
+    color: #666;
+}

@@ -38,16 +38,31 @@
 		
 	<script type="text/javascript">
 	
-	
-	$(".test").bind("click",["123","100"],testfn);
-	
-		function testfn(data){
-			
-			console.log(data.type==="click")
-		}
-	
-	
-	
+       function Person(){
+       	this.name="mimi"
+       }
+       
+       Person()
+      Person.extend=function(obj){
+      	
+      	for(var i  in  obj){
+      		this[i]=obj[i];
+      	}
+      return this;
+      }
+       
+       
+        Person.extend({
+        	ff:function(){return "ff"},
+        	ff2:function(){return "ff2"}
+        })
+        
+       
+       var p=new  Person();
+       console.log(p);
+       console.log(Person);
+       
+     
 	</script>
 	
 	

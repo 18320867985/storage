@@ -481,7 +481,9 @@ var admin = function ($) {
 			var w_ttl_1 = $(".admin-left .ttl-1").outerHeight();
 			var w_footer = $(".footer").outerHeight();
 			var ul_h = w_big - w_head - w_footer - w_ttl_1;
-			$(".admin-left .box-big").height(ul_h);
+			$(".admin-left .box-big").height(ul_h); // ttl
+			$(".admin-right .iframe-box").height(ul_h); // iframe-big
+
 		}
 
 		// 菜单选中的样式
@@ -586,11 +588,16 @@ var admin = function ($) {
 			var $ul = $(".admin-right .ttl-1");
 			//	<li>产品档案 <span class="close">&times;</span></li>
 			$ul = $(".admin-right .ttl-1").empty();
+			$iframe_big = $(".admin-right .iframe-big").empty();
 			for (var i in srcLists) {
 
 				var li = document.createElement("li");
+				var iframe = document.createElement("iframe");
+				$(iframe).addClass("iframe-box");
+				$(iframe).attr("src", srcLists[i].href);
 				if (i == index) {
 					$(li).addClass("active");
+					$(iframe).addClass("active");
 				}
 				var span = document.createElement("span");
 				// span.classList.add("txt");  // ie9
@@ -603,7 +610,12 @@ var admin = function ($) {
 				li.appendChild(span);
 				li.appendChild(span2);
 				$ul.append(li);
+
+				// iframe item
+				$iframe_big.append(iframe);
 			}
+
+			setMenuHeight();
 		}
 
 		// 检查重复项
@@ -618,6 +630,27 @@ var admin = function ($) {
 
 			return false;
 		}
+	};
+
+	return {
+		init: _init
+	};
+}(window.jQuery);
+var system = function ($) {
+
+	var _init = function _init() {
+		// 全选
+		$(".ck-all").on("ifChecked", function () {
+
+			$p = $(this).closest(".table");
+			$(".list-item input[type=checkbox]", $p).iCheck('check'); //— 将输入框的状态设置为checked
+		});
+
+		// 取消全选
+		$(".ck-all").on("ifUnchecked", function () {
+
+			$(".list-item input[type=checkbox]", $p).iCheck('uncheck'); //— 将输入框的状态设置为checked
+		});
 	};
 
 	return {

@@ -1,0 +1,83 @@
+.paging {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.paging .item {
+				padding: 5px 8px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				background: #fff;
+				vertical-align: middle;
+			}
+			/*鼠标移动的样式 */
+			
+			.paging a:hover {
+				cursor: pointer;
+			}
+			/*激活的样式*/
+			
+			.paging a.active {
+				color: orangered;
+				border: 1px solid orangered;
+			}
+			/*禁用的样式*/
+			
+			.paging span.disabled {
+				color: #777;
+			}
+			/*数字禁用的样式*/
+			
+			.paging .disabled.num {
+				color: #666;
+				border: none;
+			}
+			
+			.paging .item+.item {
+				margin-left: 10px;
+			}
+			
+			/*跳转页*/
+			.paging .skip-txt{
+				
+				width: 60px;
+				margin-left: 10px;
+				padding: 5px;
+				border:1px solid #ddd;
+				border-radius: 5px;
+				text-indent: 5px;
+			
+			}
+			
+			.paging .skip-btn{
+				
+				
+				margin-left: 3px;
+				padding: 5px 10px !important;
+				color:#777;
+				border:1px solid #ddd;
+				border-radius: 5px;
+				background: none;
+				transition: all  .8s;
+				
+			
+			}
+			.paging .skip-btn:hover{
+				
+				color: #fff;
+				border:1px solid #fff;
+				border-radius: 5px;
+				background: orangered;
+				
+			
+			}
+			
+			/*总页数*/
+			
+			.paging  .count-num{
+				margin-left:  10px;
+			}
+			.paging  .count-num strong{
+				  color:#666;
+			}
+			 

@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>分页</title>
+
+		<link rel="stylesheet" href="css/all.css" />
+		<link rel="stylesheet" href="css/paging.css" />
+
+	</head>
+
+	<body class=" relative" data-spy="scroll" data-tagget="huating">
+		<!--top -->
+		<header>
+			<div class="bg-white ">
+
+				<div class="index-head">
+					<div class="container-12 clearfix ">
+						<!--已登陆-->
+						<div class="index-head-wrap ">
+							<div class="index-head-l pull-left">
+								<span class="text-777">你好,</span>
+								<span class="index-head-menu">
+									<span class="text-danger">admin</span>
+								<span class="iconfont glyphicon icon-xiala text-base icon-xiala-btn1"></span>
+
+								<ul class="index-head-drop v-hide">
+									<li>
+										<a href="">退出登陆</a>
+									</li>
+									<li>
+										<a href="">会员中心</a>
+									</li>
+								</ul>
+								</span>
+
+								<span class="text-ash-2">|</span>
+								<span class="text-777">下午好,欢迎你回来!</span>
+								<span class="text-ash-2">|</span>
+
+								<span class="index-head-l-a index-head-menu2">
+									
+									<span class=" glyphicon iconfont icon-xinxi" ></span>
+								<span class="text-777">消息</span>
+
+								<span class="iconfont icon-xiala glyphicon  text-base icon-xiala-btn2"></span>
+
+								<ul class="index-head-drop2  v-hide">
+									<li>
+										<a href="">消息</a>
+									</li>
+									<li>
+										<a href="">消息2</a>
+									</li>
+								</ul>
+
+								</a>
+							</div>
+
+							<div class="index-head-r pull-right">
+
+								<span href="#" class="index-head-menu3">
+									<span class="text-777">购物车</span>
+								<span class="text-danger">0</span>
+								<span class="iconfont icon-xiala  glyphicon text-base icon-xiala-btn3"></span>
+
+								<ul class="index-head-drop3 v-hide">
+									<li>
+										<a href="">购物车1</a>
+									</li>
+									<li>
+										<a href="">购物车2</a>
+									</li>
+								</ul>
+								</span>
+								<span class="text-ash-2">|</span>
+								<a href="#">帮助中心</a>
+								<span class="text-ash-2">|</span>
+								<a href="#">联系我们</a>
+								<span class="text-ash-2">|</span>
+								<span class="text-777"><a href="#">退出</a></span>
+
+							</div>
+						</div>
+
+						<!--未登陆-->
+						<div class="index-head-wrap v-hide ">
+							<div class="index-head-l pull-left">
+								<span class="text-777">你好,欢迎来到吉宏园艺网!</span>
+
+							</div>
+
+							<div class="index-head-r pull-right ">
+
+								<a href="#">
+									注册
+								</a>
+								<span class="text-ash-2">|</span>
+								<a href="#">登录</a>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!--logo-->
+				<div class='index-logo container-12 clearfix  relative'>
+					<img alt="logo img" src="images/Home/logo.png" class="pull-left"></img>
+					<!--search box -->
+					<div class="index-search-big">
+						<div id="" class="index-search clearfix">
+							<input type="text" name="" id="" value="" class="index-search-input" placeholder="发财树" />
+							<input type="submit" id="" name="" class="index-search-submit btn btn-danger  rd-no" value="搜索" />
+						</div>
+						<!--搜索的下面列表-->
+						<ul class="index-search-list">
+							<li>
+								<a href="#">郁金香</a>
+							</li>
+							<li>
+								<a href="#">白玫瑰</a>
+							</li>
+							<li>
+								<a href="#">茉莉花</a>
+							</li>
+							<li>
+								<a href="#">网纹草</a>
+							</li>
+							<li>
+								<a href="#">空气凤梨</a>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="index-shop  pull-right">
+						<a href="#" class="index-shop-a" style=" border: 1px solid red;">
+							<span class="iconfont icon-gouwuche text-danger"></span> 购物车
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+		</header>
+
+		<section>
+
+			<div class="index-cont">
+				<!--标题与链接-->
+				<div class="index-cont-ttl bg-white proddtl-line">
+					<div id="" class=" container-12 clearfix ">
+
+						<div class="proddtl-menu-ttl index-cont-menu-l pull-left  relative  child-menu">
+							<h2>商品分类
+							<span class="glyphicon iconfont icon-fx-down pull-right"></span>
+							<div class="clearfix"></div>
+							</h2>
+
+							<!--左边菜单列表 -->
+							<div class=" index-cont-menu-l  index-cont-menu-cont pull-left">
+
+								<!--top按钮-->
+								<div class="top-btn text-center ">
+									<span class="glyphicon glyphicon-triangle-top"></span>
+								</div>
+								<!--bottom按钮-->
+								<div class="bottom-btn text-center">
+									<span class="glyphicon glyphicon-triangle-bottom"></span>
+
+								</div>
+								<!--菜单列表 -->
+								<div class="index-cont-menu-down-big">
+
+									<ul class="index-cont-menu-down">
+
+										<li data-tagget="#index_two_item_1" class="">
+											<img src="images/Home/facaishu.png" alt="发财树" />
+											<a href="#">发财树 </a>
+											<span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_2">
+											<img src="images/Home/yezixilie.png" alt="叶子系列" />
+											<a href="#">叶子系列</a>
+											<span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_3">
+											<img src="images/Home/guanyezhiwu.png" alt="观叶植物图标" />
+											<a href="">观叶植物</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_4">
+											<img src="images/Home/shuipeixilie.png" alt="水培系列" />
+											<a href=""> 水培系列</a> <span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_5">
+											<img src="images/Home/fenglixilie.png" alt="凤梨系列" />
+											<a href="">凤梨系列</a> <span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_6">
+											<img src="images/Home/wencaowang.png" alt="网纹草" />
+											<a href="">网纹草</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_7">
+											<img src="images/Home/qiugenhuayi.png" alt="观叶植物" />
+											<a href="">球根花弈</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_8">
+											<img src="images/Home/fenhongzhang.png" alt="粉红掌系列" />
+											<a href="">粉红掌系列</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_9">
+											<img src="images/Home/yiguangy.png" alt="奇观工艺" />
+											<a href="">奇观工艺</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_10">
+											<img src="images/Home/yiingpentp.png" alt="艺景陶盆" />
+											<a href="">艺景陶盆</a><span class="glyphicon iconfont icon-fx-right pull-right"></span></li>
+										<li data-tagget="#index_two_item_11" class="last">
+											<img src="images/Home/yanyigongju.png" alt="园艺工具" />
+											<a href="">园艺工具</a><span class="glyphicon iconfont icon-fx-right pull-right"></span>
+										</li>
+
+										<li data-tagget="#index_two_item_12" class="last">
+											<img src="images/Home/yanyigongju.png" alt="园艺工具" />
+											<a href="">园艺工具2</a><span class="glyphicon iconfont icon-fx-right pull-right"></span>
+										</li>
+
+										<li data-tagget="#index_two_item_13" class="last">
+											<img src="images/Home/yanyigongju.png" alt="园艺工具" />
+											<a href="">园艺工具3</a><span class="glyphicon iconfont icon-fx-right pull-right"></span>
+										</li>
+
+									</ul>
+								</div>
+								<!--二级菜单 -->
+								<div class="index-two-menu">
+									<!--发财树-->
+									<div class="index-two-menu-item" id="index_two_item_1">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<!--四级菜单-->
+												<h5 class="ttl">单株系列22
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														
+													</div>
+												</h5>
+
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列2
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_2">
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_3">
+
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_4">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_5">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_6">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_7">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_8">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_9">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+									</div>
+									<div class="index-two-menu-item" id="index_two_item_10">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+											</dd>
+
+										</dl>
+									</div>
+
+									<div class="index-two-menu-item" id="index_two_item_11">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+									</div>
+
+									<div class="index-two-menu-item" id="index_two_item_12">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树12
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+									</div>
+
+									<div class="index-two-menu-item" id="index_two_item_13">
+										<!-- item-->
+										<dl class="clearfix ">
+											<dt>
+												吉宏发财树13
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd class="clearfix">
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<a href="#">小树林系列</a>
+
+												<a href="#">小台球系列</a>
+
+												<a href="#">单株系列</a>
+
+												<a href="#">三株系列</a>
+
+												<a href="#">四株系列</a>
+
+												<a href="#">绿色家园</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												三株发财树
+												
+											<span class="iconfont icon-fx-right  "></span>
+												
+										
+											</dt>
+
+											<dd>
+												<a href="#">三株60#-100#</a>
+
+												<a href="#">三株110#-180#</a>
+
+												<a href="#">三株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												单杠发财树	
+											<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">单株60#-100#</a>
+
+												<a href="#">单株110#-180#</a>
+
+												<a href="#">单株200#以上</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												组合盆栽
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<a href="#">其他绿色森林系列</a>
+
+												<a href="#">采补发财树</a>
+											</dd>
+
+										</dl>
+										<!-- item-->
+										<dl class="clearfix">
+											<dt>
+												其他发财树系列
+												<span class="iconfont icon-fx-right  "></span>
+											</dt>
+
+											<dd>
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+												<a href="#">五编发财系列</a>
+
+												<a href="#">其他系列发财树</a>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+
+												<h5 class="ttl">单株系列
+												
+													<div class="leve-4">
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+														<a class="link" href="javascript:;">单株系列4</a>
+													</div>
+												</h5>
+											</dd>
+
+										</dl>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<!--公告列表-->
+				<div class="noticelist container-12">
+
+					<div class="noticelist-cont clearfix">
+
+						<div class="col-xs-12 col-padding">
+							<ul class="list-group">
+								<li class="list-group-item col-xs-12  ttl rd-no2 ">
+									<span class="pull-left">标题</span>
+									<span class="pull-right"> 发表时间</span>
+								</li>
+
+							</ul>
+						</div>
+
+					</div>
+
+					<!--内容列表-->
+					<div class="noticelist-cont clearfix">
+
+						<ul class="list-group noticelist-cont-2 clearfix">
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+							<li class="list-group-item col-xs-12   rd-no2  ">
+								<a href="javascript:;" class="text-primary pull-left">花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉花歌吉宏新上架花歌吉宏新上架花歌吉</a>
+								<span class="date pull-right "> 2017-08-02 12:45:23</span>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<!-- 分页-->
+					<div class="paging">
+
+					</div>
+
+				</div>
+
+			</div>
+
+			</div>
+
+		</section>
+
+		<footer>
+			<!--页脚导航-->
+			<div class="index-ft">
+
+				<!--页脚标志图片 -->
+				<div class="index-ft-band container-12 text-center">
+
+					<div class="col-xs-3 item">
+						<img src="images/Home/footer-img1.png" alt="页脚标志图片" />
+						<div class="desc">
+							<h4>正品保证</h4>
+							<p>正品货行,值得信赖</p>
+						</div>
+					</div>
+					<div class="col-xs-3 item">
+						<img src="images/Home/footer-img2.png" alt="页脚标志图片" />
+						<div class="desc">
+							<h4>正品保证</h4>
+							<p>正品货行,值得信赖</p>
+						</div>
+					</div>
+
+					<div class="col-xs-3 item">
+						<img src="images/Home/footer-img3.png" alt="页脚标志图片" />
+						<div class="desc">
+							<h4>正品保证</h4>
+							<p>正品货行,值得信赖</p>
+						</div>
+					</div>
+
+					<div class="col-xs-3 item">
+						<img src="images/Home/footer-img4.png" alt="页脚标志图片" />
+						<div class="desc">
+							<h4>正品保证</h4>
+							<p>正品货行,值得信赖</p>
+						</div>
+					</div>
+
+				</div>
+
+				<!--页脚列表 -->
+				<div class="index-ft-list container-12 clearfix ">
+
+					<dl>
+						<dt>新手入门</dt>
+						<dd>
+							<a href="#">购物流程</a>
+						</dd>
+						<dd>
+							<a href="#">会员制度</a>
+						</dd>
+						<dd>
+							<a href="#">订单查询</a>
+						</dd>
+						<dd>
+							<a href="#">发票制度</a>
+						</dd>
+						<dd>
+							<a href="#">常见问题</a>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt>支付方式</dt>
+						<dd>
+							<a href="#">货到付款</a>
+						</dd>
+						<dd>
+							<a href="#">网上支付</a>
+						</dd>
+						<dd>
+							<a href="#">银行转账</a>
+						</dd>
+						<dd>
+							<a href="#">礼品支付</a>
+						</dd>
+						<dd>
+							<a href="#">其他支付</a>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt>配送服务</dt>
+						<dd>
+							<a href="#">配送范围与运费</a>
+						</dd>
+						<dd>
+							<a href="#">配送进度查询</a>
+						</dd>
+						<dd>
+							<a href="#">自提服务</a>
+						</dd>
+						<dd>
+							<a href="#">商品验货与签收</a>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt>售后保障</dt>
+						<dd>
+							<a href="#">退换货政策</a>
+						</dd>
+						<dd>
+							<a href="#">退换货流程</a>
+						</dd>
+						<dd>
+							<a href="#">退款说明</a>
+						</dd>
+						<dd>
+							<a href="#">延保说明页面</a>
+						</dd>
+						<dd>
+							<a href="#">联系客服</a>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt>商家合作</dt>
+						<dd>
+							<a href="#">商家入驻</a>
+						</dd>
+						<dd>
+							<a href="#">商家赢</a>
+						</dd>
+						<dd>
+							<a href="#">平台规则</a>
+						</dd>
+						<dd>
+							<a href="#">企业采购</a>
+						</dd>
+
+					</dl>
+
+				</div>
+
+				<div class="com-footer">
+					<ul>
+						<li>
+							<a href="#">关于吉宏</a>
+						</li>
+						<li>
+							<a href="#">吉宏梦</a>
+						</li>
+						<li>
+							<a href="#">盆栽交易平台</a>
+						</li>
+						<li>
+							<a href="#">吉宏发财树</a>
+						</li>
+						<li>
+							<a href="#">行业信息</a>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+						</li>
+					</ul>
+
+					<p class="text-center  text-ash">
+						<span>CopyRight</span>
+						<span>@ 2004-2017</span>
+						<span>吉宏ji-hong.cn</span>
+						<span>所有版权</span>
+					</p>
+				</div>
+
+			</div>
+
+		</footer>
+
+		<!--mustache模板-->
+		<script type="text/html" id="must">
+
+			<ul>
+				{{#must}}
+				<li class="list-group-item col-xs-12   rd-no2  ">
+					<a href="javascript:;" class="text-primary pull-left">{{content}}</a>
+					<span class="date pull-right ">{{date}}</span>
+				</li>
+				{{/must}}
+			</ul>
+
+		</script>
+
+		<!--js -->
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/paging.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mustache.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			
+			// 分页
+			paging.init({
+				index: 1, //	当前页
+				pageItem: 5, //  每页条数
+				allItem: 100, //  总条数
+				showCount: 5, //  显示的页码数目
+				selector: ".paging", //分页父元素
+				isAnimation: true, //是否显示动画
+				isShowSkip: true, // 是否显示跳转页
+				isShowCount:true,  // 是否显示总页数
+
+				//prevText:"上一页",
+				//nextText:"下一页",	
+
+				//firstText:"第一页",
+				//lastText:"后一页",
+
+				//prevGroupText:"...",
+				//nextGroupText:"...",
+
+				//isShowNumber:true ,   //是否显示数字
+				//isShowPrevNext:true, // 是否显示上下页
+				//isShowFirstLast: false, // 是否显示第一页和后一页
+				//isShowPrevNextGroup:true, // 是否显示上下页组
+			});
+
+			//点击事件
+			$(document).on("paging_click", function(event, id) {
+				//id 当前点击的元素的页码	
+				//alert(id);
+
+				$.get("paging.json", {
+					id: id
+				}, function(data) {
+					
+					var data=data.map(function(item){
+						item.content=id+"页："+item.content;
+						return item;
+						
+					});
+					
+					var html = Mustache.render($("#must").html(), {
+						must: data
+					});
+					
+				
+					$(".noticelist-cont-2 ").html(html);
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

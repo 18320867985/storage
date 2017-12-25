@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="塑金仓储信息管理系统" />
+		<meta name="Description" content="塑金仓储信息管理系统" />
+		<title>产品档案报表</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+	</head>
+
+	<body>
+
+		<div class="system iframe-body">
+
+			<!--标题-->
+			<h4 class="system-ttl">
+				<span class="icon-file-alt iconttl"></span>
+				产品档案报表
+			</h4>
+
+			<!--查询表单-->
+			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+
+				<div class="form-group">
+					<label for="txt_1">商品名称:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+
+				</div>
+				<div class="form-group">
+					<label for="txt_2">商品型号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
+
+				</div>
+				<div class="form-group">
+					<label for="txt_3">商品产地:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_3" value="" placeholder="==商品产地==" />
+
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary rd-no" type="button">
+					 	<span class="text-white  icon-search"></span> 
+					 	查询
+					 </button>
+
+				</div>
+
+				<div class="form-group add-btns ">
+					<button class=" btn btn-primary rd-no" type="button">
+						<span class=" icon-plus text-white"></span>
+						新增
+					</button>
+
+					<button class=" btn btn-primary rd-no" type="button">
+						<span class="  icon-trash text-white"></span>
+						删除
+					</button>
+				</div>
+			</form>
+
+			<!--列表-->
+			<div class="system-list">
+				<table class="table  table-bordered">
+					<tr>
+						<th class="col-xs-1 text-center">
+							<input class="ck-all" type="checkbox" name="" id="" value="" />
+						</th>
+						<th class="col-xs-1">
+							商品名称
+						</th>
+						<th class="col-xs-1">
+							商品型号
+						</th>
+						<th class="col-xs-1">
+							商品产地
+						</th>
+						<th class="col-xs-1">
+							规格
+						</th>
+
+						<th class="col-xs-1">
+							生产商
+						</th>
+
+						<th class="col-xs-1">
+							计量单位
+						</th>
+
+						<th class="col-xs-1">
+							商品属性
+						</th>
+
+						<th class="col-xs-1">
+							租金单价
+						</th>
+
+						<th class="col-xs-1">
+							卸货单价
+						</th>
+
+						<th class="col-xs-1">
+							搬运工资
+						</th>
+
+						<th class="col-xs-1">
+							产品价值
+						</th>
+					</tr>
+
+					<tr class="list-item">
+						<td>
+							<input type="checkbox" name="" id="" value="" />
+
+						</td>
+						<td class="overflow-1">475</td>
+						<td class="overflow-1">B级</td>
+						<td class="overflow-1">自产</td>
+						<td class="overflow-1">02502</td>
+						<td class="overflow-1">嘉旺</td>
+						<td class="overflow-1">吨</td>
+						<td class="overflow-1">
+							再生原料
+						</td>
+
+						<td class="overflow-1">
+
+							68.00
+						</td>
+
+						<td class="overflow-1">
+
+							5008.00
+						</td>
+						<td class="overflow-1">
+
+							5008.00
+						</td>
+
+						<td class="overflow-1">
+
+							20000.00
+						</td>
+
+					</tr>
+
+					
+				</table>
+
+				<!-- 分页-->
+				<div class="system-paging paging">
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--[if lte IE 8]>
+			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			// icheckbox_flat
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_flat-blue',
+				radioClass: 'iradio_flat-blue',
+				increaseArea: '20%' // optional
+			});
+			
+			system.init();
+			
+			
+			// 分页
+			paging.init({
+				index: 1, //	当前页
+				pageItem: 5, //  每页条数
+				allItem: 100, //  总条数
+				showCount: 5, //  显示的页码数目
+				selector: ".paging", //分页父元素
+				isAnimation: true, //是否显示动画
+				isShowSkip: true, // 是否显示跳转页
+				isShowCount:true,  // 是否显示总页数
+
+				//prevText:"上一页",
+				//nextText:"下一页",	
+
+				//firstText:"第一页",
+				//lastText:"后一页",
+
+				//prevGroupText:"...",
+				//nextGroupText:"...",
+
+				//isShowNumber:true ,   //是否显示数字
+				//isShowPrevNext:true, // 是否显示上下页
+				//isShowFirstLast: false, // 是否显示第一页和后一页
+				//isShowPrevNextGroup:true, // 是否显示上下页组
+			});
+
+			//点击事件
+			$(document).on("paging_click", function(event, id) {
+				//id 当前点击的元素的页码	
+				//alert(id);
+
+				$.get("paging.json", {
+					id: id
+				}, function(data) {
+					
+					var data=data.map(function(item){
+						item.content=id+"页："+item.content;
+						return item;
+						
+					});
+					
+					var html = Mustache.render($("#must").html(), {
+						must: data
+					});
+					
+				
+					$(".noticelist-cont-2 ").html(html);
+				});
+
+			});
+		
+		</script>
+	</body>
+
+</html>

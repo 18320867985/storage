@@ -2,6 +2,7 @@
  *	公共类库
 */
 
+
  common=(function($){
 	
 	/***url对象***/
