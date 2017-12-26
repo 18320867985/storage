@@ -24,9 +24,8 @@
 
 	<body>
 		
-		<div class="test">
-			<a href="">aaaaa</a>
-			
+		<div  class="test" >
+			<a id="a" class="abc" href="aaa" data-id="12" >aaaaa</a>
 		</div>
 	
 		<script src="../js/config.js"    type="text/javascript" charset="utf-8"></script>
@@ -38,30 +37,7 @@
 		
 	<script type="text/javascript">
 	
-       function Person(){
-       	this.name="mimi"
-       }
-       
-       Person()
-      Person.extend=function(obj){
-      	
-      	for(var i  in  obj){
-      		this[i]=obj[i];
-      	}
-      return this;
-      }
-       
-       
-        Person.extend({
-        	ff:function(){return "ff"},
-        	ff2:function(){return "ff2"}
-        })
-        
-       
-       var p=new  Person();
-       console.log(p);
-       console.log(Person);
-       
+
      
 	</script>
 	

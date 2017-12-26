@@ -708,8 +708,10 @@ var paging = (function($) {
 		groupPage: 0, // 页码的分组数目
 		selector: "", //分页元素的选择器
 		isAnimation: false, //是否显示动画
-		isShowSkip:false,  // 是否显示跳转页
-		isShowCount:false,  // 是否显示总页数
+		isShowSkip: false, // 是否显示跳转页
+		isShowCount: false, // 是否显示总页数
+		isShowAllItems: false, // 是否显示总条目
+		
 
 		prevText: "上一页",
 		nextText: "下一页",
@@ -739,6 +741,8 @@ var paging = (function($) {
 		page.isAnimation = typeof obj.isAnimation === "boolean" ? obj.isAnimation : false;
 		page.isShowSkip = typeof obj.isShowSkip === "boolean" ? obj.isShowSkip : false;
 		page.isShowCount = typeof obj.isShowCount === "boolean" ? obj.isShowCount : false;
+		page.isShowAllItems = typeof obj.isShowAllItems === "boolean" ? obj.isShowAllItems : false;
+		
 
 		// 显示的文本
 		page.prevText = typeof obj.prevText === "string" ? obj.prevText : page.prevText;
@@ -777,17 +781,17 @@ var paging = (function($) {
 
 		// 点击触发事件
 		$(page.selector).on("click", "a.item", function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-			
+			e.stopPropagation();
+			e.preventDefault();
+
 			var id = $(this).attr("data-id");
 			$(page.selector).find(".skip-txt").val(id)
 			//点击触发自定义事件
 			$(this).trigger("paging_click", [id]);
-			
+
 			// 添加页码到页面元素里
 			$(page.selector).html(_create(id));
-			
+
 			// 显示动画
 			if(page.isAnimation) {
 				$('html,body').animate({
@@ -795,31 +799,29 @@ var paging = (function($) {
 				}, 400);
 			}
 		});
-		
-		
-		
+
 		// 点击跳转页 触发事件
 		$(page.selector).on("click", ".skip-btn", function(e) {
-				e.stopPropagation();
-				e.preventDefault();
-			var id=1;
-			var v= $(page.selector).find(".skip-txt").val();
-				v=v==""?1:v;
-				if(!isNaN(Number(v))){
-					id=v;
-				}else{
-					id=1;
-				}
-				// 检查最大值
-				id=id>page.allPage?page.allPage:id;
-				
-			 $(page.selector).find(".skip-txt").val(id)
+			e.stopPropagation();
+			e.preventDefault();
+			var id = 1;
+			var v = $(page.selector).find(".skip-txt").val();
+			v = v == "" ? 1 : v;
+			if(!isNaN(Number(v))) {
+				id = v;
+			} else {
+				id = 1;
+			}
+			// 检查最大值
+			id = id > page.allPage ? page.allPage : id;
+
+			$(page.selector).find(".skip-txt").val(id)
 			//点击触发自定义事件
 			$(this).trigger("paging_click", [id]);
-			
+
 			// 添加页码到页面元素里
 			$(page.selector).html(_create(id));
-			
+
 			// 显示动画
 			if(page.isAnimation) {
 				$('html,body').animate({
@@ -868,9 +870,10 @@ var paging = (function($) {
 		var last = "";
 		var prevGroup = "";
 		var nextGroup = "";
-		var skipBtn="";
-		var CountNum="";
-		currentPage=parseInt(currentPage);
+		var skipBtn = "";
+		var CountNum = "";
+		var countItmes = "";
+		currentPage = parseInt(currentPage);
 		// 没有数据
 		if(currentPage <= 0) {
 			return "<span class='no-data'>没有相关数据</span>";
@@ -897,6 +900,7 @@ var paging = (function($) {
 
 				// 当前页样式
 				var span = "<span class='item disabled num '>" + i + "</span>";
+			
 				num += span;
 
 			} else {
@@ -911,6 +915,7 @@ var paging = (function($) {
 		if(currentPage === 1) {
 
 			prev = "<span class='item disabled'>" + page.prevText + "</span>";
+
 		} else {
 			prev = "<a class='item active' data-id='" + (currentPage - 1) + "'>" + page.prevText + "</a>";
 		}
@@ -927,6 +932,7 @@ var paging = (function($) {
 		if(currentPage === 1) {
 
 			first = "<span class='item disabled'>" + page.firstText + "</span>";
+
 		} else {
 			first = "<a class='item active' data-id='" + 1 + "'>" + page.firstText + "</a>";
 		}
@@ -956,22 +962,27 @@ var paging = (function($) {
 		} else {
 			nextGroup = "";
 		}
-		
+
 		// 跳转页
-		if(page.isShowSkip){	
-			skipBtn="<input type='text' class='skip-txt' value='"+currentPage+"' /> <input type='button' class='skip-btn' value='跳转' />";																
+		if(page.isShowSkip) {
+			skipBtn = "<input type='text' class='skip-txt' value='" + currentPage + "' /> <input type='button' class='skip-btn' value='跳转' />";
+		}
+
+		// 总条目数
+		if(page.isShowAllItems) {
+			countItmes = "<span class='count-items'>总共<strong>" + page.allItem + "</strong>条记录,每页<strong>" + page.pageItem + "</strong>条</span>";
 		}
 
 		// 总页数
-		if(page.isShowCount){
-			CountNum="<span class='count-num'>总共<strong>"+page.allPage+"</strong>页</span>";
+		if(page.isShowCount) {
+			CountNum = "<span class='count-num'>总共<strong>" + page.allPage + "</strong>页</span>";
 		}
 
-		return GetAllText(first, prev, prevGroup, num, nextGroup, next, last,skipBtn,CountNum);
+		return GetAllText(first, prev, prevGroup, num, nextGroup, next, last, skipBtn, countItmes, CountNum);
 	}
 
 	// 连接文本
-	function GetAllText(first, prev, prevGroup, num, nextGroup, next, last,skipBtn,CountNum) {
+	function GetAllText(first, prev, prevGroup, num, nextGroup, next, last, skipBtn, countItmes, CountNum) {
 		var allText = "";
 		// 1
 		if(page.isShowFirstLast) {
@@ -1012,15 +1023,20 @@ var paging = (function($) {
 		}
 
 		// 跳转页
-		if(page.isShowSkip){
-				allText += skipBtn;
+		if(page.isShowSkip) {
+			allText += skipBtn;
 		}
-		
+
 		// 总共页
-		if(page.isShowCount){
-				allText += CountNum;
+		if(page.isShowAllItems) {
+			allText += countItmes;
 		}
-		
+
+		// 总共页
+		if(page.isShowCount) {
+			allText += CountNum;
+		}
+
 		return allText;
 	}
 
@@ -3485,8 +3501,8 @@ common = function ($) {
 	};
 }(window.jQuery || window.Zepto);
 
-
 /*单个按钮组件
+ * 
  * 
  * 
  * <ul>
@@ -3499,6 +3515,7 @@ common = function ($) {
  * </ul>
  * 
  * 		
+ * 
  * 选中点击事件
 		$(".comp-btn").on("comp_btn_select",function(event,element){			
 			
@@ -4039,10 +4056,11 @@ var admin = function ($) {
 var system = function ($) {
 
 	var _init = function _init() {
+
 		// 全选
 		$(".ck-all").on("ifChecked", function () {
 
-			$p = $(this).closest(".table");
+			$p = $(this).parents(".table");
 			$(".list-item input[type=checkbox]", $p).iCheck('check'); //— 将输入框的状态设置为checked
 		});
 

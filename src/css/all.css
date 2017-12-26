@@ -7911,6 +7911,12 @@ select option {
   border-radius: 0;
   background: #305788; }
 
+.paging .count-items {
+  margin-left: 10px; }
+
+.paging .count-items strong {
+  color: #666; }
+
 /*总页数*/
 .paging .count-num {
   margin-left: 10px; }
@@ -7929,7 +7935,8 @@ select option {
 
 .system-form {
   padding: 10px 10px 10px 20px;
-  background: #f8f8f8; }
+  background: #f8f8f8;
+  width: 100%; }
   .system-form .form-group {
     margin-bottom: 0; }
     .system-form .form-group .form-control {
@@ -7950,10 +7957,11 @@ select option {
     padding-right: 2px; }
   .system-list .table th {
     background: #f8f8f8; }
-  .system-list .table tr:nth-child(odd) {
+  .system-list .table tr:nth-child(even) {
     background: #f8f8f8; }
 
 .system-paging {
   margin-top: 30px;
   padding-right: 30px;
+  padding-bottom: 15px;
   text-align: right; }

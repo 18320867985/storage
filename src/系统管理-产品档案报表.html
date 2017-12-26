@@ -24,6 +24,7 @@
 			</h4>
 
 			<!--查询表单-->
+
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
@@ -56,7 +57,7 @@
 						新增
 					</button>
 
-					<button class=" btn btn-primary rd-no" type="button">
+					<button class="all-del btn btn-primary rd-no" type="button">
 						<span class="  icon-trash text-white"></span>
 						删除
 					</button>
@@ -66,91 +67,137 @@
 			<!--列表-->
 			<div class="system-list">
 				<table class="table  table-bordered">
-					<tr>
-						<th class="col-xs-1 text-center">
-							<input class="ck-all" type="checkbox" name="" id="" value="" />
-						</th>
-						<th class="col-xs-1">
-							商品名称
-						</th>
-						<th class="col-xs-1">
-							商品型号
-						</th>
-						<th class="col-xs-1">
-							商品产地
-						</th>
-						<th class="col-xs-1">
-							规格
-						</th>
+					<thead>
 
-						<th class="col-xs-1">
-							生产商
-						</th>
+						<tr>
+							<th class="col-xs-1 text-center">
+								<input class="ck-all" type="checkbox" name="" id="" value="" />
+							</th>
+							<th class="col-xs-1">
+								商品名称
+							</th>
+							<th class="col-xs-1">
+								商品型号
+							</th>
+							<th class="col-xs-1">
+								商品产地
+							</th>
+							<th class="col-xs-1">
+								规格
+							</th>
 
-						<th class="col-xs-1">
-							计量单位
-						</th>
+							<th class="col-xs-1">
+								生产商
+							</th>
 
-						<th class="col-xs-1">
-							商品属性
-						</th>
+							<th class="col-xs-1">
+								计量单位
+							</th>
 
-						<th class="col-xs-1">
-							租金单价
-						</th>
+							<th class="col-xs-1">
+								商品属性
+							</th>
 
-						<th class="col-xs-1">
-							卸货单价
-						</th>
+							<th class="col-xs-1">
+								租金单价
+							</th>
 
-						<th class="col-xs-1">
-							搬运工资
-						</th>
+							<th class="col-xs-1">
+								卸货单价
+							</th>
 
-						<th class="col-xs-1">
-							产品价值
-						</th>
-					</tr>
+							<th class="col-xs-1">
+								搬运工资
+							</th>
 
+							<th class="col-xs-1">
+								产品价值
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<!-- 
+						<tr class="list-item">
+							<td>
+								<input type="checkbox" name="" id="" value="" />
+
+							</td>
+							<td class="overflow-1">475</td>
+							<td class="overflow-1">B级</td>
+							<td class="overflow-1">自产</td>
+							<td class="overflow-1">02502</td>
+							<td class="overflow-1">嘉旺</td>
+							<td class="overflow-1">吨</td>
+							<td class="overflow-1">
+								再生原料
+							</td>
+
+							<td class="overflow-1">
+
+								68.00
+							</td>
+
+							<td class="overflow-1">
+
+								5008.00
+							</td>
+							<td class="overflow-1">
+
+								5008.00
+							</td>
+
+							<td class="overflow-1">
+
+								20000.00
+							</td>
+
+						</tr>-->
+
+					</tbody>
+				</table>
+
+				<!--模板-->
+				<script type="text/template" id="handlebars-templete">
+
+					{{#lists}}
 					<tr class="list-item">
 						<td>
 							<input type="checkbox" name="" id="" value="" />
 
 						</td>
-						<td class="overflow-1">475</td>
-						<td class="overflow-1">B级</td>
-						<td class="overflow-1">自产</td>
-						<td class="overflow-1">02502</td>
-						<td class="overflow-1">嘉旺</td>
-						<td class="overflow-1">吨</td>
+						<td class="overflow-1">{{a1}}</td>
+						<td class="overflow-1">{{a2}}</td>
+						<td class="overflow-1">{{a3}}</td>
+						<td class="overflow-1">{{a4}}</td>
+						<td class="overflow-1">{{a5}}</td>
+						<td class="overflow-1">{{a6}}</td>
 						<td class="overflow-1">
-							再生原料
+							{{a7}}
+						</td>
+
+						<td class="overflow-1">
+							{{a8}}
 						</td>
 
 						<td class="overflow-1">
 
-							68.00
+							{{a9}}
+						</td>
+						<td class="overflow-1">
+
+							{{a10}}
 						</td>
 
 						<td class="overflow-1">
 
-							5008.00
-						</td>
-						<td class="overflow-1">
-
-							5008.00
-						</td>
-
-						<td class="overflow-1">
-
-							20000.00
+							{{a11}}
 						</td>
 
 					</tr>
-
-					
-				</table>
-
+					{{/lists}}
+				</script>
 				<!-- 分页-->
 				<div class="system-paging paging">
 
@@ -162,23 +209,14 @@
 
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
-		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--[if lte IE 8]>
+			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
 		<script type="text/javascript">
-			// icheckbox_flat
-			$('input').iCheck({
-				checkboxClass: 'icheckbox_flat-blue',
-				radioClass: 'iradio_flat-blue',
-				increaseArea: '20%' // optional
-			});
-			
-			system.init();
-			
-			
 			// 分页
 			paging.init({
 				index: 1, //	当前页
@@ -188,48 +226,64 @@
 				selector: ".paging", //分页父元素
 				isAnimation: true, //是否显示动画
 				isShowSkip: true, // 是否显示跳转页
-				isShowCount:true,  // 是否显示总页数
-
-				//prevText:"上一页",
-				//nextText:"下一页",	
-
-				//firstText:"第一页",
-				//lastText:"后一页",
-
-				//prevGroupText:"...",
-				//nextGroupText:"...",
-
-				//isShowNumber:true ,   //是否显示数字
-				//isShowPrevNext:true, // 是否显示上下页
-				//isShowFirstLast: false, // 是否显示第一页和后一页
-				//isShowPrevNextGroup:true, // 是否显示上下页组
+				isShowCount: true, // 是否显示总页数
+				isShowAllItems: true, // 是否显示总条目
 			});
+
+			// 显示第一页
+			getDtatById(1);
 
 			//点击事件
 			$(document).on("paging_click", function(event, id) {
 				//id 当前点击的元素的页码	
-				//alert(id);
-
-				$.get("paging.json", {
-					id: id
-				}, function(data) {
-					
-					var data=data.map(function(item){
-						item.content=id+"页："+item.content;
-						return item;
-						
-					});
-					
-					var html = Mustache.render($("#must").html(), {
-						must: data
-					});
-					
-				
-					$(".noticelist-cont-2 ").html(html);
-				});
+				//alert(id);	
+				getDtatById(id);
 
 			});
-		
+
+			// 异步加载数据
+			function getDtatById(id) {
+				$.get("json/paging.json", {
+					id: id
+				}, function(data) {
+					data = data.constructor === Array ? data : $.parseJSON(data);
+					for(var i in data) {
+						data[i].a1 = id + "-" + data[i].a1;
+					}
+					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template2({
+						lists: data
+					});
+
+					$(".system-list .table tbody").html(html);
+
+					// checkbox
+					$('input').iCheck({
+						checkboxClass: 'icheckbox_flat-blue',
+						radioClass: 'iradio_flat-blue',
+						increaseArea: '20%' // optional
+					});
+					$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
+					system.init();
+				});
+
+			}
+
+			// 删除数据
+			$(".all-del").on("click", function() {
+
+				var $lists = $("tbody .list-item input[type=checkbox]:checked");
+				if($lists.length <= 0) {
+					alert("你还没有选择数据？");
+					return;
+				}
+				if(confirm("你确认要删除数据？")) {
+					$lists.each(function() {
+						$(this).closest(".list-item").remove();
+					});
+				}
+
+			})
 		</script>
 	</body>
 

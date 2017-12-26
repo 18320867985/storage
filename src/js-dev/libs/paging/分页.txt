@@ -2032,6 +2032,7 @@
 				isAnimation: true, //是否显示动画
 				isShowSkip: true, // 是否显示跳转页
 				isShowCount:true,  // 是否显示总页数
+				isShowAllItems:false,  // 是否显示总条目
 
 				//prevText:"上一页",
 				//nextText:"下一页",	

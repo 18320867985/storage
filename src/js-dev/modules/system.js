@@ -2,10 +2,12 @@ var system= (function($){
 		
 		
 		var   _init=function(){
+			
+			
 			// 全选
 				$(".ck-all").on("ifChecked",function(){
 					
-					$p=$(this).closest(".table");
+					$p=$(this).parents(".table");
 					$(".list-item input[type=checkbox]",$p).iCheck('check'); //— 将输入框的状态设置为checked
 					
 				})

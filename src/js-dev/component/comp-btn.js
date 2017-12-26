@@ -1,6 +1,6 @@
 
-
 /*单个按钮组件
+ * 
  * 
  * 
  * <ul>
@@ -13,6 +13,7 @@
  * </ul>
  * 
  * 		
+ * 
  * 选中点击事件
 		$(".comp-btn").on("comp_btn_select",function(event,element){			
 			
@@ -28,6 +29,8 @@
 		});
  * 
  * */
+
+
 
 
 +(function($) {

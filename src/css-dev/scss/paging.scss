@@ -9,6 +9,8 @@ $paing-color:$bg-head;
 
 $ping-rd:0;
 
+$count-item-color:#666;
+
 
 .paging .item {
     padding: 5px 8px;
@@ -88,6 +90,15 @@ $ping-rd:0;
 }
 
 
+// 总记录
+.paging .count-items{
+   margin-left: 10px; 
+}
+
+.paging .count-items strong{
+  color: $count-item-color;
+}
+
 /*总页数*/
 
 .paging .count-num {
@@ -95,5 +106,5 @@ $ping-rd:0;
 }
 
 .paging .count-num strong {
-    color: #666;
+    color: $count-item-color;
 }
