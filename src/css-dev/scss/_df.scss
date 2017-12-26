@@ -445,6 +445,14 @@ input::-moz-placeholder {
     white-space: nowrap;
 }
 
+.overflow-3-5 {
+    max-width: 350px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
 .overflow-4 {
     max-width: 400px;
     text-overflow: ellipsis;
@@ -452,6 +460,12 @@ input::-moz-placeholder {
     white-space: nowrap;
 }
 
+.overflow-4-5 {
+    max-width: 450px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 .overflow-5 {
     max-width: 500px;
     text-overflow: ellipsis;

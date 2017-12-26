@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>产品档案报表</title>
+		<title>客户档案</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -20,7 +20,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				产品档案报表
+				客户档案
 			</h4>
 
 			<!--查询表单-->
@@ -61,9 +61,9 @@
 					</button>
 
 				<button class="all-del btn btn-primary rd-no" type="button">
-						<span class="icon-trash text-white"></span>
+						<span class="  icon-trash text-white"></span>
 						删除
-				</button>
+					</button>
 			</div>
 
 			<!--列表-->
@@ -72,48 +72,52 @@
 					<thead>
 
 						<tr>
-							<th class="col-xs-1 text-center">
+							<th class=" text-center" style="padding-left: 10px;">
 								<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
 							<th class="col-xs-1">
-								商品名称
+								客户名称
 							</th>
 							<th class="col-xs-1">
-								商品型号
+								登陆密码
 							</th>
 							<th class="col-xs-1">
-								商品产地
+								联系人1
+							</th>
+							
+							<th class="col-xs-1">
+								手机1
 							</th>
 							<th class="col-xs-1">
-								规格
-							</th>
-
-							<th class="col-xs-1">
-								生产商
-							</th>
-
-							<th class="col-xs-1">
-								计量单位
+								传真号码
 							</th>
 
 							<th class="col-xs-1">
-								商品属性
+								联系人2
 							</th>
 
 							<th class="col-xs-1">
-								租金单价
+								手机2
 							</th>
 
 							<th class="col-xs-1">
-								卸货单价
+								固定电话
 							</th>
 
 							<th class="col-xs-1">
-								搬运工资
+									QQ
 							</th>
 
 							<th class="col-xs-1">
-								产品价值
+								公司地址
+							</th>
+
+							<th class="col-xs-1">
+								法人代表
+							</th>
+
+							<th class="col-xs-1">
+								操作
 							</th>
 						</tr>
 					</thead>
@@ -196,6 +200,10 @@
 
 							{{a11}}
 						</td>
+							<td class="overflow-1">
+
+							<a href="javascript:;">编辑</a>
+						</td>
 
 					</tr>
 					{{/lists}}
@@ -245,7 +253,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/system-baobiao.json", {
+				$.get("json/system-dangan.json", {
 					id: id
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
@@ -275,7 +283,6 @@
 			$(".all-del").on("click", function() {
 
 				var $lists = $("tbody .list-item input[type=checkbox]:checked");
-
 				if($lists.length <= 0) {
 					alert("你还没有选择数据？");
 					return;

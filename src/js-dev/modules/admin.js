@@ -86,7 +86,7 @@ var admin = (function($) {
 
 			// 检查是否有重复项
 			if(checkCF(_href)) {
-
+				
 				return;
 
 			}
@@ -96,6 +96,10 @@ var admin = (function($) {
 			obj.href = _href;
 			srcLists.push(obj);
 			addmenu(srcLists.length - 1);
+			
+			// add iframe
+			 addIframe(obj);
+			
 		});
 
 		// 删除 添加二级菜集合项 
@@ -105,11 +109,13 @@ var admin = (function($) {
 			var _index = $(".admin-right .ttl-1 li").index($this);
 			$this.remove();
 			srcLists.splice(_index, 1);
+			delIframe(_index);
 
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
 			if(has_len.length == 0) {
 				addmenu(0);
+				showIframe(0);
 			}
 			return false;
 
@@ -121,6 +127,7 @@ var admin = (function($) {
 			var $this = this;
 			var _index = $(".admin-right .ttl-1 li").index(($this));
 			addmenu(_index);
+			showIframe(_index)
 			return false;
 		});
 
@@ -129,16 +136,16 @@ var admin = (function($) {
 			var $ul = $(".admin-right .ttl-1");
 			//	<li>产品档案 <span class="close">&times;</span></li>
 			$ul = $(".admin-right .ttl-1").empty();
-			$iframe_big = $(".admin-right .iframe-big").empty();
+		//	$iframe_big = $(".admin-right .iframe-big").empty();
 			for(var i in srcLists) {
 
 				var li = document.createElement("li");
-				var iframe = document.createElement("iframe");
-				$(iframe).addClass("iframe-box");
-				$(iframe).attr("src",srcLists[i].href)
+				//var iframe = document.createElement("iframe");
+			//	$(iframe).addClass("iframe-box");
+			//	$(iframe).attr("src",srcLists[i].href);
 				if(i == index) {
 					$(li).addClass("active");
-					$(iframe).addClass("active");
+					//$(iframe).addClass("active");
 				}
 				var span = document.createElement("span");
 				// span.classList.add("txt");  // ie9
@@ -153,11 +160,11 @@ var admin = (function($) {
 				$ul.append(li);
 				
 				// iframe item
-				$iframe_big.append(iframe);
+				//$iframe_big.append(iframe);
 				
 			}
 			
-			setMenuHeight();
+			
 		}
 
 		// 检查重复项
@@ -166,12 +173,40 @@ var admin = (function($) {
 			for(var i in srcLists) {
 				if(srcLists[i].href == href) {
 					addmenu(i);
+					showIframe(i);
 					return true;
 				}
 			}
 
 			return false;
 		}
+
+		function addIframe(obj){
+			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+			
+				$iframe_big = $(".admin-right .iframe-big");
+				var iframe = document.createElement("iframe");
+				$(iframe).addClass("iframe-box");
+				$(iframe).attr("src",obj.href);
+				$iframe_big.append(iframe);
+				$(iframe).addClass("active");
+				
+				setMenuHeight();
+		}
+		
+		function delIframe(index){
+			
+			$(".admin-right .iframe-big .iframe-box").eq(index).remove();
+				
+		}
+		
+		function showIframe(index){
+			
+			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
+				
+		}
+		
 
 	}
 

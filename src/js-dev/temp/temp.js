@@ -84,6 +84,201 @@ common = function ($) {
 
 	};
 }(window.jQuery || window.Zepto);
+/*
+ * 默认js
+ * 添加 class="bs-date " 
+	<input type="text" class="form-control bs-date " value="" placeholder="订单开始时间" />
+ * 
+ */
+
+var bsDate = function ($) {
+
+	var _init = function _init() {
+		// bs 日历插件
+		$('.bs-date').datetimepicker({
+
+			format: "yyyy-mm-dd  ", //'yyyy-mm-dd hh:ii:ss'
+			showMeridian: true,
+			autoclose: true,
+			todayBtn: true,
+			minView: 3 //选择日期
+			//forceParse :true  //转换格式
+
+		});
+
+		//日期不准输入
+		$('.bs-date').focus(function () {
+
+			$(this).blur();
+		});
+	};
+
+	return {
+		init: _init
+	};
+}(window.jQuery);
+/**
+ * iframe
+ * **/
+
+var iframe = function ($) {
+
+	// 设置iframe 高度
+	var _setHeight = function _setHeight() {
+		var windows_h = $(document).height() + 50;
+		$(window.parent.document).find(".parent-window").css("height", windows_h);
+	};
+
+	return {
+		setHeight: _setHeight
+	};
+}(window.jQuery || window.Zepto);
+
+/*
+					 滚动监听
+					 <body data-spy="spy" data-target="#scroll_ttl">
+						 
+						 <aside id="scroll_ttl">
+
+							<ul>
+								<li class="active">
+									<a href="#banner_1">1</a>
+								</li>
+								<li>
+									<a href="#banner_2">2</a>
+								</li>
+								<li>
+									<a href="#banner_3">3</a>
+								</li>
+							</ul>
+
+						</aside>
+					 </body>
+				 */
+
+var scroll = function ($) {
+
+	var obj = {
+
+		init: function init(top) {
+
+			var _top = Number(top);
+			_top = isNaN(_top) ? 0 : _top;
+
+			this.offsetTop = _top;
+			this.bindEvent(this.offsetTop);
+			this.onLoad();
+			this.onReset();
+		},
+
+		offsetTop: 0,
+
+		setOffsetTop: function setOffsetTop(top) {
+			this.offsetTop = typeof top === "number" ? top : 0;
+		},
+
+		onReset: function onReset() {
+
+			$(window).resize(function () {
+				this.scrollList();
+				this.scroll(this.offsetTop);
+			}.bind(this));
+		},
+		onLoad: function onLoad() {
+
+			$(window).load(function () {
+				this.scrollList();
+				this.scroll(this.offsetTop);
+			}.bind(this));
+		},
+
+		selector: function selector() {
+			var _tagget = $("[data-spy=spy]").attr("data-target");
+			return $(_tagget);
+		},
+
+		bindEvent: function bindEvent(top) {
+
+			var p = this.selector();
+			this.selector().find(" ul li  a").click(function () {
+
+				// animation
+				var $this = $(this);
+				var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
+				$("body,html").stop().animate({
+					scrollTop: _top
+				}, 500);
+			});
+		},
+
+		scroll: function scroll(top) {
+
+			var ff = this.getScrollList;
+			var p = this.selector();
+			$(window).on("scroll", function () {
+
+				var arrs = ff || [];
+
+				arrs.forEach(function (item) {
+
+					var m1 = parseInt(item.top); //- parseInt(top);
+					var m2 = parseInt(item.maxTop); //- parseInt(top);
+					if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
+						//alert(item.selector)
+						p.find("ul li").removeClass("active");
+						$("[href=" + item.selector + "]").parent().addClass("active");
+						return false;
+					}
+				});
+			});
+		},
+
+		scrollList: function scrollList() {
+
+			var objs = [];
+
+			var _offsetTop = this.offsetTop;
+			var els = this.selector().find("li");
+			for (var i = 0; i < els.length; i++) {
+
+				var _el = $(els[i]).find("a").attr("href");
+
+				if (_el) {
+
+					var obj = {};
+					var _top = Math.floor($(_el).offset().top) - _offsetTop;
+
+					var maxTop = 0;
+					if (i < els.length - 1) {
+						var _el2 = $(els[i + 1]).find("a").attr("href");
+						maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
+					} else {
+						maxTop = Math.floor($(document).height());
+					}
+
+					obj.selector = _el;
+					obj.top = _top;
+					obj.maxTop = maxTop;
+					objs.push(obj);
+				}
+			}
+
+			return this.getScrollList = objs;
+		},
+
+		getScrollList: []
+
+	};
+
+	return {
+		init: function init(top) {
+			obj.init(top);
+		},
+		setOffsetTop: function setOffsetTop(top) {
+			obj.setOffsetTop(top);
+		}
+	};
+}(window.jQuery || window.Zepto);
 
 /*单个按钮组件
  * 
@@ -557,6 +752,9 @@ var admin = function ($) {
 			obj.href = _href;
 			srcLists.push(obj);
 			addmenu(srcLists.length - 1);
+
+			// add iframe
+			addIframe(obj);
 		});
 
 		// 删除 添加二级菜集合项 
@@ -566,11 +764,13 @@ var admin = function ($) {
 			var _index = $(".admin-right .ttl-1 li").index($this);
 			$this.remove();
 			srcLists.splice(_index, 1);
+			delIframe(_index);
 
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
 			if (has_len.length == 0) {
 				addmenu(0);
+				showIframe(0);
 			}
 			return false;
 		});
@@ -581,6 +781,7 @@ var admin = function ($) {
 			var $this = this;
 			var _index = $(".admin-right .ttl-1 li").index($this);
 			addmenu(_index);
+			showIframe(_index);
 			return false;
 		});
 
@@ -589,16 +790,16 @@ var admin = function ($) {
 			var $ul = $(".admin-right .ttl-1");
 			//	<li>产品档案 <span class="close">&times;</span></li>
 			$ul = $(".admin-right .ttl-1").empty();
-			$iframe_big = $(".admin-right .iframe-big").empty();
+			//	$iframe_big = $(".admin-right .iframe-big").empty();
 			for (var i in srcLists) {
 
 				var li = document.createElement("li");
-				var iframe = document.createElement("iframe");
-				$(iframe).addClass("iframe-box");
-				$(iframe).attr("src", srcLists[i].href);
+				//var iframe = document.createElement("iframe");
+				//	$(iframe).addClass("iframe-box");
+				//	$(iframe).attr("src",srcLists[i].href);
 				if (i == index) {
 					$(li).addClass("active");
-					$(iframe).addClass("active");
+					//$(iframe).addClass("active");
 				}
 				var span = document.createElement("span");
 				// span.classList.add("txt");  // ie9
@@ -613,10 +814,8 @@ var admin = function ($) {
 				$ul.append(li);
 
 				// iframe item
-				$iframe_big.append(iframe);
+				//$iframe_big.append(iframe);
 			}
-
-			setMenuHeight();
 		}
 
 		// 检查重复项
@@ -625,11 +824,36 @@ var admin = function ($) {
 			for (var i in srcLists) {
 				if (srcLists[i].href == href) {
 					addmenu(i);
+					showIframe(i);
 					return true;
 				}
 			}
 
 			return false;
+		}
+
+		function addIframe(obj) {
+			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+
+			$iframe_big = $(".admin-right .iframe-big");
+			var iframe = document.createElement("iframe");
+			$(iframe).addClass("iframe-box");
+			$(iframe).attr("src", obj.href);
+			$iframe_big.append(iframe);
+			$(iframe).addClass("active");
+
+			setMenuHeight();
+		}
+
+		function delIframe(index) {
+
+			$(".admin-right .iframe-big .iframe-box").eq(index).remove();
+		}
+
+		function showIframe(index) {
+
+			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
 		}
 	};
 
@@ -637,9 +861,191 @@ var admin = function ($) {
 		init: _init
 	};
 }(window.jQuery);
+///**admin**/
+//var admin2 = (function($) {
+//
+//
+//	var _init = function() {
+//
+//		// 左边菜单高度
+//		setMenuHeight();
+//
+//		$(window).resize(function() {
+//			setMenuHeight();
+//		});
+//
+//		function setMenuHeight() {
+//			var w_big = $(window).height();
+//			var w_head = $(".head-logo").outerHeight();
+//			var w_ttl_1 = $(".admin-left .ttl-1").outerHeight();
+//			var w_footer = $(".footer").outerHeight();
+//			var ul_h = w_big - w_head - w_footer - w_ttl_1;
+//			$(".admin-left .box-big").height(ul_h);     // ttl
+//			$(".admin-right .iframe-box").height(ul_h); // iframe-big
+//			
+//
+//		}
+//
+//		// 菜单选中的样式
+//		$(".admin-left .nemu-1>li").mouseenter(function(e) {
+//			e.preventDefault();
+//			e.stopPropagation();
+//			$(".admin-left .nemu-2").hide();
+//			$(".admin-left .nemu-1>li").removeClass("active");
+//			$(this).addClass("active");
+//			var _top = $(this).position().top; // 当前项的top
+//			//	alert(_top)
+//			var _nemu2 = $(this).find(".nemu-2");
+//			_nemu2.show();
+//
+//			// setheight
+//			var w_big = $(window).height();
+//			var w_head = $(".head-logo").outerHeight();
+//			var w_ttl_1 = $(".admin-left .ttl-1").outerHeight();
+//			var w_footer = $(".footer").outerHeight();
+//			var ul_h = w_big - w_head - w_footer - w_ttl_1; //大框高度
+//
+//			var menu2_h = _nemu2.outerHeight(); // 子菜单高度
+//			var _top2 = $(this).offset().top - w_head - w_ttl_1; // 当前项的top
+//			if((_top2 + menu2_h) > ul_h) {
+//				_nemu2.css({
+//					"top": _top - menu2_h + $(this).outerHeight()
+//				});
+//
+//			} else {
+//				_nemu2.css({
+//					"top": _top
+//				});
+//			}
+//
+//		});
+//
+//		$(".admin-left .box-big ").mouseleave(function() {
+//			$(".admin-left .nemu-2").hide();
+//			$(".admin-left .nemu-1>li").removeClass("active");
+//		})
+//
+//		// 二级菜单
+//		$(".admin-left .nemu-2 li a").on("click", function(e) {
+//			e.preventDefault();
+//			$(".admin-left .nemu-2  li").removeClass("active");
+//			$(this).closest("li").addClass("active");
+//		});
+//
+//		// 添加二级菜集合项 
+//		var srcLists = [];
+//		$(".admin-left .nemu-2 li a").on("click", function(e) {
+//			e.preventDefault();
+//			var _text = $(this).text();
+//			var _href = $(this).attr("href");
+//
+//			// 最大的个数
+//			var _max_count = parseInt($(".admin-left .nemu-1").attr("data-maxcount"));
+//			_max_count = _max_count || 8;
+//			if(srcLists.length >= _max_count) {
+//				alert("最多能添加" + _max_count + "项");
+//				return;
+//			}
+//
+//			// 检查是否有重复项
+//			if(checkCF(_href)) {
+//
+//				return;
+//
+//			}
+//
+//			var obj = {};
+//			obj.text = _text;
+//			obj.href = _href;
+//			srcLists.push(obj);
+//			addmenu(srcLists.length - 1);
+//		});
+//
+//		// 删除 添加二级菜集合项 
+//		$(".admin-right .ttl-1 ").delegate(".close", "click", function() {
+//
+//			var $this = $(this).parents("li");
+//			var _index = $(".admin-right .ttl-1 li").index($this);
+//			$this.remove();
+//			srcLists.splice(_index, 1);
+//
+//			// 判断 是否有active	
+//			var has_len = $(".admin-right .ttl-1").has(".active");
+//			if(has_len.length == 0) {
+//				addmenu(0);
+//			}
+//			return false;
+//
+//		});
+//
+//		// 点击 li 
+//		$(".admin-right .ttl-1 ").on("click", "li", function() {
+//
+//			var $this = this;
+//			var _index = $(".admin-right .ttl-1 li").index(($this));
+//			addmenu(_index);
+//			return false;
+//		});
+//
+//		// foreach
+//		function addmenu(index) {
+//			var $ul = $(".admin-right .ttl-1");
+//			//	<li>产品档案 <span class="close">&times;</span></li>
+//			$ul = $(".admin-right .ttl-1").empty();
+//			$iframe_big = $(".admin-right .iframe-big").empty();
+//			for(var i in srcLists) {
+//
+//				var li = document.createElement("li");
+//				var iframe = document.createElement("iframe");
+//				$(iframe).addClass("iframe-box");
+//				$(iframe).attr("src",srcLists[i].href)
+//				if(i == index) {
+//					$(li).addClass("active");
+//					$(iframe).addClass("active");
+//				}
+//				var span = document.createElement("span");
+//				// span.classList.add("txt");  // ie9
+//				$(span).addClass("txt");
+//				span.innerText = srcLists[i].text;
+//				var span2 = document.createElement("span");
+//				// span2.classList.add("close"); // ie9
+//				$(span2).addClass("close");
+//				span2.innerHTML = "&times;";
+//				li.appendChild(span);
+//				li.appendChild(span2);
+//				$ul.append(li);
+//				
+//				// iframe item
+//				$iframe_big.append(iframe);
+//				
+//			}
+//			
+//			setMenuHeight();
+//		}
+//
+//		// 检查重复项
+//		function checkCF(href) {
+//
+//			for(var i in srcLists) {
+//				if(srcLists[i].href == href) {
+//					addmenu(i);
+//					return true;
+//				}
+//			}
+//
+//			return false;
+//		}
+//
+//	}
+//
+//	return {
+//		init: _init
+//	}
+//
+//})(window.jQuery);
 var system = function ($) {
 
-	var _init = function _init() {
+	var _check = function _check() {
 
 		// 全选
 		$(".ck-all").on("ifChecked", function () {
@@ -656,6 +1062,6 @@ var system = function ($) {
 	};
 
 	return {
-		init: _init
+		check: _check
 	};
 }(window.jQuery);

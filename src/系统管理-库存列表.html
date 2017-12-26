@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>产品档案报表</title>
+		<title>库存列表</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -20,7 +20,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				产品档案报表
+				库存列表
 			</h4>
 
 			<!--查询表单-->
@@ -56,40 +56,45 @@
 			<!--操作按钮-->
 			<div class="form-group  system-btns ">
 				<button class=" btn btn-primary rd-no" type="button">
-						<span class=" icon-plus text-white"></span>
-						新增
-					</button>
-
-				<button class="all-del btn btn-primary rd-no" type="button">
-						<span class="icon-trash text-white"></span>
-						删除
+						<span class=" iconfont icon-daochu text-white"></span>
+						导出
 				</button>
+
 			</div>
 
 			<!--列表-->
 			<div class="system-list">
-				<table class="table  ">
+				<table class="table">
 					<thead>
 
 						<tr>
-							<th class="col-xs-1 text-center">
-								<input class="ck-all" type="checkbox" name="" id="" value="" />
+							
+							<th class="col-xs-1">
+								入库单号
 							</th>
 							<th class="col-xs-1">
-								商品名称
+								入库日期
 							</th>
 							<th class="col-xs-1">
-								商品型号
+								入库信息
 							</th>
 							<th class="col-xs-1">
-								商品产地
+								客户名称
 							</th>
 							<th class="col-xs-1">
-								规格
+								名称
 							</th>
 
 							<th class="col-xs-1">
-								生产商
+								型号
+							</th>
+
+							<th class="col-xs-1">
+								场地
+							</th>
+
+							<th class="col-xs-1">
+								规格
 							</th>
 
 							<th class="col-xs-1">
@@ -97,23 +102,15 @@
 							</th>
 
 							<th class="col-xs-1">
-								商品属性
+								实际库存
 							</th>
 
 							<th class="col-xs-1">
-								租金单价
+								所在仓库名
 							</th>
 
 							<th class="col-xs-1">
-								卸货单价
-							</th>
-
-							<th class="col-xs-1">
-								搬运工资
-							</th>
-
-							<th class="col-xs-1">
-								产品价值
+								租赁方式
 							</th>
 						</tr>
 					</thead>
@@ -165,36 +162,37 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						<td>
-							<input type="checkbox" name="" id="" value="" />
-
-						</td>
 						<td class="overflow-1">{{a1}}</td>
-						<td class="overflow-1">{{a2}}</td>
+						<td class="overflow-1-5">
+							 {{#date  a2 "yyyy-MM-dd " }}
+							   {{a2}}
+							  {{/date}}
+						</td>
 						<td class="overflow-1">{{a3}}</td>
 						<td class="overflow-1">{{a4}}</td>
 						<td class="overflow-1">{{a5}}</td>
 						<td class="overflow-1">{{a6}}</td>
-						<td class="overflow-1">
-							{{a7}}
-						</td>
-
+						<td class="overflow-1">{{a7}}</td>
 						<td class="overflow-1">
 							{{a8}}
 						</td>
 
 						<td class="overflow-1">
-
 							{{a9}}
 						</td>
+
 						<td class="overflow-1">
 
 							{{a10}}
 						</td>
-
 						<td class="overflow-1">
 
 							{{a11}}
+						</td>
+
+						<td class="overflow-1">
+
+							{{a12}}
 						</td>
 
 					</tr>
@@ -245,7 +243,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/system-baobiao.json", {
+				$.get("json/system-kucun.json", {
 					id: id
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
@@ -275,7 +273,6 @@
 			$(".all-del").on("click", function() {
 
 				var $lists = $("tbody .list-item input[type=checkbox]:checked");
-
 				if($lists.length <= 0) {
 					alert("你还没有选择数据？");
 					return;

@@ -2,79 +2,74 @@
 
 // 标题
 .system-ttl {
-  padding: 20px 10px;
-
-        font-size: 18px;
-        
-        .iconttl {
-           
-            margin-right: 5px;
-             font-size: 20px;
-            color:$text-ash;
-        }
-    
+    position: relative;
+    padding: 10px 10px 20px 10px;
+    font-size: 18px;
+    .iconttl {
+        position: relative;
+        margin-right: 5px;
+        top: 4px;
+        font-size: 20px;
+        color: $text-blue;
+    }
 }
 
 //表单查询
-.system-form{
+.system-form {
     padding: 10px 10px 10px 20px;
     background: $bg-f8;
     width: 100%;
-     .form-group{
-         margin-bottom:0 ;
-     
-         .form-control{
-             width: 150px;
-           
-         }
-     }
-    .form-group+.form-group{
+    .form-group {
+        margin-bottom: 0;
+        .form-control {
+            width: 180px;
+        }
+    }
+    .form-group+.form-group {
         margin-left: 10px;
     }
     
-    
-    //add-btns
-     .form-group.add-btns{
-      
-        
-      margin-left: 5%; 
-      .btn+.btn{
-          margin-left: 10px;
-      } 
+    .btn-primary {
+        margin-left: 20px;
     }
+    
 }
 
-
+//操作按钮
+.system-btns{
+    //add-btns
+    margin:15px 0;
+   padding-left: 10px;
+        .btn+.btn {
+            margin-left: 10px;
+        }
+    
+}
 
 // 列表
-.system-list{
-    
+.system-list {
     margin-top: 20px;
-    .table{
+    .table {
+        margin-bottom: 10px;
         th,
-        td{
-            text-align:center;
-         padding-left: 2px;
-         padding-right: 2px;
+        td {
+            text-align: center;
+            padding: 12px 2px;
         }
-        
-        th{
+        th {
+            background: $bg-f8;
+            border-bottom: none;
+        }
+        tr:nth-child(even) {
             background: $bg-f8;
         }
-        
-        tr:nth-child(even){
-          background: $bg-f8;
-        }
-        
-        
     }
 }
 
-
 // system-paging
-.system-paging{
-    margin-top: 30px;
-    padding-right: 30px;
-    padding-bottom: 15px;
+.system-paging {
+   padding: 15px 20px;
+   
     text-align: right;
+    background: $bg-f8;
 }

@@ -7,10 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>产品档案报表</title>
+		<title>公告管理</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+		<link rel="stylesheet" type="text/css" href="css/bs-date/css/bootstrap-datetimepicker.min.css" />
 	</head>
 
 	<body>
@@ -20,7 +21,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				产品档案报表
+				公告管理
 			</h4>
 
 			<!--查询表单-->
@@ -28,18 +29,18 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">商品名称:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+					<label for="txt_1">标题:</label>
+					<input class="form-control rd-no  " type="text" name="" id="txt_1" value="" placeholder="==标题==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_2">商品型号:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
+					<label for="txt_2">起始时间:</label>
+					<input class="form-control rd-no bs-date" type="text" name="" id="txt_2" value="" placeholder="==起始时间==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_3">商品产地:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_3" value="" placeholder="==商品产地==" />
+					<label for="txt_3">结束时间:</label>
+					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==结束时间==" />
 
 				</div>
 
@@ -51,112 +52,69 @@
 
 				</div>
 
+				
 			</form>
-
+			
+			
 			<!--操作按钮-->
 			<div class="form-group  system-btns ">
 				<button class=" btn btn-primary rd-no" type="button">
 						<span class=" icon-plus text-white"></span>
 						新增
-					</button>
+				</button>
 
 				<button class="all-del btn btn-primary rd-no" type="button">
-						<span class="icon-trash text-white"></span>
+						<span class="  icon-trash text-white"></span>
 						删除
 				</button>
 			</div>
 
+
 			<!--列表-->
 			<div class="system-list">
-				<table class="table  ">
+				<table class="table ">
 					<thead>
-
 						<tr>
 							<th class="col-xs-1 text-center">
 								<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
-							<th class="col-xs-1">
-								商品名称
+							<th class="col-xs-4">
+								标题
 							</th>
-							<th class="col-xs-1">
-								商品型号
+							<th class="col-xs-2">
+								查看
 							</th>
-							<th class="col-xs-1">
-								商品产地
+							<th class="col-xs-2">
+								发布日期
 							</th>
-							<th class="col-xs-1">
-								规格
-							</th>
-
-							<th class="col-xs-1">
-								生产商
+							<th class="col-xs-3">
+								面向
 							</th>
 
-							<th class="col-xs-1">
-								计量单位
-							</th>
-
-							<th class="col-xs-1">
-								商品属性
-							</th>
-
-							<th class="col-xs-1">
-								租金单价
-							</th>
-
-							<th class="col-xs-1">
-								卸货单价
-							</th>
-
-							<th class="col-xs-1">
-								搬运工资
-							</th>
-
-							<th class="col-xs-1">
-								产品价值
-							</th>
 						</tr>
 					</thead>
 
 					<tbody>
 
-						<!-- 
-						<tr class="list-item">
-							<td>
+						<!--<tr>
+							<td class="col-xs-1 text-center">
 								<input type="checkbox" name="" id="" value="" />
-
 							</td>
-							<td class="overflow-1">475</td>
-							<td class="overflow-1">B级</td>
-							<td class="overflow-1">自产</td>
-							<td class="overflow-1">02502</td>
-							<td class="overflow-1">嘉旺</td>
-							<td class="overflow-1">吨</td>
-							<td class="overflow-1">
-								再生原料
+							<td class="col-xs-4 overflow-3-5">
+								网站建设优惠大活动网站建设优惠大活动
 							</td>
-
-							<td class="overflow-1">
-
-								68.00
+							<td class="col-xs-2  overflow-1-5">
+								<a href="javascript:;">查看</a>
+								
 							</td>
-
-							<td class="overflow-1">
-
-								5008.00
+							<td class="col-xs-2 overflow-1-5">
+								2014-12-12 12:12:34
 							</td>
-							<td class="overflow-1">
-
-								5008.00
-							</td>
-
-							<td class="overflow-1">
-
-								20000.00
+							<td class="col-xs-3 overflow-2-5">
+								人工与客户
 							</td>
 
 						</tr>-->
-
 					</tbody>
 				</table>
 
@@ -165,39 +123,27 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						<td>
-							<input type="checkbox" name="" id="" value="" />
+							<td class="col-xs-1 text-center">
+								<input  type="checkbox" name="" id="" value="" />
+							</td>
+							<td class="col-xs-4 overflow-3-5">
+								{{a1}}
+							</td>
+							<td class="col-xs-2  overflow-1-5">
+								<a href="javascript:;">查看</a>
+								
+							</td>
+							<td class="col-xs-2 overflow-1-5">
+							  {{#date  a3 "yyyy-MM-dd HH:mm:ss" }}
+							   {{a3}}
+							  {{/date}}
+							  
+							</td>
+							<td class="col-xs-3 overflow-2-5">
+								{{a4}}
+							</td>
 
-						</td>
-						<td class="overflow-1">{{a1}}</td>
-						<td class="overflow-1">{{a2}}</td>
-						<td class="overflow-1">{{a3}}</td>
-						<td class="overflow-1">{{a4}}</td>
-						<td class="overflow-1">{{a5}}</td>
-						<td class="overflow-1">{{a6}}</td>
-						<td class="overflow-1">
-							{{a7}}
-						</td>
-
-						<td class="overflow-1">
-							{{a8}}
-						</td>
-
-						<td class="overflow-1">
-
-							{{a9}}
-						</td>
-						<td class="overflow-1">
-
-							{{a10}}
-						</td>
-
-						<td class="overflow-1">
-
-							{{a11}}
-						</td>
-
-					</tr>
+						</tr>
 					{{/lists}}
 				</script>
 				<!-- 分页-->
@@ -213,12 +159,17 @@
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+				
 		<!--[if lte IE 8]>
 			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
 		<script type="text/javascript">
+			
+			bsDate.init(); // 日期
+			
 			// 分页
 			paging.init({
 				index: 1, //	当前页
@@ -245,7 +196,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/system-baobiao.json", {
+				$.get("json/system-gonggao.json", {
 					id: id
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
@@ -275,7 +226,6 @@
 			$(".all-del").on("click", function() {
 
 				var $lists = $("tbody .list-item input[type=checkbox]:checked");
-
 				if($lists.length <= 0) {
 					alert("你还没有选择数据？");
 					return;

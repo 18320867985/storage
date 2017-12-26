@@ -7572,8 +7572,20 @@ select option {
   overflow: hidden;
   white-space: nowrap; }
 
+.overflow-3-5 {
+  max-width: 350px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
 .overflow-4 {
   max-width: 400px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.overflow-4-5 {
+  max-width: 450px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; }
@@ -7619,6 +7631,11 @@ select option {
 
 .iframe-body {
   padding: 10px; }
+
+.icon-daochu {
+  position: relative;
+  top: 2px;
+  font-size: 18px; }
 
 /*错误显示*/
 .vd-box .vd-req,
@@ -7926,12 +7943,15 @@ select option {
 
 /**系统管理**/
 .system-ttl {
-  padding: 20px 10px;
+  position: relative;
+  padding: 10px 10px 20px 10px;
   font-size: 18px; }
   .system-ttl .iconttl {
+    position: relative;
     margin-right: 5px;
+    top: 4px;
     font-size: 20px;
-    color: #323232; }
+    color: #3d6fae; }
 
 .system-form {
   padding: 10px 10px 10px 20px;
@@ -7940,28 +7960,33 @@ select option {
   .system-form .form-group {
     margin-bottom: 0; }
     .system-form .form-group .form-control {
-      width: 150px; }
+      width: 180px; }
   .system-form .form-group + .form-group {
     margin-left: 10px; }
-  .system-form .form-group.add-btns {
-    margin-left: 5%; }
-    .system-form .form-group.add-btns .btn + .btn {
-      margin-left: 10px; }
+  .system-form .btn-primary {
+    margin-left: 20px; }
+
+.system-btns {
+  margin: 15px 0;
+  padding-left: 10px; }
+  .system-btns .btn + .btn {
+    margin-left: 10px; }
 
 .system-list {
   margin-top: 20px; }
-  .system-list .table th,
-  .system-list .table td {
-    text-align: center;
-    padding-left: 2px;
-    padding-right: 2px; }
-  .system-list .table th {
-    background: #f8f8f8; }
-  .system-list .table tr:nth-child(even) {
-    background: #f8f8f8; }
+  .system-list .table {
+    margin-bottom: 10px; }
+    .system-list .table th,
+    .system-list .table td {
+      text-align: center;
+      padding: 12px 2px; }
+    .system-list .table th {
+      background: #f8f8f8;
+      border-bottom: none; }
+    .system-list .table tr:nth-child(even) {
+      background: #f8f8f8; }
 
 .system-paging {
-  margin-top: 30px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  text-align: right; }
+  padding: 15px 20px;
+  text-align: right;
+  background: #f8f8f8; }
