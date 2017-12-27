@@ -63,13 +63,74 @@
         tr:nth-child(even) {
             background: $bg-f8;
         }
+        .op{
+            a+a{
+                margin-left: 5px;
+            }
+        }
     }
 }
 
-// system-paging
+// system-paging 分页
 .system-paging {
    padding: 15px 20px;
    
-    text-align: right;
+    text-align: center;
     background: $bg-f8;
+}
+
+/*分页2*/
+.system-paging2{
+    padding: 10px;
+    
+    .record{
+        display: inline-block;
+        
+        select{
+            line-height: 16px;
+        }
+        
+        .num-index{
+            margin-left: 15px;
+        }
+        .num-all{
+            margin-right: 15px;
+        }
+        .glyphicon.disabled{
+            color:#ccc;
+        }
+        
+        .glyphicon.active{
+            color:$text-blue;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .skip-txt{
+            width: 50px;
+            text-align:center;
+            border:1px solid $br;
+        }
+        
+          .skip-btn{
+            width: 50px;
+            color:$text-white;
+           border: none;
+           background:$text-blue;
+           outline: none;
+           
+           &:hover{
+               background: darken($text-blue,10%);
+           }
+        }
+        
+        label{
+            color:$text-df;
+        }
+        
+       & +.record{
+            
+             margin-left: 20px;
+        }
+    }
 }

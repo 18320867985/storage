@@ -4863,7 +4863,7 @@ Date.prototype.formatString = function(fmt) { //author: meizz
 	//从WebAPI获取日期json数据 转换成日期时间戳
 	Handlebars.jsonToDate=function jsonToDate(apidate) {
 	    var txts = apidate.replace("/Date(", "").replace(")/","");
-	    return parseInt(txts.trim());
+	    return parseInt(txts);
 	
 	}
 

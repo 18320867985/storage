@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>库存列表</title>
+		<title>入库管理</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -20,7 +20,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				库存列表
+				入库管理
 			</h4>
 
 			<!--查询表单-->
@@ -28,18 +28,13 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">商品名称:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+					<label for="txt_1">入库单号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==入库单号==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_2">商品型号:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
-
-				</div>
-				<div class="form-group">
-					<label for="txt_3">商品产地:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_3" value="" placeholder="==商品产地==" />
+					<label for="txt_2">仓库名称:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==仓库名称==" />
 
 				</div>
 
@@ -56,19 +51,44 @@
 			<!--操作按钮-->
 			<div class="form-group  system-btns ">
 				<button class=" btn btn-primary rd-no" type="button">
-						<span class=" iconfont icon-daochu text-white"></span>
-						导出
+						<span class="glyphicon glyphicon-ban-circle text-white"></span>
+						作废
+					</button>
+				<button class=" btn btn-primary rd-no" type="button">
+					<span class=" iconfont icon-daochu text-white"></span>
+					导出
+				</button>
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" glyphicon glyphicon-print text-white"></span>
+						打印
 				</button>
 
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class="iconfont icon-shenhe text-white"></span>
+						审核
+				</button>
+				
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" icon-plus text-white"></span>
+						新增
+				</button>
+
+				<button class="all-del btn btn-primary rd-no" type="button">
+					<span class="icon-trash text-white"></span>
+					删除
+				</button>
 			</div>
 
-			<!--列表-->
+			<!--列表 -->
 			<div class="system-list">
-				<table class="table">
+				
+				<table class="table  ">
 					<thead>
 
 						<tr>
-
+							<th class=" text-center" >
+								<input class="ck-all" type="checkbox" name="" id="" value="" />
+							</th>
 							<th class="col-xs-1">
 								入库单号
 							</th>
@@ -76,42 +96,37 @@
 								入库日期
 							</th>
 							<th class="col-xs-1">
-								入库信息
+							客户名称
 							</th>
 							<th class="col-xs-1">
-								客户名称
-							</th>
-							<th class="col-xs-1">
-								名称
+								仓库名称
 							</th>
 
 							<th class="col-xs-1">
-								型号
+								操作员
 							</th>
 
 							<th class="col-xs-1">
-								场地
+								搬运对
 							</th>
 
 							<th class="col-xs-1">
-								规格
+								叉车员
 							</th>
 
 							<th class="col-xs-1">
-								计量单位
+								仓管员
 							</th>
 
 							<th class="col-xs-1">
-								实际库存
+								状态
 							</th>
 
-							<th class="col-xs-1">
-								所在仓库名
+							<th class="col-xs-2">
+								操作
 							</th>
 
-							<th class="col-xs-1">
-								租赁方式
-							</th>
+							
 						</tr>
 					</thead>
 
@@ -162,36 +177,38 @@
 
 					{{#lists}}
 					<tr class="list-item">
+						<td>
+							<input type="checkbox" name="" id="" value="" />
+
+						</td>
 						<td class="overflow-1">{{a1}}</td>
 						<td class="overflow-1-5">
-							{{#date a2 "yyyy-MM-dd " }} {{a2}} {{/date}}
+							{{#date a2 "yyyy-MM-dd "}}
+								{{a2}}
+							{{/date}}
 						</td>
 						<td class="overflow-1">{{a3}}</td>
 						<td class="overflow-1">{{a4}}</td>
 						<td class="overflow-1">{{a5}}</td>
 						<td class="overflow-1">{{a6}}</td>
-						<td class="overflow-1">{{a7}}</td>
+						<td class="overflow-1">
+							{{a7}}
+						</td>
+
 						<td class="overflow-1">
 							{{a8}}
 						</td>
 
 						<td class="overflow-1">
+
 							{{a9}}
 						</td>
-
-						<td class="overflow-1">
-
-							{{a10}}
-						</td>
-						<td class="overflow-1">
-
-							{{a11}}
+						<td class="overflow-1-5 op">
+							<a href="javascript:;">查看</a>
+							<a href="javascript:;">编辑</a>
 						</td>
 
-						<td class="overflow-1">
-
-							{{a12}}
-						</td>
+					
 
 					</tr>
 					{{/lists}}
@@ -200,7 +217,7 @@
 				<div class="system-paging paging">
 
 				</div>
-				
+
 				<!-- 分页2-->
 				<!--<div class="system-paging2 text-right">
 
@@ -274,7 +291,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/system-kucun.json", {
+				$.get("json/ruku.json", {
 					id: id
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
@@ -304,6 +321,7 @@
 			$(".all-del").on("click", function() {
 
 				var $lists = $("tbody .list-item input[type=checkbox]:checked");
+
 				if($lists.length <= 0) {
 					alert("你还没有选择数据？");
 					return;

@@ -1,7 +1,6 @@
 /**admin**/
 var admin = (function($) {
 
-
 	var _init = function() {
 
 		// 左边菜单高度
@@ -17,9 +16,8 @@ var admin = (function($) {
 			var w_ttl_1 = $(".admin-left .ttl-1").outerHeight();
 			var w_footer = $(".footer").outerHeight();
 			var ul_h = w_big - w_head - w_footer - w_ttl_1;
-			$(".admin-left .box-big").height(ul_h);     // ttl
+			$(".admin-left .box-big").height(ul_h); // ttl
 			$(".admin-right .iframe-box").height(ul_h); // iframe-big
-			
 
 		}
 
@@ -86,7 +84,7 @@ var admin = (function($) {
 
 			// 检查是否有重复项
 			if(checkCF(_href)) {
-				
+
 				return;
 
 			}
@@ -96,10 +94,10 @@ var admin = (function($) {
 			obj.href = _href;
 			srcLists.push(obj);
 			addmenu(srcLists.length - 1);
-			
+
 			// add iframe
-			 addIframe(obj);
-			
+			addIframe(obj);
+
 		});
 
 		// 删除 添加二级菜集合项 
@@ -136,13 +134,11 @@ var admin = (function($) {
 			var $ul = $(".admin-right .ttl-1");
 			//	<li>产品档案 <span class="close">&times;</span></li>
 			$ul = $(".admin-right .ttl-1").empty();
-		//	$iframe_big = $(".admin-right .iframe-big").empty();
+
 			for(var i in srcLists) {
 
 				var li = document.createElement("li");
-				//var iframe = document.createElement("iframe");
-			//	$(iframe).addClass("iframe-box");
-			//	$(iframe).attr("src",srcLists[i].href);
+
 				if(i == index) {
 					$(li).addClass("active");
 					//$(iframe).addClass("active");
@@ -158,13 +154,12 @@ var admin = (function($) {
 				li.appendChild(span);
 				li.appendChild(span2);
 				$ul.append(li);
-				
+
 				// iframe item
 				//$iframe_big.append(iframe);
-				
+
 			}
-			
-			
+
 		}
 
 		// 检查重复项
@@ -181,37 +176,51 @@ var admin = (function($) {
 			return false;
 		}
 
-		function addIframe(obj){
+		function addIframe(obj) {
 			$(".admin-right .iframe-big .iframe-box").removeClass("active");
-			
-				$iframe_big = $(".admin-right .iframe-big");
-				var iframe = document.createElement("iframe");
-				$(iframe).addClass("iframe-box");
-				$(iframe).attr("src",obj.href);
-				$iframe_big.append(iframe);
-				$(iframe).addClass("active");
-				
-				setMenuHeight();
+
+			$iframe_big = $(".admin-right .iframe-big");
+			var iframe = document.createElement("iframe");
+			$(iframe).addClass("iframe-box");
+			$(iframe).attr("src", obj.href);
+			$iframe_big.append(iframe);
+			$(iframe).addClass("active");
+
+			setMenuHeight();
 		}
-		
-		function delIframe(index){
-			
+
+		function delIframe(index) {
+
 			$(".admin-right .iframe-big .iframe-box").eq(index).remove();
-				
+
 		}
-		
-		function showIframe(index){
-			
+
+		function showIframe(index) {
+
 			$(".admin-right .iframe-big .iframe-box").removeClass("active");
 			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
-				
+
 		}
-		
 
 	}
 
+	// 刷新子页面
+	$(".admin-right").find(".btn-refresh").on("click", function() {
+		
+		$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
+		$(this).blur();
+	});
+	
+	$("[data-toggle=tooltip]").tooltip();
+
+	function _showIframeActive() {
+
+		$(".box-big .nemu-2 li.active a").trigger("click"); // 第一次显示页面
+	}
+
 	return {
-		init: _init
+		init: _init,
+		showIframeActive: _showIframeActive
 	}
 
 })(window.jQuery);

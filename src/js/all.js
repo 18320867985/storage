@@ -4095,7 +4095,6 @@ var admin = function ($) {
 			var ul_h = w_big - w_head - w_footer - w_ttl_1;
 			$(".admin-left .box-big").height(ul_h); // ttl
 			$(".admin-right .iframe-box").height(ul_h); // iframe-big
-
 		}
 
 		// 菜单选中的样式
@@ -4206,13 +4205,11 @@ var admin = function ($) {
 			var $ul = $(".admin-right .ttl-1");
 			//	<li>产品档案 <span class="close">&times;</span></li>
 			$ul = $(".admin-right .ttl-1").empty();
-			//	$iframe_big = $(".admin-right .iframe-big").empty();
+
 			for (var i in srcLists) {
 
 				var li = document.createElement("li");
-				//var iframe = document.createElement("iframe");
-				//	$(iframe).addClass("iframe-box");
-				//	$(iframe).attr("src",srcLists[i].href);
+
 				if (i == index) {
 					$(li).addClass("active");
 					//$(iframe).addClass("active");
@@ -4273,8 +4270,23 @@ var admin = function ($) {
 		}
 	};
 
+	// 刷新子页面
+	$(".admin-right").find(".btn-refresh").on("click", function () {
+
+		$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
+		$(this).blur();
+	});
+
+	$("[data-toggle=tooltip]").tooltip();
+
+	function _showIframeActive() {
+
+		$(".box-big .nemu-2 li.active a").trigger("click"); // 第一次显示页面
+	}
+
 	return {
-		init: _init
+		init: _init,
+		showIframeActive: _showIframeActive
 	};
 }(window.jQuery);
 ///**admin**/

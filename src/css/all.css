@@ -7830,6 +7830,7 @@ select option {
   border: 1px solid #ddd; }
 
 .admin-right {
+  position: relative;
   width: 86%; }
   .admin-right .ttl-1 {
     position: relative;
@@ -7857,6 +7858,18 @@ select option {
         color: #337ab7;
         border-bottom: 1px solid #fff;
         font-weight: 600; }
+  .admin-right .btn-refresh {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 9;
+    margin: 0;
+    color: #666;
+    border: none;
+    background: #f8f8f8;
+    outline: none; }
+    .admin-right .btn-refresh:hover {
+      color: #3d6fae; }
   .admin-right .iframe-big {
     width: 100%;
     border-top: 1px solid #e1e1e1;
@@ -7900,7 +7913,8 @@ select option {
 /*数字禁用的样式*/
 .paging .disabled.num {
   color: #666;
-  border: none; }
+  border: none;
+  background: transparent; }
 
 .paging .item + .item {
   margin-left: 10px; }
@@ -7985,8 +7999,46 @@ select option {
       border-bottom: none; }
     .system-list .table tr:nth-child(even) {
       background: #f8f8f8; }
+    .system-list .table .op a + a {
+      margin-left: 5px; }
 
 .system-paging {
   padding: 15px 20px;
-  text-align: right;
+  text-align: center;
   background: #f8f8f8; }
+
+/*分页2*/
+.system-paging2 {
+  padding: 10px; }
+  .system-paging2 .record {
+    display: inline-block; }
+    .system-paging2 .record select {
+      line-height: 16px; }
+    .system-paging2 .record .num-index {
+      margin-left: 15px; }
+    .system-paging2 .record .num-all {
+      margin-right: 15px; }
+    .system-paging2 .record .glyphicon.disabled {
+      color: #ccc; }
+    .system-paging2 .record .glyphicon.active {
+      color: #3d6fae; }
+      .system-paging2 .record .glyphicon.active:hover {
+        cursor: pointer; }
+    .system-paging2 .record .skip-txt {
+      width: 50px;
+      text-align: center;
+      border: 1px solid #e1e1e1; }
+    .system-paging2 .record .skip-btn {
+      width: 50px;
+      color: #fff;
+      border: none;
+      background: #3d6fae;
+      outline: none; }
+      .system-paging2 .record .skip-btn:hover {
+        background: #305788; }
+    .system-paging2 .record label {
+      color: #323232; }
+    .system-paging2 .record + .record {
+      margin-left: 20px; }
+
+/*入库管理*/
