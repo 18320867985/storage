@@ -7759,10 +7759,10 @@ select option {
   .admin-left .ttl-1 {
     border: 1px solid #e1e1e1;
     border-top: none;
-    padding-left: 15px;
     height: 44px;
     line-height: 44px;
-    font-size: 18px; }
+    font-size: 18px;
+    text-align: center; }
   .admin-left .box-big {
     width: 100%;
     overflow: auto;
@@ -7774,6 +7774,7 @@ select option {
       padding: 0; }
       .admin-left .box-big .nemu-1 > li {
         padding: 12px;
+        text-align: center;
         border-bottom: 1px solid #e1e1e1;
         -webkit-transition: all .5s;
         transition: all .5s; }
@@ -7819,7 +7820,8 @@ select option {
         overflow: hidden;
         white-space: nowrap;
         -webkit-transition: all .4s;
-        transition: all .4s; }
+        transition: all .4s;
+        text-align: left; }
         .admin-left .box-big .nemu-2 li > a:hover {
           background: #f0f0f0; }
       .admin-left .box-big .nemu-2 li.active > a {
@@ -8042,3 +8044,28 @@ select option {
       margin-left: 20px; }
 
 /*入库管理*/
+.ruku-rk {
+  padding: 10px; }
+
+.ruku-from {
+  padding: 10px 50px;
+  border: 1px solid #ddd; }
+  .ruku-from h4 {
+    margin: 30px 0;
+    font-weight: 600;
+    color: #323232; }
+  .ruku-from .btn-serach {
+    margin-left: 50px; }
+  .ruku-from .form-group label {
+    width: 60px; }
+  .ruku-from .form-group label + .form-control {
+    margin-right: 10px; }
+  .ruku-from .form-group + .form-group {
+    margin-top: 25px; }
+  .ruku-from .btn-primary {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .ruku-from .form-control {
+    width: 180px; }
+  .ruku-from .op .btn-primary + .btn-primary {
+    margin-left: 50px; }

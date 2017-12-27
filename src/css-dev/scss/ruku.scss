@@ -1,7 +1,41 @@
-
 /*入库管理*/
 
-.rukun{
-    
-    
+.ruku-rk {
+    padding: 10px;
+}
+
+.ruku-from {
+    padding: 10px 50px;
+    border: 1px solid #ddd;
+    h4 {
+        margin: 30px 0;
+        font-weight: 600;
+        color: $text-df;
+    }
+    .btn-serach {
+        margin-left: 50px;
+    }
+    .form-group {
+        label{
+            width: 60px;
+        }
+        label+.form-control {
+            margin-right: 10px;
+        }
+        &+.form-group {
+            margin-top: 25px;
+        }
+    }
+    .btn-primary {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .form-control {
+        width: 180px;
+    }
+    .op {
+        .btn-primary+.btn-primary {
+            margin-left: 50px;
+        }
+    }
 }

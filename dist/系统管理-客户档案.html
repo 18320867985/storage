@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="塑金仓储信息管理系统" />
+		<meta name="Description" content="塑金仓储信息管理系统" />
+		<title>客户档案</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+	</head>
+
+	<body>
+
+		<div class="system iframe-body">
+
+			<!--标题-->
+			<h4 class="system-ttl">
+				<span class="glyphicon glyphicon-list-alt iconttl"></span>
+				客户档案
+			</h4>
+
+			<!--查询表单-->
+
+			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+
+				<div class="form-group">
+					<label for="txt_1">商品名称:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+
+				</div>
+				<div class="form-group">
+					<label for="txt_2">商品型号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
+
+				</div>
+				<div class="form-group">
+					<label for="txt_3">商品产地:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_3" value="" placeholder="==商品产地==" />
+
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary rd-no" type="button">
+					 	<span class="text-white  icon-search"></span> 
+					 	查询
+					 </button>
+
+				</div>
+
+			</form>
+
+			<!--操作按钮-->
+			<div class="form-group  system-btns ">
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" icon-plus text-white"></span>
+						新增
+					</button>
+
+				<button class="all-del btn btn-primary rd-no" type="button">
+						<span class="  icon-trash text-white"></span>
+						删除
+					</button>
+			</div>
+
+			<!--列表-->
+			<div class="system-list">
+				<table class="table  ">
+					<thead>
+
+						<tr>
+							<th class=" text-center" style="padding-left: 10px;">
+								<input class="ck-all" type="checkbox" name="" id="" value="" />
+							</th>
+							<th class="col-xs-1">
+								客户名称
+							</th>
+							<th class="col-xs-1">
+								登陆密码
+							</th>
+							<th class="col-xs-1">
+								联系人1
+							</th>
+
+							<th class="col-xs-1">
+								手机1
+							</th>
+							<th class="col-xs-1">
+								传真号码
+							</th>
+
+							<th class="col-xs-1">
+								联系人2
+							</th>
+
+							<th class="col-xs-1">
+								手机2
+							</th>
+
+							<th class="col-xs-1">
+								固定电话
+							</th>
+
+							<th class="col-xs-1">
+								QQ
+							</th>
+
+							<th class="col-xs-1">
+								公司地址
+							</th>
+
+							<th class="col-xs-1">
+								法人代表
+							</th>
+
+							<th class="col-xs-1">
+								操作
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<!-- 
+						<tr class="list-item">
+							<td>
+								<input type="checkbox" name="" id="" value="" />
+
+							</td>
+							<td class="overflow-1">475</td>
+							<td class="overflow-1">B级</td>
+							<td class="overflow-1">自产</td>
+							<td class="overflow-1">02502</td>
+							<td class="overflow-1">嘉旺</td>
+							<td class="overflow-1">吨</td>
+							<td class="overflow-1">
+								再生原料
+							</td>
+
+							<td class="overflow-1">
+
+								68.00
+							</td>
+
+							<td class="overflow-1">
+
+								5008.00
+							</td>
+							<td class="overflow-1">
+
+								5008.00
+							</td>
+
+							<td class="overflow-1">
+
+								20000.00
+							</td>
+
+						</tr>-->
+
+					</tbody>
+				</table>
+
+				<!--模板-->
+				<script type="text/template" id="handlebars-templete">
+
+					{{#lists}}
+					<tr class="list-item">
+						<td>
+							<input type="checkbox" name="" id="" value="" />
+
+						</td>
+						<td class="overflow-1">{{a1}}</td>
+						<td class="overflow-1">{{a2}}</td>
+						<td class="overflow-1">{{a3}}</td>
+						<td class="overflow-1">{{a4}}</td>
+						<td class="overflow-1">{{a5}}</td>
+						<td class="overflow-1">{{a6}}</td>
+						<td class="overflow-1">
+							{{a7}}
+						</td>
+
+						<td class="overflow-1">
+							{{a8}}
+						</td>
+
+						<td class="overflow-1">
+
+							{{a9}}
+						</td>
+						<td class="overflow-1">
+
+							{{a10}}
+						</td>
+
+						<td class="overflow-1">
+
+							{{a11}}
+						</td>
+						<td class="overflow-1">
+
+							<a href="javascript:;">编辑</a>
+						</td>
+
+					</tr>
+					{{/lists}}
+				</script>
+				<!-- 分页-->
+				<div class="system-paging paging">
+
+				</div>
+				
+				<!-- 分页2-->
+				<!--<div class="system-paging2 text-right">
+
+					<div class="record">
+						共 <strong class="text-primary">10</strong>条记录
+					</div>
+
+					<div class="record">
+						<label for="record_page" class="">
+						每页
+						</label>
+
+						<select name="" id="record_page">
+							<option value="10">10</option>
+						</select>
+					</div>
+
+					<div class="record">
+						<span class="first glyphicon glyphicon-step-backward disabled"></span>
+						<span class="prev glyphicon glyphicon-backward disabled"></span>
+						<span class="num-index">1</span>
+						<span class="num-line ">/</span>
+						<span class="num-all ">2</span>
+						<span class="next glyphicon glyphicon-forward  active"></span>
+						<span class="last glyphicon glyphicon-step-forward active"></span>
+					</div>
+					<div class="record">
+						<input class="skip-txt" type="text" name="" id="" value="5" />
+						<button class="skip-btn" type="button">跳转</button>
+					</div>
+
+				</div>-->
+
+			</div>
+
+		</div>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--[if lte IE 8]>
+			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			// 分页
+			paging.init({
+				index: 1, //	当前页
+				pageItem: 10, //  每页条数
+				allItem: 100, //  总条数
+				showCount: 5, //  显示的页码数目
+				selector: ".paging", //分页父元素
+				isAnimation: true, //是否显示动画
+				isShowSkip: true, // 是否显示跳转页
+				isShowCount: true, // 是否显示总页数
+				isShowAllItems: true, // 是否显示总条目
+			});
+
+			// 显示第一页
+			getDtatById(1);
+
+			//点击事件
+			$(document).on("paging_click", function(event, id) {
+				//id 当前点击的元素的页码	
+				//alert(id);	
+				getDtatById(id);
+
+			});
+
+			// 异步加载数据
+			function getDtatById(id) {
+				$.get("json/system-dangan.json", {
+					id: id
+				}, function(data) {
+					data = data.constructor === Array ? data : $.parseJSON(data);
+					for(var i in data) {
+						data[i].a1 = id + "-" + data[i].a1;
+					}
+					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template2({
+						lists: data
+					});
+
+					$(".system-list .table tbody").html(html);
+
+					// checkbox
+					$('input').iCheck({
+						checkboxClass: 'icheckbox_flat-blue',
+						radioClass: 'iradio_flat-blue',
+						increaseArea: '20%' // optional
+					});
+					$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
+					system.check();
+				});
+
+			}
+
+			// 删除数据
+			$(".all-del").on("click", function() {
+
+				var $lists = $("tbody .list-item input[type=checkbox]:checked");
+				if($lists.length <= 0) {
+					alert("你还没有选择数据？");
+					return;
+				}
+				if(confirm("你确认要删除数据？")) {
+					$lists.each(function() {
+						$(this).closest(".list-item").remove();
+					});
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

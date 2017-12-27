@@ -25,44 +25,66 @@
 			</h4>
 
 			<!--查询表单-->
+			<div class="ruku-rk">
+				<form class="ruku-from   clearfix" novalidate="novalidate">
+					<h4>客户信息</h4>
 
-			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+					<div class="form-group form-inline">
+						<label for="">客户选择：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==客户选择==" />
+						<input class="btn btn-primary rd-no btn-serach" type="button" name="" id="" value="搜索" />
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="">客户名称：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==客户名称==" />
+						
+						<label for="">客户编号：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value=""   placeholder="==客户编号==" />
+						
+						
+						<label for="">客户手机：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value=""  placeholder="==客户手机=="  />
+						
+					
+					</div>
+					
+					<h4>入库单主信息</h4>
 
-			</form>
+					<div class="form-group form-inline">
+						<label for="">入库日期：</label>
+						<input class="form-control rd-no bs-date" type="text" name="" id="" value="" placeholder="==入库日期==" />
+						
+						<label for="">入库单号：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==入库单号==" />
+						
+						
+						<label for="">仓库名称：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==入库单号==" />
+						
+						
+					</div>
+					<div class="form-group form-inline l2">
+						<label for=""> 帮运对：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value=""  placeholder="==帮运对=="/>
+						
+						<label for=""> 分车员：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value=""  placeholder="==分车员=="/>
+						
+						
+						<label for=""> 仓管员：</label>
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==仓管员==" />
+						
+					
+					</div>
+					
+					<div class="form-group op">
+						<input class="btn btn-primary rd-no" type="button" name="" id="" value="选择产品" />
+						<input class="btn btn-primary rd-no" type="button" name="" id="" value="确认提交" />
+					</div>
+				</form>
+			</div>
 
-			<!--操作按钮-->
-			
-			<!--<div class="form-group  system-btns ">
-				<button class=" btn btn-primary rd-no" type="button">
-						<span class="glyphicon glyphicon-ban-circle text-white"></span>
-						作废
-					</button>
-				<button class=" btn btn-primary rd-no" type="button">
-					<span class=" iconfont icon-daochu text-white"></span>
-					导出
-				</button>
-				<button class=" btn btn-primary rd-no" type="button">
-						<span class=" glyphicon glyphicon-print text-white"></span>
-						打印
-				</button>
-
-				<button class=" btn btn-primary rd-no" type="button">
-						<span class="iconfont icon-shenhe text-white"></span>
-						审核
-				</button>
-				
-				<button class=" btn btn-primary rd-no" type="button">
-						<span class=" icon-plus text-white"></span>
-						新增
-				</button>
-
-				<button class="all-del btn btn-primary rd-no" type="button">
-					<span class="icon-trash text-white"></span>
-					删除
-				</button>
-			</div>-->
-
-		
 		</div>
 
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
@@ -76,10 +98,8 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			
 			bsDate.init(); // 日期
-			
-	</script>
+		</script>
 	</body>
 
 </html>
