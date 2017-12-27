@@ -4272,8 +4272,10 @@ var admin = function ($) {
 
 	// 刷新子页面
 	$(".admin-right").find(".btn-refresh").on("click", function () {
-
-		$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
+		var $el = $(".admin-right  .iframe-box.active");
+		if ($el.length > 0) {
+			$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
+		}
 		$(this).blur();
 	});
 
