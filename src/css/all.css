@@ -7403,19 +7403,13 @@ input:focus,
           box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important; }
 
 .input-br-no {
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-bottom: none !important;
+  border: none !important;
   -webkit-box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
           box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
   background: none; }
 
 .input-br-no:focus {
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-bottom: none !important;
+  border: none !important;
   background: none;
   -webkit-box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
           box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important; }
@@ -7628,6 +7622,10 @@ select option {
 
 .clr:after {
   clear: both; }
+
+/*select兼容safari */
+select.form-control {
+  line-height: 28px; }
 
 .iframe-body {
   padding: 10px; }
@@ -8069,3 +8067,6 @@ select option {
     width: 180px; }
   .ruku-from .op .btn-primary + .btn-primary {
     margin-left: 50px; }
+
+/*出库*/
+/**客户转账**/

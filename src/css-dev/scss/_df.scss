@@ -237,19 +237,13 @@ input:focus,
 }
 
 .input-br-no {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
+    border: none !important;
     box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
     background: none;
 }
 
 .input-br-no:focus {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
+    border: none !important;
     background: none;
     box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
 }
@@ -521,4 +515,9 @@ a:hover {
 
 .clr:after {
     clear: both;
+}
+
+/*select兼容safari */
+select.form-control{
+    line-height: 28px;
 }

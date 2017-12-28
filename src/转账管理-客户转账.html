@@ -7,10 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>客户档案</title>
+		<title>客户转账</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+		<link rel="stylesheet" href="css/bs-date/css/bootstrap-datetimepicker.css" />
 	</head>
 
 	<body>
@@ -20,7 +21,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				客户档案
+				客户转账
 			</h4>
 
 			<!--查询表单-->
@@ -28,18 +29,18 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">商品名称:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+					<label for="txt_1">转账单号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==转账单号==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_2">商品型号:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
+					<label for="txt_2">提货单号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==仓库名称==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_3">商品产地:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_3" value="" placeholder="==商品产地==" />
+					<label for="txt_3">转账日期:</label>
+					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==转账日期==" />
 
 				</div>
 
@@ -55,70 +56,60 @@
 
 			<!--操作按钮-->
 			<div class="form-group  system-btns ">
-				<button class=" btn btn-primary rd-no" type="button" data-toggle="modal" data-target="#modal1">
-						<span class=" icon-plus text-white"></span>
-						新增
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class="glyphicon glyphicon-ban-circle text-white"></span>
+						作废
 					</button>
+				
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" glyphicon glyphicon-print text-white"></span>
+						打印
+				</button>
 
-				<button class="all-del btn btn-primary rd-no" type="button">
-						<span class="  icon-trash text-white"></span>
-						删除
-					</button>
 			</div>
 
-			<!--列表-->
+			<!--列表 -->
 			<div class="system-list">
+
 				<table class="table  ">
 					<thead>
-
 						<tr>
-							<th class=" text-center" style="padding-left: 10px;">
+							<th class=" text-center">
 								<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
+						
 							<th class="col-xs-1">
-								客户名称
+								转账单号
 							</th>
 							<th class="col-xs-1">
-								登陆密码
+								提货单号
 							</th>
 							<th class="col-xs-1">
-								联系人1
-							</th>
-
-							<th class="col-xs-1">
-								手机1
-							</th>
-							<th class="col-xs-1">
-								传真号码
+								转账日期
 							</th>
 
 							<th class="col-xs-1">
-								联系人2
+								原客户名称
 							</th>
 
 							<th class="col-xs-1">
-								手机2
+								新客户名称
 							</th>
 
 							<th class="col-xs-1">
-								固定电话
+								仓库名称
 							</th>
 
 							<th class="col-xs-1">
-								QQ
+								状态
 							</th>
-
-							<th class="col-xs-1">
-								公司地址
-							</th>
-
-							<th class="col-xs-1">
-								法人代表
-							</th>
-
+							
 							<th class="col-xs-1">
 								操作
 							</th>
+
+
+							
 						</tr>
 					</thead>
 
@@ -174,7 +165,9 @@
 
 						</td>
 						<td class="overflow-1">{{a1}}</td>
-						<td class="overflow-1">{{a2}}</td>
+						<td class="overflow-1-5">
+							{{#date a2 "yyyy-MM-dd "}} {{a2}} {{/date}}
+						</td>
 						<td class="overflow-1">{{a3}}</td>
 						<td class="overflow-1">{{a4}}</td>
 						<td class="overflow-1">{{a5}}</td>
@@ -191,17 +184,8 @@
 
 							{{a9}}
 						</td>
-						<td class="overflow-1">
-
-							{{a10}}
-						</td>
-
-						<td class="overflow-1">
-
-							{{a11}}
-						</td>
-						<td class="overflow-1">
-
+						<td class="overflow-1-5 op">
+							<a href="javascript:;">查看</a>
 							<a href="javascript:;">编辑</a>
 						</td>
 
@@ -212,7 +196,7 @@
 				<div class="system-paging paging">
 
 				</div>
-				
+
 				<!-- 分页2-->
 				<!--<div class="system-paging2 text-right">
 
@@ -250,7 +234,7 @@
 
 		</div>
 
-	<!--modal 弹出框-->
+		<!--modal 弹出框-->
 		<div class="modal fade" id="modal1" data-backdrop="false">
 			<div class="modal-dialog modal-md">
 				<div class="modal-content">
@@ -313,12 +297,15 @@
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
 		<!--[if lte IE 8]>
 			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
 		<script type="text/javascript">
+			
+			bsDate.init(); // 日期
 			// 分页
 			paging.init({
 				index: 1, //	当前页
@@ -345,7 +332,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/system-dangan.json", {
+				$.get("json/tranfer.json", {
 					id: id
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
@@ -375,6 +362,7 @@
 			$(".all-del").on("click", function() {
 
 				var $lists = $("tbody .list-item input[type=checkbox]:checked");
+
 				if($lists.length <= 0) {
 					alert("你还没有选择数据？");
 					return;

@@ -206,13 +206,19 @@ var admin = (function($) {
 
 	// 刷新子页面
 	$(".admin-right").find(".btn-refresh").on("click", function() {
-		var $el=$(".admin-right  .iframe-box.active");
-		if($el.length>0){
-			$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
+		
+		try {
+			var $el = $(".admin-right  .iframe-box.active");
+			if($el.length > 0) {
+				$(".admin-right  .iframe-box.active")[0].contentWindow.location.reload();
 			}
+		} catch(e) {
+			//TODO handle the exception
+		}
+
 		$(this).blur();
 	});
-	
+
 	$("[data-toggle=tooltip]").tooltip();
 
 	function _showIframeActive() {
