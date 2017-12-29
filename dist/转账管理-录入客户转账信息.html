@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>录入入库单</title>
+		<title>录入客户转账信息</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,15 +21,15 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				录入入库单
+				录入客户转账信息
 			</h4>
 
 			<!--查询表单-->
 			<div class="ruku-rk">
 				<form class="ruku-from   clearfix" novalidate="novalidate">
-					<h4>客户信息</h4>
+					<h4>原客户信息</h4>
 
-					<div class="form-group form-inline">
+					<div class="form-group form-inline ">
 						<label for="">客户选择：</label>
 						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户选择==" />
 						<input class="btn btn-primary rd-no btn-serach" type="button" name="" id="" value="搜索" />
@@ -39,42 +39,36 @@
 						<label for="">客户名称：</label>
 						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户名称==" />
 						
-						<label for="">客户编号：</label>
-						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""   placeholder="==客户编号==" />
+						<label for="">联系手机：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""   placeholder="==联系手机==" />
 						
 						
-						<label for="">客户手机：</label>
-						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""  placeholder="==客户手机=="  />
+						<label for="">联系人：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""  placeholder="==联系人=="  />
 						
 					
 					</div>
 					
-					<h4>入库单主信息</h4>
+					<h4>转账单主信息</h4>
 
-					<div class="form-group form-inline">
-						<label for="">入库日期：</label>
-						<input class="form-control rd-no bs-date" autocomplete="off" type="text" name="" id="" value="" placeholder="==入库日期==" />
+					<div class="form-group form-inline transfer-lr">
+						<label for="">转账日期：</label>
+						<input class="form-control rd-no bs-date" autocomplete="off" type="text" name="" id="" value="" placeholder="==转账日期==" />
 						
-						<label for="">入库单号：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==入库单号==" />
+						<label for="">提单号：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==提单号==" />
 						
+						
+					
+						
+						
+					</div>
+					<div class="form-group form-inline transfer-lr">
+						<label for="">原客户名称：</label>
+						<input class="form-control rd-no" autocomplete="off"  type="text" name="" id="" value="" placeholder="==原客户名称==" />
 						
 						<label for="">仓库名称：</label>
-						<input class="form-control rd-no" autocomplete="off"  type="text" name="" id="" value="" placeholder="==入库单号==" />
-						
-						
-					</div>
-					<div class="form-group form-inline l2">
-						<label for=""> 搬运队：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value=""  placeholder="==搬运队=="/>
-						
-						<label for=""> 分车员：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value=""  placeholder="==分车员=="/>
-						
-						
-						<label for=""> 仓管员：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==仓管员==" />
-						
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==仓库名称==" />
 					
 					</div>
 					

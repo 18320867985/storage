@@ -4,45 +4,155 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		
-		<link rel="stylesheet" type="text/css" href="../css/all.css"/>
+
+		<link rel="stylesheet" type="text/css" href="../css/all.css" />
 		<style type="text/css">
-			body{padding: 100px;}
-			.test{
+			body {
+				padding: 100px;
+			}
+			
+			.test {
 				border: 1px solid red;
 				padding: 100px;
 			}
 			
-			a{
-				padding: 20px;
+			a {
+				padding: 20px !important;
 				border: 1px solid #ddd;
 			}
 		</style>
-		
 
 	</head>
 
 	<body>
-		
-		<div  class="test" >
-		rrr
+
+		<div class="test">
+			rrr
 		</div>
-	
-		<script src="../js/config.js"    type="text/javascript" charset="utf-8"></script>
-		<script src="../js/all.js"  	 type="text/javascript" charset="utf-8"></script>
-	
+
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+
+		<a href="">aaaaa</a>
+		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/all.js" type="text/javascript" charset="utf-8"></script>
+
 		<!--[if lte IE 8]>
 			<script src="../js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
-		
-	<script type="text/javascript">
 
+		<script type="text/javascript">
+			$("#list_cInvName >.list_sty,.chuanhuo_list,.gengduo2,.gengduo").on("mouseenter", "a", function() {
+				$(this).parents(".chuanhuo_list").css("position","relative");
+				var div = document.createElement("div");
+				div.className = "tooltip";
+				div.innerText = $(this).text();
+				div.style.border = "1px solid #ddd";
+				div.style.borderRadius = "5px";
+				div.style.position = "absolute";
+				div.style.background = "#fff";
+				div.style.padding = "3px 10px ";
+				div.style.height = "30px";
+				div.style.lineHeight = "30px";
+				div.style.boxShadow = "2px 2px 5px #ddd,-2px 0px 5px #ddd";
+				div.style.zIndex = "999";
+					//div.style.left= Number(div.style.left)+10 +"px";
+				div.style.width = "auto";
+				div.style.width = "auto";
 
+				$(this).append(div);
 
-     
-	</script>
-	
-	
+				return false;
+
+			});
+
+			$("#list_cInvName >.list_sty,.chuanhuo_list,.gengduo2,.gengduo").on("mouseleave", "a", function() {
+				$(this).find(".tooltip").remove();
+			});
+		</script>
+
 	</body>
 
 </html>

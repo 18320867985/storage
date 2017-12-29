@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>录入入库单</title>
+		<title>录入出库单</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,63 +21,67 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				录入入库单
+				录入出库单
 			</h4>
 
 			<!--查询表单-->
 			<div class="ruku-rk">
-				<form class="ruku-from   clearfix" novalidate="novalidate">
+				<form class="ruku-from  chuku-form  clearfix" novalidate="novalidate">
 					<h4>客户信息</h4>
 
 					<div class="form-group form-inline">
 						<label for="">客户选择：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户选择==" />
+						<input class="form-control rd-no" type="text" name="" id="" value="" placeholder="==客户选择==" />
 						<input class="btn btn-primary rd-no btn-serach" type="button" name="" id="" value="搜索" />
 					</div>
-					
-					<div class="form-group form-inline">
+
+					<div class="form-group form-inline   ">
 						<label for="">客户名称：</label>
 						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户名称==" />
-						
+
 						<label for="">客户编号：</label>
-						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""   placeholder="==客户编号==" />
-						
-						
-						<label for="">客户手机：</label>
-						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""  placeholder="==客户手机=="  />
-						
-					
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户编号==" />
+
+						<label for="">联系手机：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==联系手机==" />
+
 					</div>
-					
+
+					<div class="form-group form-inline   ">
+
+						<label for="">联系人：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==联系人==" />
+
+						<label for="">提货方式：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==提货方式==" />
+
+					</div>
+
 					<h4>入库单主信息</h4>
 
 					<div class="form-group form-inline">
-						<label for="">入库日期：</label>
-						<input class="form-control rd-no bs-date" autocomplete="off" type="text" name="" id="" value="" placeholder="==入库日期==" />
-						
-						<label for="">入库单号：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==入库单号==" />
-						
-						
-						<label for="">仓库名称：</label>
-						<input class="form-control rd-no" autocomplete="off"  type="text" name="" id="" value="" placeholder="==入库单号==" />
-						
-						
+						<label for="">出库日期：</label>
+						<input class="form-control rd-no bs-date" autocomplete="off" type="text" name="" id="" value="" placeholder="==出库日期==" />
+
+						<label for="">提货单号：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==提货单号==" />
+
 					</div>
 					<div class="form-group form-inline l2">
-						<label for=""> 搬运队：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value=""  placeholder="==搬运队=="/>
-						
-						<label for=""> 分车员：</label>
-						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value=""  placeholder="==分车员=="/>
-						
-						
-						<label for=""> 仓管员：</label>
+						<label for=""> 仓库名称：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==仓库名称==" />
+
+						<label for=""> 车牌省份：</label>
+
+						<select id="address_1" name="" class="form-control rd-no">
+							<option value="">==车牌省份==</option>
+						</select>
+
+						<label for=""> 车号：</label>
 						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==仓管员==" />
-						
-					
+
 					</div>
-					
+
 					<div class="form-group op">
 						<input class="btn btn-primary rd-no" type="button" name="" id="" value="选择产品" />
 						<input class="btn btn-primary rd-no" type="button" name="" id="" value="确认提交" />
@@ -87,11 +91,13 @@
 
 		</div>
 
+	
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 		<!--[if lte IE 8]>
 			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
@@ -99,6 +105,7 @@
 
 		<script type="text/javascript">
 			bsDate.init(); // 日期
+			threeAddress.init(); // 省份地址
 		</script>
 	</body>
 
