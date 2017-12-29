@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="塑金仓储信息管理系统" />
+		<meta name="Description" content="塑金仓储信息管理系统" />
+		<title>录入客户转账信息</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+		<link rel="stylesheet" type="text/css" href="css/bs-date/css/bootstrap-datetimepicker.min.css" />
+	</head>
+
+	<body>
+
+		<div class="system iframe-body">
+
+			<!--标题-->
+			<h4 class="system-ttl">
+				<span class="glyphicon glyphicon-list-alt iconttl"></span>
+				录入客户转账信息
+			</h4>
+
+			<!--查询表单-->
+			<div class="ruku-rk">
+				<form class="ruku-from   clearfix" novalidate="novalidate">
+					<h4>原客户信息</h4>
+
+					<div class="form-group form-inline ">
+						<label for="">客户选择：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户选择==" />
+						<input class="btn btn-primary rd-no btn-serach" type="button" name="" id="" value="搜索" />
+					</div>
+					
+					<div class="form-group form-inline">
+						<label for="">客户名称：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value="" placeholder="==客户名称==" />
+						
+						<label for="">联系手机：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""   placeholder="==联系手机==" />
+						
+						
+						<label for="">联系人：</label>
+						<input class="form-control rd-no input-underline" autocomplete="off" type="text" name="" id="" value=""  placeholder="==联系人=="  />
+						
+					
+					</div>
+					
+					<h4>转账单主信息</h4>
+
+					<div class="form-group form-inline transfer-lr">
+						<label for="">转账日期：</label>
+						<input class="form-control rd-no bs-date" autocomplete="off" type="text" name="" id="" value="" placeholder="==转账日期==" />
+						
+						<label for="">提单号：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==提单号==" />
+						
+						
+					
+						
+						
+					</div>
+					<div class="form-group form-inline transfer-lr">
+						<label for="">原客户名称：</label>
+						<input class="form-control rd-no" autocomplete="off"  type="text" name="" id="" value="" placeholder="==原客户名称==" />
+						
+						<label for="">仓库名称：</label>
+						<input class="form-control rd-no" autocomplete="off" type="text" name="" id="" value="" placeholder="==仓库名称==" />
+					
+					</div>
+					
+					<div class="form-group op">
+						<input class="btn btn-primary rd-no" type="button" name="" id="" value="选择产品" />
+						<input class="btn btn-primary rd-no" type="button" name="" id="" value="确认提交" />
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+		<!--[if lte IE 8]>
+			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			bsDate.init(); // 日期
+		</script>
+	</body>
+
+</html>

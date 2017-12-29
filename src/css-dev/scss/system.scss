@@ -28,22 +28,19 @@
     .form-group+.form-group {
         margin-left: 10px;
     }
-    
     .btn-primary {
         margin-left: 20px;
     }
-    
 }
 
 //操作按钮
-.system-btns{
+.system-btns {
     //add-btns
-    margin:15px 0;
-   padding-left: 10px;
-        .btn+.btn {
-            margin-left: 10px;
-        }
-    
+    margin: 15px 0;
+    padding-left: 10px;
+    .btn+.btn {
+        margin-left: 10px;
+    }
 }
 
 // 列表
@@ -63,8 +60,8 @@
         tr:nth-child(even) {
             background: $bg-f8;
         }
-        .op{
-            a+a{
+        .op {
+            a+a {
                 margin-left: 5px;
             }
         }
@@ -73,64 +70,56 @@
 
 // system-paging 分页
 .system-paging {
-   padding: 15px 20px;
-   
+    padding: 15px 20px;
     text-align: center;
     background: $bg-f8;
 }
 
+
 /*分页2*/
-.system-paging2{
+
+.system-paging2 {
     padding: 10px;
-    
-    .record{
+    .record {
         display: inline-block;
-        
-        select{
+        select {
             line-height: 16px;
         }
-        
-        .num-index{
+        .num-index {
             margin-left: 15px;
         }
-        .num-all{
+        .num-all {
             margin-right: 15px;
         }
-        .glyphicon.disabled{
-            color:#ccc;
+        .glyphicon.disabled {
+            color: #ccc;
         }
-        
-        .glyphicon.active{
-            color:$text-blue;
-            &:hover{
+        .glyphicon.active {
+            color: $text-blue;
+            &:hover {
                 cursor: pointer;
             }
         }
-        .skip-txt{
+        .skip-txt {
             width: 50px;
-            text-align:center;
-            border:1px solid $br;
+            text-align: center;
+            border: 1px solid $br;
         }
-        
-          .skip-btn{
+        .skip-btn {
             width: 50px;
-            color:$text-white;
-           border: none;
-           background:$text-blue;
-           outline: none;
-           
-           &:hover{
-               background: darken($text-blue,10%);
-           }
+            color: $text-white;
+            border: none;
+            background: $text-blue;
+            outline: none;
+            &:hover {
+                background: darken($text-blue, 10%);
+            }
         }
-        
-        label{
-            color:$text-df;
+        label {
+            color: $text-df;
         }
-        
-       & +.record{
-            
-             margin-left: 20px;
+        &+.record {
+            margin-left: 20px;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿/*默认样式*/
+﻿co
+/*默认样式*/
 
 body {
     font-size: 12px;
@@ -11,7 +12,6 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
 
 .container-fluid-12 {
     width: 100%;
@@ -69,7 +69,7 @@ img {
     outline: none;
 }
 
-img{
+img {
     display: inline-block;
 }
 
@@ -379,32 +379,31 @@ select option {
 
 /*webkit*/
 
-input::-webkit-input-placeholder {
-   
-}
+input::-webkit-input-placeholder {}
 
 
 /*IE10+*/
 
-input:-ms-input-placeholder {
-    
-}
+input:-ms-input-placeholder {}
 
 
 /*Firefox4-18*/
 
-input:-moz-placeholder {
-   
-}
+input:-moz-placeholder {}
 
 
 /*Firefox19+*/
 
-input::-moz-placeholder {
-   
-}
+input::-moz-placeholder {}
 
 //超出隐藏为
+.overflow-0-5 {
+    max-width: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .overflow-1 {
     max-width: 100px;
     text-overflow: ellipsis;
@@ -446,7 +445,6 @@ input::-moz-placeholder {
     white-space: nowrap;
 }
 
-
 .overflow-4 {
     max-width: 400px;
     text-overflow: ellipsis;
@@ -460,6 +458,7 @@ input::-moz-placeholder {
     overflow: hidden;
     white-space: nowrap;
 }
+
 .overflow-5 {
     max-width: 500px;
     text-overflow: ellipsis;
@@ -474,6 +473,45 @@ input::-moz-placeholder {
     white-space: nowrap;
 }
 
+.width-0-5 {
+    width: 5%;
+}
+.width-1 {
+    width: 10%;
+}
+
+.width-1-5 {
+    width: 15%;
+}
+
+.width-2 {
+    width: 20%;
+}
+
+.width-2-5 {
+    width: 25%;
+}
+
+.width-3 {
+    width: 30%;
+}
+
+.width-3-5 {
+    width: 35%;
+}
+
+.width-4 {
+    width: 40%;
+}
+
+.width-4-5 {
+    width: 45%;
+}
+
+.width-5 {
+    width: 50%;
+}
+
 
 /*ellipsis*/
 
@@ -484,15 +522,15 @@ input::-moz-placeholder {
     overflow: hidden;
 }
 
-.padding-l-no{
+.padding-l-no {
     padding-left: 0;
 }
 
-.padding-r-no{
+.padding-r-no {
     padding-right: 0;
 }
 
-.padding-lr-no{
+.padding-lr-no {
     padding-left: 0;
     padding-right: 0;
 }
@@ -500,8 +538,8 @@ input::-moz-placeholder {
 
 /* a link*/
 
-a:hover {
-  
+.hover-tooltip {
+    color: #777;
 }
 
 
@@ -517,7 +555,9 @@ a:hover {
     clear: both;
 }
 
+
 /*select兼容safari */
-select.form-control{
+
+select.form-control {
     line-height: 28px;
 }

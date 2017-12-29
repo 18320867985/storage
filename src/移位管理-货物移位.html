@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>客户转账</title>
+		<title>货物移位</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,7 +21,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				客户转账
+				货物移位
 			</h4>
 
 			<!--查询表单-->
@@ -29,20 +29,21 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">转账单号:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==转账单号==" />
+					<label for="txt_1">移位单号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==移位单号==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_2">提货单号:</label>
+					<label for="txt_3">移位日期:</label>
+					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==移位日期==" />
+
+				</div>
+				<div class="form-group">
+					<label for="txt_2">仓库名称:</label>
 					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==仓库名称==" />
 
 				</div>
-				<div class="form-group">
-					<label for="txt_3">转账日期:</label>
-					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==转账日期==" />
-
-				</div>
+				
 
 				<div class="form-group">
 					<button class="btn btn-primary rd-no" type="button">
@@ -74,37 +75,25 @@
 				<table class="table  ">
 					<thead>
 						<tr>
-							<th class=" text-center col-xs-1">
+							<th class=" text-center  width-1">
 								<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
 						
-							<th class="col-xs-2">
-								转账单号
+							<th class=" width-2">
+								移位单号
 							</th>
-							<th class="col-xs-1">
-								提货单号
-							</th>
-							<th class="col-xs-2">
-								转账日期
-							</th>
-
-							<th class="col-xs-1">
-								原客户名称
-							</th>
-
-							<th class="col-xs-1">
-								新客户名称
-							</th>
-
-							<th class="col-xs-1">
+							<th class=" width-2">
 								仓库名称
 							</th>
+							<th class=" width-2">
+								移位日期
+							</th>
 
-							<th class="col-xs-1">
+							<th class=" width-1">
 								状态
 							</th>
 							
-							<th class="col-xs-2">
+							<th class=" width-2">
 								操作
 							</th>
 
@@ -160,26 +149,21 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						<td>
+						<td class="width-1">
 							<input type="checkbox" name="" id="" value="" />
 
 						</td>
-						<td class="overflow-2">{{a1}}</td>
-						<td class="overflow-1">
+						<td class="width-2 overflow-1-5">{{a1}}</td>
+						<td class="overflow-1 overflow-1">
 						{{a2}}
 						</td>
 						<td class="overflow-2">
-							{{#date a3 "yyyy-MM-dd"}}
+							{{#date a3 "yyyy-MM-dd HH:mm:ss"}}
 								{{a3}}
 							{{/date}}
 						</td>
 						<td class="overflow-1">{{a4}}</td>
-						<td class="overflow-1">{{a5}}</td>
-						<td class="overflow-1">{{a6}}</td>
-						<td class="overflow-1">
-							{{a7}}
-						</td>
-
+					
 						<td class="overflow-2 op">
 							<a href="javascript:;">查看</a>
 						
@@ -230,65 +214,6 @@
 
 		</div>
 
-		<!--modal 弹出框-->
-		<div class="modal fade" id="modal1" data-backdrop="false">
-			<div class="modal-dialog modal-md">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													 	<span aria-hidden="true">&times;</span>
-													 </button>
-						<h4 class="modal-title">添加商品信息</h4>
-					</div>
-					<div class="modal-body">
-						<form class="form-address" action="" novalidate="novalidate">
-
-							<div class="form-group vd-box">
-								<label for="">商品名称：</label>
-								<input class="form-control rd-no vd-item" type="text" placeholder="==商品名称==" />
-
-							</div>
-
-							<div class="form-group">
-								<label for="">商品编号：</label>
-								<input class="form-control rd-no" type="text" placeholder="==商品编号==" />
-
-							</div>
-
-							<div class="form-group">
-								<label for="">税号：</label>
-								<input class="form-control rd-no" type="text" placeholder="==税号==" />
-
-							</div>
-
-							<div class="form-group">
-								<label for="">地址及电话号码：</label>
-								<input class="form-control rd-no" type="text" placeholder="==地址及电话号码==" />
-
-							</div>
-
-							<div class="form-group clearfix">
-
-								<div class="col-xs-2 padding-l-no ">
-
-									<button class="btn  btn-primary rd-no vd-btn" type='button'>添加信息</button>
-								</div>
-
-								<div class="col-xs-2 col-xs-offset-1 ">
-									<input class="btn  btn-primary rd-no " type="reset" value="清空信息" />
-								</div>
-
-							</div>
-
-						</form>
-
-					</div>
-
-				</div>
-			</div>
-
-		</div>
-
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
@@ -329,7 +254,7 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/tranfer.json", {
+				$.get("json/yinwei.json", {
 					id: id
 				}, function(data) {
 					

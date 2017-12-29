@@ -7219,8 +7219,7 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
   background: #f0f0f0;
   background: rgba(240, 240, 240, 0.8); }
 
-/*默认样式*/
-body {
+co body {
   font-size: 12px;
   font-family: "微软雅黑", "宋体";
   background: #fff; }
@@ -7537,6 +7536,12 @@ select option {
 /*IE10+*/
 /*Firefox4-18*/
 /*Firefox19+*/
+.overflow-0-5 {
+  max-width: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
 .overflow-1 {
   max-width: 100px;
   text-overflow: ellipsis;
@@ -7596,6 +7601,36 @@ select option {
   overflow: hidden;
   white-space: nowrap; }
 
+.width-0-5 {
+  width: 5%; }
+
+.width-1 {
+  width: 10%; }
+
+.width-1-5 {
+  width: 15%; }
+
+.width-2 {
+  width: 20%; }
+
+.width-2-5 {
+  width: 25%; }
+
+.width-3 {
+  width: 30%; }
+
+.width-3-5 {
+  width: 35%; }
+
+.width-4 {
+  width: 40%; }
+
+.width-4-5 {
+  width: 45%; }
+
+.width-5 {
+  width: 50%; }
+
 /*ellipsis*/
 .ellipsis {
   width: 100%;
@@ -7614,6 +7649,9 @@ select option {
   padding-right: 0; }
 
 /* a link*/
+.hover-tooltip {
+  color: #777; }
+
 /*clr*/
 .clr:before,
 .clr:after {
@@ -7779,7 +7817,7 @@ select.form-control {
         .admin-left .box-big .nemu-1 > li:hover {
           cursor: pointer; }
         .admin-left .box-big .nemu-1 > li .iconfont {
-          margin-right: 10px;
+          margin-right: 5px;
           font-size: 24px; }
           .admin-left .box-big .nemu-1 > li .iconfont.icon-yiweizhuanhuan {
             font-size: 20px; }
@@ -8049,13 +8087,13 @@ select.form-control {
   padding: 10px 50px;
   border: 1px solid #ddd; }
   .ruku-from h4 {
-    margin: 30px 0;
+    margin: 40px 0;
     font-weight: 600;
     color: #323232; }
   .ruku-from .btn-serach {
     margin-left: 50px; }
   .ruku-from .form-group label {
-    width: 60px; }
+    width: 80px; }
   .ruku-from .form-group label + .form-control {
     margin-right: 10px; }
   .ruku-from .form-group + .form-group {
@@ -8065,8 +8103,19 @@ select.form-control {
     padding-right: 30px; }
   .ruku-from .form-control {
     width: 180px; }
+  .ruku-from .op .btn-primary {
+    margin-top: 30px; }
   .ruku-from .op .btn-primary + .btn-primary {
     margin-left: 50px; }
 
 /*出库*/
 /**客户转账**/
+.ruku-from .transfer-lr label {
+  width: 90px; }
+
+/*移位管理*/
+.yinwei-form-content {
+  width: 700px;
+  margin: 0 auto; }
+  .yinwei-form-content .form-group label {
+    width: 80px; }
