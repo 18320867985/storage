@@ -26,3 +26,8 @@
 //
 //	$(this).find(".tooltip-cont").remove();
 //});
+
+
+
+// 开启tooltip组件
+$("[data-toggle=tooltip]").tooltip();

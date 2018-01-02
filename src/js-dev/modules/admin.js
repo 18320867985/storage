@@ -219,11 +219,11 @@ var admin = (function($) {
 		$(this).blur();
 	});
 
-	$("[data-toggle=tooltip]").tooltip();
 
+	// 第一次显示页面
 	function _showIframeActive() {
 
-		$(".box-big .nemu-2 li.active a").trigger("click"); // 第一次显示页面
+		$(".box-big .nemu-2 li.active a").trigger("click"); 
 	}
 
 	return {

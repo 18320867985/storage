@@ -421,6 +421,7 @@ input::-moz-placeholder {}
 .overflow-2 {
     max-width: 200px;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 

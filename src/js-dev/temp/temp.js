@@ -1,40 +1,69 @@
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /*
  *	公共类库
-*/
+ */
 
-common = function ($) {
+(function ($) {
 
-	/***url对象***/
-	var url_fn = {
-		//采用正则表达式获取地址栏参数：（ 强烈推荐，既实用又方便！）
-		GetQueryString: function GetQueryString(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]);return null;
-		},
+	// 冲突common兼容
+	var _common = window.common = window.Common;
 
-		//从WebAPI获取日期json数据 转换成日期时间戳
-		jsonToDate: function jsonToDate(apidate) {
-			var txts = apidate.replace("/Date(", "").replace(")/", "");
-			return parseInt(txts.trim());
-		},
+	/**创建Common对象**/
+	window.common = window.Common = function Common() {};
 
-		// 取当前页面名称(不带后缀名)
-		getPageName: function getPageName() {
-			var a = location.href;
-			var b = a.split("/");
-			var c = b.slice(b.length - 1, b.length).toString(String).split(".");
-			return c.slice(0, 1);
-		},
+	// 添加扩展extend
+	Common.extend = function (obj) {
 
-		//取当前页面名称(带后缀名)
-		getPageNameExention: function getPageNameExention() {
-			var strUrl = location.href;
-			var arrUrl = strUrl.split("/");
-			var strPage = arrUrl[arrUrl.length - 1];
-			return strPage;
+		if ((typeof obj === "undefined" ? "undefined" : _typeof(obj)) === "object") {
+
+			for (var i in obj) {
+				this[i] = obj[i];
+			}
 		}
 
+		return this;
+	};
+
+	/**url对象**/
+	Common.extend({
+
+		url: {
+			//采用正则表达式获取地址栏参数：（ 强烈推荐，既实用又方便！）
+			GetQueryString: function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			},
+
+			//从WebAPI获取日期json数据 转换成日期时间戳
+			jsonToDate: function jsonToDate(apidate) {
+				var txts = apidate.replace("/Date(", "").replace(")/", "");
+				return parseInt(txts.trim());
+			},
+
+			// 取当前页面名称(不带后缀名)
+			getPageName: function getPageName() {
+				var a = location.href;
+				var b = a.split("/");
+				var c = b.slice(b.length - 1, b.length).toString(String).split(".");
+				return c.slice(0, 1);
+			},
+
+			//取当前页面名称(带后缀名)
+			getPageNameExention: function getPageNameExention() {
+				var strUrl = location.href;
+				var arrUrl = strUrl.split("/");
+				var strPage = arrUrl[arrUrl.length - 1];
+				return strPage;
+			}
+
+		}
+	});
+
+	/**延迟加载**/
+	Common.extend({
 		/**
    * 延迟加载
    *  * <img class="load-lazy"
@@ -43,47 +72,249 @@ common = function ($) {
    * data-src="images/Home/板块图片1.png"
    * > 
    * */
-		// 延迟加载
-	};var jqlazy_fn = function jqlazy_fn() {
+		lazy: function lazy() {
 
-		var window_h = $(window).height();
+			var window_h = $(window).height();
 
-		$(window).scroll(function () {
+			$(window).scroll(function () {
 
-			setTimeout(function () {
+				setTimeout(function () {
 
-				$(".load-lazy").each(function () {
+					$(".load-lazy").each(function () {
 
-					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-					var img_h2 = parseInt($(this).offset().top) + $(this).height();
-					if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
+						var img_h = parseInt($(this).offset().top) - parseInt(window_h);
+						var img_h2 = parseInt($(this).offset().top) + $(this).height();
+						if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
 
-						$(this).attr("src", $(this).attr("data-src"));
+							$(this).attr("src", $(this).attr("data-src"));
 
-						/*ie8 不支持
-       * .animate({
-      "opacity":0.2
-      }).animate({
-      "opacity": 1
-      }, 500);
-      
-      * */
-					}
-				});
-			}, 100);
-		});
-	};
-
-	/*返回对象*/
-	return {
-
-		url: url_fn,
-		lazy: {
-			jqlazy: jqlazy_fn
+							/*ie8 不支持
+        * .animate({
+       "opacity":0.2
+       }).animate({
+       "opacity": 1
+       }, 500);
+       		
+       * */
+						}
+					});
+				}, 100);
+			});
 		}
 
-	};
-}(window.jQuery || window.Zepto);
+	});
+
+	/**绑定自定义事件**/
+	Common.extend({
+		events: {
+			events: {},
+
+			// bind events
+			on: function on(eventName, fn) {
+				this.events[eventName] = this.events[eventName] || [];
+				this.events[eventName].push(fn);
+			},
+			off: function off(eventName, fn) {
+				if (arguments.length === 1) {
+
+					this.events[eventName] = [];
+				} else if (arguments.length === 2) {
+					var $events = this.events[eventName] || [];
+					for (var i = 0; i < $events.length; i++) {
+						if ($events[i] === fn) {
+							$events.splice(i, 1);
+							break;
+						}
+					}
+				}
+			},
+			emit: function emit(eventName, data) {
+
+				if (this.events[eventName]) {
+					for (var i = 0; i < this.events[eventName].length; i++) {
+						this.events[eventName][i](data);
+					}
+				}
+			}
+		}
+	});
+
+	/**array的扩展方法**/
+	Common.extend({
+		list: {
+
+			// min value
+			min: function min(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _array_min = 0;
+				var isOne = true;
+				for (var i = 0; i < data.length; i++) {
+					var _temp = 0;
+
+					if (typeof data[i] !== "number") {
+
+						//  is not a number
+						var _num = Number(data[i]);
+						_temp = isNaN(_num) ? 0 : _num;
+					} else {
+
+						//  is a number
+						_temp = data[i];
+					}
+
+					if (isOne) {
+						_array_min = _temp;
+						isOne = false;
+					} else {
+						// set value number
+						if (_temp < _array_min) {
+							_array_min = _temp;
+						}
+					}
+				}
+
+				return _array_min;
+			},
+
+			// max value
+			max: function max(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _array_max = 0;
+
+				var isOne = true;
+				for (var i = 0; i < data.length; i++) {
+					var _temp = 0;
+
+					if (typeof data[i] !== "number") {
+
+						//  is not a number
+						var _num = Number(data[i]);
+						_temp = isNaN(_num) ? 0 : _num;
+					} else {
+
+						//  is a number
+						_temp = data[i];
+					}
+
+					if (isOne) {
+						_array_max = _temp;
+						isOne = false;
+					} else {
+						// set value number
+						if (_temp > _array_max) {
+							_array_max = _temp;
+						}
+					}
+				}
+
+				return _array_max;
+			},
+
+			// data where
+			where: function where(data, fn) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("第一个参数必须是个数组，第二是回调函数");
+				}
+				var _arrs = [];
+				if (data.constructor === Array) {
+
+					if (typeof fn !== "function") {
+						return data;
+					}
+					for (var i = 0; i < data.length; i++) {
+
+						if (fn(data[i])) {
+							_arrs.push(data[i]);
+						}
+					}
+				}
+
+				return _arrs;
+			},
+
+			// data map
+			map: function map(data, fn) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("第一个参数必须是个数组，第二是回调函数");
+				}
+
+				if (data.constructor === Array) {
+
+					if (typeof fn !== "function") {
+						return data;
+					}
+
+					for (var i = 0; i < data.length; i++) {
+
+						data[i] = fn(data[i]) || data[i];
+					}
+				}
+
+				return data;
+			},
+
+			//  data first
+			first: function first(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					return data[0];
+				} else {
+					return null;
+				}
+			},
+
+			//  data last
+			last: function last(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					return data[data.length - 1];
+				} else {
+					return null;
+				}
+			},
+
+			//  data  slice
+			slice: function slice(data, startIndex, endIndex) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					startIndex = typeof startIndex === "number" ? startIndex : 0;
+					endIndex = typeof endIndex === "number" ? endIndex : 0;
+					var _arrs = [];
+					for (var i = startIndex; i < data.length; i++) {
+
+						if (i < endIndex) {
+							_arrs.push(data[i]);
+						}
+					}
+
+					return _arrs;
+				} else {
+					return null;
+				}
+			}
+
+		}
+
+	});
+})(window.jQuery || window.Zepto);
 /*
  * 默认js
  * 添加 class="bs-date " 
@@ -121,163 +352,167 @@ var bsDate = function ($) {
  * iframe
  * **/
 
-var iframe = function ($) {
-
-	// 设置iframe 高度
-	var _setHeight = function _setHeight() {
-		var windows_h = $(document).height() + 50;
-		$(window.parent.document).find(".parent-window").css("height", windows_h);
-	};
-
-	return {
-		setHeight: _setHeight
-	};
-}(window.jQuery || window.Zepto);
+//
+//var iframe = (function($) {
+//	
+//	// 设置iframe 高度
+//	var _setHeight = function() {
+//		var windows_h=$(document).height()+50;
+//		$(window.parent.document).find(".parent-window").css("height",windows_h);
+//	
+//	
+//	}
+//		
+//	return {
+//		setHeight:_setHeight
+//	}
+//
+//})(window.jQuery|| window.Zepto);
 
 /*
-					 滚动监听
-					 <body data-spy="spy" data-target="#scroll_ttl">
-						 
-						 <aside id="scroll_ttl">
+	 滚动监听
+	 <body data-spy="spy" data-target="#scroll_ttl">
+		 
+		 <aside id="scroll_ttl">
 
-							<ul>
-								<li class="active">
-									<a href="#banner_1">1</a>
-								</li>
-								<li>
-									<a href="#banner_2">2</a>
-								</li>
-								<li>
-									<a href="#banner_3">3</a>
-								</li>
-							</ul>
+			<ul>
+				<li class="active">
+					<a href="#banner_1">1</a>
+				</li>
+				<li>
+					<a href="#banner_2">2</a>
+				</li>
+				<li>
+					<a href="#banner_3">3</a>
+				</li>
+			</ul>
 
-						</aside>
-					 </body>
-				 */
+		</aside>
+	 </body>
+ */
 
 var scroll = function ($) {
 
-	var obj = {
+			var obj = {
 
-		init: function init(top) {
+						init: function init(top) {
 
-			var _top = Number(top);
-			_top = isNaN(_top) ? 0 : _top;
+									var _top = Number(top);
+									_top = isNaN(_top) ? 0 : _top;
 
-			this.offsetTop = _top;
-			this.bindEvent(this.offsetTop);
-			this.onLoad();
-			this.onReset();
-		},
+									this.offsetTop = _top;
+									this.bindEvent(this.offsetTop);
+									this.onLoad();
+									this.onReset();
+						},
 
-		offsetTop: 0,
+						offsetTop: 0,
 
-		setOffsetTop: function setOffsetTop(top) {
-			this.offsetTop = typeof top === "number" ? top : 0;
-		},
+						setOffsetTop: function setOffsetTop(top) {
+									this.offsetTop = typeof top === "number" ? top : 0;
+						},
 
-		onReset: function onReset() {
+						onReset: function onReset() {
 
-			$(window).resize(function () {
-				this.scrollList();
-				this.scroll(this.offsetTop);
-			}.bind(this));
-		},
-		onLoad: function onLoad() {
+									$(window).resize(function () {
+												this.scrollList();
+												this.scroll(this.offsetTop);
+									}.bind(this));
+						},
+						onLoad: function onLoad() {
 
-			$(window).load(function () {
-				this.scrollList();
-				this.scroll(this.offsetTop);
-			}.bind(this));
-		},
+									$(window).load(function () {
+												this.scrollList();
+												this.scroll(this.offsetTop);
+									}.bind(this));
+						},
 
-		selector: function selector() {
-			var _tagget = $("[data-spy=spy]").attr("data-target");
-			return $(_tagget);
-		},
+						selector: function selector() {
+									var _tagget = $("[data-spy=spy]").attr("data-target");
+									return $(_tagget);
+						},
 
-		bindEvent: function bindEvent(top) {
+						bindEvent: function bindEvent(top) {
 
-			var p = this.selector();
-			this.selector().find(" ul li  a").click(function () {
+									var p = this.selector();
+									this.selector().find(" ul li  a").click(function () {
 
-				// animation
-				var $this = $(this);
-				var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
-				$("body,html").stop().animate({
-					scrollTop: _top
-				}, 500);
-			});
-		},
+												// animation
+												var $this = $(this);
+												var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
+												$("body,html").stop().animate({
+															scrollTop: _top
+												}, 500);
+									});
+						},
 
-		scroll: function scroll(top) {
+						scroll: function scroll(top) {
 
-			var ff = this.getScrollList;
-			var p = this.selector();
-			$(window).on("scroll", function () {
+									var ff = this.getScrollList;
+									var p = this.selector();
+									$(window).on("scroll", function () {
 
-				var arrs = ff || [];
+												var arrs = ff || [];
 
-				arrs.forEach(function (item) {
+												arrs.forEach(function (item) {
 
-					var m1 = parseInt(item.top); //- parseInt(top);
-					var m2 = parseInt(item.maxTop); //- parseInt(top);
-					if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
-						//alert(item.selector)
-						p.find("ul li").removeClass("active");
-						$("[href=" + item.selector + "]").parent().addClass("active");
-						return false;
-					}
-				});
-			});
-		},
+															var m1 = parseInt(item.top); //- parseInt(top);
+															var m2 = parseInt(item.maxTop); //- parseInt(top);
+															if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
+																		//alert(item.selector)
+																		p.find("ul li").removeClass("active");
+																		$("[href=" + item.selector + "]").parent().addClass("active");
+																		return false;
+															}
+												});
+									});
+						},
 
-		scrollList: function scrollList() {
+						scrollList: function scrollList() {
 
-			var objs = [];
+									var objs = [];
 
-			var _offsetTop = this.offsetTop;
-			var els = this.selector().find("li");
-			for (var i = 0; i < els.length; i++) {
+									var _offsetTop = this.offsetTop;
+									var els = this.selector().find("li");
+									for (var i = 0; i < els.length; i++) {
 
-				var _el = $(els[i]).find("a").attr("href");
+												var _el = $(els[i]).find("a").attr("href");
 
-				if (_el) {
+												if (_el) {
 
-					var obj = {};
-					var _top = Math.floor($(_el).offset().top) - _offsetTop;
+															var obj = {};
+															var _top = Math.floor($(_el).offset().top) - _offsetTop;
 
-					var maxTop = 0;
-					if (i < els.length - 1) {
-						var _el2 = $(els[i + 1]).find("a").attr("href");
-						maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
-					} else {
-						maxTop = Math.floor($(document).height());
-					}
+															var maxTop = 0;
+															if (i < els.length - 1) {
+																		var _el2 = $(els[i + 1]).find("a").attr("href");
+																		maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
+															} else {
+																		maxTop = Math.floor($(document).height());
+															}
 
-					obj.selector = _el;
-					obj.top = _top;
-					obj.maxTop = maxTop;
-					objs.push(obj);
-				}
-			}
+															obj.selector = _el;
+															obj.top = _top;
+															obj.maxTop = maxTop;
+															objs.push(obj);
+												}
+									}
 
-			return this.getScrollList = objs;
-		},
+									return this.getScrollList = objs;
+						},
 
-		getScrollList: []
+						getScrollList: []
 
-	};
+			};
 
-	return {
-		init: function init(top) {
-			obj.init(top);
-		},
-		setOffsetTop: function setOffsetTop(top) {
-			obj.setOffsetTop(top);
-		}
-	};
+			return {
+						init: function init(top) {
+									obj.init(top);
+						},
+						setOffsetTop: function setOffsetTop(top) {
+									obj.setOffsetTop(top);
+						}
+			};
 }(window.jQuery || window.Zepto);
 /*
 
@@ -476,6 +711,10 @@ var threeAddress = function () {
 //
 //	$(this).find(".tooltip-cont").remove();
 //});
+
+
+// 开启tooltip组件
+$("[data-toggle=tooltip]").tooltip();
 /*
   
 <div class="number" >
@@ -991,11 +1230,10 @@ var admin = function ($) {
 		$(this).blur();
 	});
 
-	$("[data-toggle=tooltip]").tooltip();
-
+	// 第一次显示页面
 	function _showIframeActive() {
 
-		$(".box-big .nemu-2 li.active a").trigger("click"); // 第一次显示页面
+		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
 	return {

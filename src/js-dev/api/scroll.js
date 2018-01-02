@@ -1,25 +1,25 @@
 
 /*
-					 滚动监听
-					 <body data-spy="spy" data-target="#scroll_ttl">
-						 
-						 <aside id="scroll_ttl">
+	 滚动监听
+	 <body data-spy="spy" data-target="#scroll_ttl">
+		 
+		 <aside id="scroll_ttl">
 
-							<ul>
-								<li class="active">
-									<a href="#banner_1">1</a>
-								</li>
-								<li>
-									<a href="#banner_2">2</a>
-								</li>
-								<li>
-									<a href="#banner_3">3</a>
-								</li>
-							</ul>
+			<ul>
+				<li class="active">
+					<a href="#banner_1">1</a>
+				</li>
+				<li>
+					<a href="#banner_2">2</a>
+				</li>
+				<li>
+					<a href="#banner_3">3</a>
+				</li>
+			</ul>
 
-						</aside>
-					 </body>
-				 */
+		</aside>
+	 </body>
+ */
 
 	var scroll = (function($) {
 

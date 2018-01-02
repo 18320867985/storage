@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>盘点管理</title>
+		<title>短信接收</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,26 +21,26 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				盘点管理
+				短信接收
 			</h4>
 
 			<!--查询表单-->
 
-			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+			<form class="system-form  form-inline clearfix " novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">仓库:</label>
-					<select class="form-control rd-no" name="">
-						<option selected="selected" value="">==选择仓库==</option>
-					</select>
+					<label for="txt_1">日期:</label>
+					<input class="form-control rd-no  bs-date" type="text" name="" id="txt_3" value="" placeholder="==开始日期==" />
+					<span>--</span>
+					<input class="form-control rd-no  bs-date" type="text" name=""  value="" placeholder="==结束日期==" />
 
 				</div>
-
 				<div class="form-group">
-					<label for="txt_3">日期:</label>
-					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==日期==" />
-
+					<label for="txt_1">客户名称:</label>
+					<input class="form-control rd-no " type="text" name="" id="txt_1" value="" placeholder="==客户名称==" />
 				</div>
+
+				
 
 				<div class="form-group">
 					<button class="btn btn-primary rd-no" type="button">
@@ -52,54 +52,51 @@
 
 			</form>
 
+			<!--操作按钮-->
+			<div class="form-group  system-btns ">
+				<button class=" btn btn-primary rd-no" type="button" data-toggle="modal" data-target="#modal1" >
+						<span class=" icon-plus text-white"></span>
+						新增
+				</button>
+			</div>
+
 			<!--列表 -->
 			<div class="system-list">
 
 				<table class="table  ">
 					<thead>
 						<tr>
-
 							<th class="col-xs-1">
-								编号
+									<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
+							<th class="col-xs-1">
+								单号
+							</th>
+							<th class="col-xs-3">
+								信息
+							</th>
+
 							<th class="col-xs-1">
 								客户名称
 							</th>
+
 							<th class="col-xs-1">
-								商品名称
+								电话
+							</th>
+							<th class="col-xs-1">
+								时间
 							</th>
 
 							<th class="col-xs-1">
-								商品型号
+								状态
+							</th>
+							<th class="col-xs-1">
+								操作员
+							</th>
+							<th class="col-xs-1">
+								单号类型
 							</th>
 
-							<th class="col-xs-1">
-								商品地产
-							</th>
-
-							<th class="col-xs-1">
-								规格
-							</th>
-
-							<th class="col-xs-1">
-								仓库
-							</th>
-
-							<th class="col-xs-1">
-								仓位
-							</th>
-
-							<th class="col-xs-1">
-								库存数量
-							</th>
-
-							<th class="col-xs-1">
-								实际数量
-							</th>
-
-							<th class="col-xs-1">
-								差量
-							</th>
 							<th class="col-xs-1">
 								操作
 							</th>
@@ -117,42 +114,54 @@
 
 					{{#lists}}
 					<tr class="list-item">
+						
+							<td class="overflow-0-5">
+								<input type="checkbox" />
+							</td>
+						
 
-						<td class="overflow-1" data-toggle="tooltip" tilte="{{a1}}">{{a1}}</td>
 						<td class="overflow-1">
-							{{a2}}
+							<!--单号 -->
+							{{a1}}
+
 						</td>
+						<td class="overflow-2">
+							<!--信息 -->
+							{{a2}}
+
+						</td>
+
 						<td class="overflow-1">
+						
 							{{a3}}
 						</td>
 						<td class="overflow-1">
+							<!--电话 -->
 							{{a4}}
 						</td>
-						<td class="overflow-1">
-							{{a5}}
+						<td class="overflow-1-5">
+							<!--时间 -->
+							{{#date a5 "yyyy-MM-dd HH:mm:ss"}}
+								{{a5}}
+							{{/date}}
+							
 						</td>
 						<td class="overflow-1">
+							<!--状态 -->
 							{{a6}}
 						</td>
 						<td class="overflow-1">
+							<!--状态 -->
 							{{a7}}
 						</td>
 						<td class="overflow-1">
+							<!--单号类型 -->
 							{{a8}}
-						</td>
-						<td class="overflow-1">
-							{{a9}}
-						</td>
-						<td class="overflow-1">
-							{{a10}}
-						</td>
-						<td class="overflow-1">
-							{{a11}}
 						</td>
 
 						<td class="overflow-1 op">
+							<!--操作 -->
 							<a href="javascript:;">查看</a>
-
 						</td>
 
 					</tr>
@@ -200,6 +209,65 @@
 
 		</div>
 
+		<!--modal 弹出框-->
+		<div class="modal fade" id="modal1" data-backdrop="false">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													 	<span aria-hidden="true">&times;</span>
+													 </button>
+						<h4 class="modal-title">添加商品信息</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-address" action="" novalidate="novalidate">
+
+							<div class="form-group vd-box">
+								<label for="">商品名称：</label>
+								<input class="form-control rd-no vd-item" type="text" placeholder="==商品名称==" />
+
+							</div>
+
+							<div class="form-group">
+								<label for="">商品编号：</label>
+								<input class="form-control rd-no" type="text" placeholder="==商品编号==" />
+
+							</div>
+
+							<div class="form-group">
+								<label for="">税号：</label>
+								<input class="form-control rd-no" type="text" placeholder="==税号==" />
+
+							</div>
+
+							<div class="form-group">
+								<label for="">地址及电话号码：</label>
+								<input class="form-control rd-no" type="text" placeholder="==地址及电话号码==" />
+
+							</div>
+
+							<div class="form-group clearfix">
+
+								<div class="col-xs-2 padding-l-no ">
+
+									<button class="btn  btn-primary rd-no vd-btn" type='button'>添加信息</button>
+								</div>
+
+								<div class="col-xs-2 col-xs-offset-1 ">
+									<input class="btn  btn-primary rd-no " type="reset" value="清空信息" />
+								</div>
+
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
 		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
@@ -236,17 +304,19 @@
 
 			});
 
-
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/pandian.json", {
+				$.get("json/message.json", {
 					id: id
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
+
+					common.list.map(data,function(obj){
+							obj.a1=id+"-"+obj.a1;
+							return obj;
+					});
+					
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({
 						lists: data
@@ -262,7 +332,7 @@
 					});
 					$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
 					system.check();
-				
+
 				});
 
 			}
