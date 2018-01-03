@@ -8124,3 +8124,13 @@ select.form-control {
 /*短信*/
 .system-form.message .form-group .form-control {
   width: 150px; }
+
+/*报表*/
+.system-list.report {
+  padding: 10px 0;
+  border: 1px solid #e1e1e1; }
+  .system-list.report .ttl-1 {
+    width: 100%;
+    padding: 20px 20px 30px 20px;
+    font-weight: 600;
+    text-align: center; }

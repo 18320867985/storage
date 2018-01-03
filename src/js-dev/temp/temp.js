@@ -7,10 +7,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 (function ($) {
 
 	// 冲突common兼容
-	var _common = window.common = window.Common;
+	var _common = window.common = window.Common = window.com;
 
 	/**创建Common对象**/
-	window.common = window.Common = function Common() {};
+	window.com = window.common = window.Common = function Common() {};
 
 	// 添加扩展extend
 	Common.extend = function (obj) {
@@ -60,48 +60,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 		}
-	});
-
-	/**延迟加载**/
-	Common.extend({
-		/**
-   * 延迟加载
-   *  * <img class="load-lazy"
-   * 	src="images/Home/lazy.jpg"
-   * alt="新品上市图片"
-   * data-src="images/Home/板块图片1.png"
-   * > 
-   * */
-		lazy: function lazy() {
-
-			var window_h = $(window).height();
-
-			$(window).scroll(function () {
-
-				setTimeout(function () {
-
-					$(".load-lazy").each(function () {
-
-						var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-						var img_h2 = parseInt($(this).offset().top) + $(this).height();
-						if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
-
-							$(this).attr("src", $(this).attr("data-src"));
-
-							/*ie8 不支持
-        * .animate({
-       "opacity":0.2
-       }).animate({
-       "opacity": 1
-       }, 500);
-       		
-       * */
-						}
-					});
-				}, 100);
-			});
-		}
-
 	});
 
 	/**绑定自定义事件**/
@@ -307,7 +265,87 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 					return _arrs;
 				} else {
-					return null;
+					return [];
+				}
+			},
+
+			//  sort
+			sort: function sort(data, fn) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+
+					Array.prototype.sort.call(data, fn);
+
+					return data;
+				} else {
+					return [];
+				}
+			},
+
+			//  reverse
+			reverse: function reverse(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+
+					Array.prototype.reverse.call(data);
+
+					return data;
+				} else {
+					return [];
+				}
+			},
+
+			//  sum
+			sum: function sum(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if (data.length > 0) {
+
+					for (var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+					}
+
+					return _sum;
+				} else {
+					return 0;
+				}
+			},
+
+			//  avg
+			avg: function avg(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if (data.length > 0) {
+
+					for (var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+					}
+
+					return _sum / data.length;
+				} else {
+					return 0;
 				}
 			}
 
@@ -368,6 +406,52 @@ var bsDate = function ($) {
 //	}
 //
 //})(window.jQuery|| window.Zepto);
+/**延迟加载**/
+
+/**
+ * 延迟加载
+ *  * <img class="load-lazy"
+ * 	src="images/Home/lazy.jpg"
+ * alt="新品上市图片"
+ * data-src="images/Home/板块图片1.png"
+ * > 
+ * */
+var lazy = function ($) {
+
+	var _init = function _init() {
+
+		var window_h = $(window).height();
+
+		$(window).scroll(function () {
+
+			setTimeout(function () {
+
+				$(".load-lazy").each(function () {
+
+					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
+					var img_h2 = parseInt($(this).offset().top) + $(this).height();
+					if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
+
+						$(this).attr("src", $(this).attr("data-src"));
+
+						/*ie8 不支持
+       * .animate({
+      "opacity":0.2
+      }).animate({
+      "opacity": 1
+      }, 500);
+      		
+      * */
+					}
+				});
+			}, 100);
+		});
+	};
+
+	return {
+		init: _init
+	};
+}(window.jQuery || window.Zepto);
 
 /*
 	 滚动监听

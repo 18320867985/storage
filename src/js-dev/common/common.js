@@ -5,10 +5,10 @@
 (function($) {
 
 	// 冲突common兼容
-	var _common = window.common = window.Common;
+	var _common = window.common = window.Common = window.com;
 
 	/**创建Common对象**/
-	window.common = window.Common = function Common() {};
+	window.com = window.common = window.Common = function Common() {};
 
 	// 添加扩展extend
 	Common.extend = function(obj) {
@@ -59,50 +59,6 @@
 			}
 
 		}
-	});
-
-	/**延迟加载**/
-	Common.extend({
-		/**
-		 * 延迟加载
-		 *  * <img class="load-lazy"
-		 * 	src="images/Home/lazy.jpg"
-		 * alt="新品上市图片"
-		 * data-src="images/Home/板块图片1.png"
-		 * > 
-		 * */
-		lazy: function() {
-
-			var window_h = $(window).height();
-
-			$(window).scroll(function() {
-
-				setTimeout(function() {
-
-					$(".load-lazy").each(function() {
-
-						var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-						var img_h2 = parseInt($(this).offset().top) + $(this).height();
-						if($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
-
-							$(this).attr("src", $(this).attr("data-src"));
-
-							/*ie8 不支持
-							 * .animate({
-							"opacity":0.2
-							}).animate({
-							"opacity": 1
-							}, 500);
-									
-							* */
-
-						}
-
-					})
-				}, 100)
-			})
-		}
-
 	});
 
 	/**绑定自定义事件**/
@@ -230,7 +186,7 @@
 
 				return _array_max;
 			},
-			
+
 			// data where
 			where: function(data, fn) {
 				data = data || [];
@@ -255,7 +211,7 @@
 
 				return _arrs
 			},
-			
+
 			// data map
 			map: function(data, fn) {
 				data = data || [];
@@ -271,8 +227,8 @@
 
 					for(var i = 0; i < data.length; i++) {
 
-						data[i] = fn(data[i])|| data[i];
-						
+						data[i] = fn(data[i]) || data[i];
+
 					}
 
 				}
@@ -280,57 +236,142 @@
 				return data;
 
 			},
-			
+
 			//  data first
-			first:function(data){
+			first: function(data) {
 				data = data || [];
 				if(data.constructor !== Array) {
 					throw new Error("参数必须是个数组");
 				}
-				if(data.length>0){
+				if(data.length > 0) {
 					return data[0];
-				}else{
-				 return null;
+				} else {
+					return null;
 				}
 			},
-			
+
 			//  data last
-			last:function(data){
+			last: function(data) {
 				data = data || [];
 				if(data.constructor !== Array) {
 					throw new Error("参数必须是个数组");
 				}
-				if(data.length>0){
-					return data[data.length-1];
-				}else{
-				 return null;
+				if(data.length > 0) {
+					return data[data.length - 1];
+				} else {
+					return null;
 				}
 			},
-			
+
 			//  data  slice
-			slice:function(data,startIndex,endIndex){
+			slice: function(data, startIndex, endIndex) {
 				data = data || [];
-				
+
 				if(data.constructor !== Array) {
 					throw new Error("参数必须是个数组");
 				}
-				if(data.length>0){
-					startIndex=typeof startIndex==="number"?startIndex:0;
-					endIndex=typeof endIndex==="number"?endIndex:0;
-					var _arrs=[];
-					 for(var i=startIndex;i<data.length;i++){
-					 	
-					 	if(i<endIndex){
-					 		_arrs.push(data[i]);
-					 	}
-					 	
-					 } 
-					 
-					 return _arrs;
-					 
-					 
-				}else{
-				 return null;
+				if(data.length > 0) {
+					startIndex = typeof startIndex === "number" ? startIndex : 0;
+					endIndex = typeof endIndex === "number" ? endIndex : 0;
+					var _arrs = [];
+					for(var i = startIndex; i < data.length; i++) {
+
+						if(i < endIndex) {
+							_arrs.push(data[i]);
+						}
+
+					}
+
+					return _arrs;
+
+				} else {
+					return [];
+				}
+			},
+
+			//  sort
+			sort: function(data, fn) {
+				data = data || [];
+
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if(data.length > 0) {
+
+					Array.prototype.sort.call(data, fn);
+
+					return data;
+
+				} else {
+					return [];
+				}
+			},
+
+			//  reverse
+			reverse: function(data) {
+				data = data || [];
+
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if(data.length > 0) {
+
+					Array.prototype.reverse.call(data);
+
+					return data;
+
+				} else {
+					return [];
+				}
+			},
+
+			//  sum
+			sum: function(data) {
+				data = data || [];
+
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if(data.length > 0) {
+
+					for(var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+
+					}
+
+					return _sum;
+
+				} else {
+					return 0;
+				}
+			},
+
+			//  avg
+			avg: function(data) {
+				data = data || [];
+
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if(data.length > 0) {
+
+					for(var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+
+					}
+
+					return _sum / data.length;
+
+				} else {
+					return 0;
 				}
 			},
 
