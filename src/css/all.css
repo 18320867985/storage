@@ -8134,3 +8134,16 @@ select.form-control {
     padding: 20px 20px 30px 20px;
     font-weight: 600;
     text-align: center; }
+
+.system-list.report-go .table {
+  table-layout: fixed; }
+  .system-list.report-go .table th,
+  .system-list.report-go .table td {
+    width: 12.5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .system-list.report-go .table td {
+    background: #fff; }
+  .system-list.report-go .table .cunku td {
+    background: #f8f8f8; }

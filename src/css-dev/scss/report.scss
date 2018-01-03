@@ -15,3 +15,29 @@
         
     }
 }
+
+
+// 出库统计
+.system-list.report-go{
+    .table{
+        table-layout:fixed;
+        th,
+        td{
+            width: 12.5%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        
+        td{
+            background: #fff ;
+        }
+        .cunku td{
+            background: #f8f8f8 ;
+        }
+    }
+    
+}
+
+
+// 对账单查询

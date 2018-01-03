@@ -381,7 +381,13 @@ var vd = (function($) {
 							type: "get",
 							timeout: 10000,
 							success: function(data) {
-
+								data=data||false;
+								
+								if(typeof data!=="number"){
+									var _num=Number(data);
+									data=isNaN(_num)?false:_num;
+								}
+								
 								if(!data) {
 
 									$remote.remoteFunError(_obj2, el, _remote_msg);

@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>盘点管理</title>
+		<title>客户档案</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,90 +21,97 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				盘点管理
+				客户档案
 			</h4>
 
 			<!--查询表单-->
 
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
+			
 				<div class="form-group">
-					<label for="txt_1">仓库:</label>
-					<select class="form-control rd-no" name="">
-						<option selected="selected" value="">==选择仓库==</option>
-					</select>
-
-				</div>
-
-				<div class="form-group">
-					<label for="txt_3">日期:</label>
-					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==日期==" />
+					<label for="txt_3">公司名称:</label>
+					<input class="form-control rd-no " type="text" name="" id="txt_3" value="" placeholder="==公司名称==" />
 
 				</div>
 
 				<div class="form-group">
 					<button class="btn btn-primary rd-no" type="button">
-					 	<span class="text-white  icon-search"></span> 
-					 	查询
+					 	生产报表
 					 </button>
 
 				</div>
 
 			</form>
 
-			<!--列表 -->
-			<div class="system-list">
+			<!--操作按钮-->
+			<!--<div class="form-group  system-btns ">
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class="glyphicon glyphicon-ban-circle text-white"></span>
+						作废
+					</button>
+				
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" glyphicon glyphicon-print text-white"></span>
+						打印
+				</button>
 
-				<table class="table  ">
+			</div>-->
+
+			<!--列表 -->
+			<div class="system-list report ">
+
+				<h4 class="ttl-1">客户档案</h4>
+
+				<table class="table">
 					<thead>
 						<tr>
-
 							<th class="col-xs-1">
-								编号
-							</th>
-							<th class="col-xs-1">
-								客户名称
-							</th>
-							<th class="col-xs-1">
-								商品名称
+								公司名称
 							</th>
 
 							<th class="col-xs-1">
-								商品型号
+								联系人1
+
 							</th>
 
 							<th class="col-xs-1">
-								商品地产
+								手机1
 							</th>
 
 							<th class="col-xs-1">
-								规格
+								联系人2
 							</th>
 
 							<th class="col-xs-1">
-								仓库
+								手机2
 							</th>
 
 							<th class="col-xs-1">
-								仓位
+								传真号码
 							</th>
 
 							<th class="col-xs-1">
-								库存数量
+								固定电话
 							</th>
-
 							<th class="col-xs-1">
-								实际数量
+								qq
 							</th>
-
 							<th class="col-xs-1">
-								差量
+								法人代表
+							</th>
+							<th class="col-xs-1">
+								公司地址
+							</th>
+							<th class="col-xs-1">
+								身份证
 							</th>
 							<th class="col-xs-1">
 								操作
 							</th>
 
 						</tr>
+					
 					</thead>
 
 					<tbody>
@@ -118,41 +125,55 @@
 					{{#lists}}
 					<tr class="list-item">
 
-						<td class="overflow-1" data-toggle="tooltip" tilte="{{a1}}">{{a1}}</td>
 						<td class="overflow-1">
+							<!--公司名称 -->
+							{{a1}}
+						</td>
+
+						<td class="overflow-1-5">
+							<!--联系人1-->
 							{{a2}}
 						</td>
 						<td class="overflow-1">
+							<!--手机1 -->
 							{{a3}}
 						</td>
 						<td class="overflow-1">
+							<!--联系人2 -->
 							{{a4}}
 						</td>
 						<td class="overflow-1">
+							<!--手机2 -->
 							{{a5}}
 						</td>
 						<td class="overflow-1">
+							<!--传真号码 -->
 							{{a6}}
 						</td>
 						<td class="overflow-1">
+							<!--固定电话 -->
 							{{a7}}
 						</td>
 						<td class="overflow-1">
+							<!--qq -->
 							{{a8}}
 						</td>
 						<td class="overflow-1">
+							<!--法人代表 -->
 							{{a9}}
 						</td>
 						<td class="overflow-1">
+							<!--公司地址 -->
 							{{a10}}
 						</td>
+
 						<td class="overflow-1">
+							<!--身份证 -->
 							{{a11}}
 						</td>
-
 						<td class="overflow-1 op">
+							<!--操作 -->
 							<a href="javascript:;">查看</a>
-
 						</td>
 
 					</tr>
@@ -198,92 +219,92 @@
 
 			</div>
 
-		</div>
-
-		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
-		<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
-		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
-		<!--[if lte IE 8]>
+			<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+			<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
+			<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+			<!--[if lte IE 8]>
 			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
-		<script type="text/javascript">
-			bsDate.init(); // 日期
-			// 分页
-			paging.init({
-				index: 1, //	当前页
-				pageItem: 10, //  每页条数
-				allItem: 100, //  总条数
-				showCount: 5, //  显示的页码数目
-				selector: ".paging", //分页父元素
-				isAnimation: true, //是否显示动画
-				isShowSkip: true, // 是否显示跳转页
-				isShowCount: true, // 是否显示总页数
-				isShowAllItems: true, // 是否显示总条目
-			});
-
-			// 显示第一页
-			getDtatById(1);
-
-			//点击事件
-			$(document).on("paging_click", function(event, id) {
-				//id 当前点击的元素的页码	
-				//alert(id);	
-				getDtatById(id);
-
-			});
-
-
-			// 异步加载数据
-			function getDtatById(id) {
-				$.get("json/pandian.json", {
-					id: id
-				}, function(data) {
-
-					data = data.constructor === Array ? data : $.parseJSON(data);
-					for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
-					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-					var html = template2({
-						lists: data
-					});
-
-					$(".system-list .table tbody").html(html);
-
-					// checkbox
-					$('input').iCheck({
-						checkboxClass: 'icheckbox_flat-blue',
-						radioClass: 'iradio_flat-blue',
-						increaseArea: '20%' // optional
-					});
-					$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
-					system.check();
-				
+			<script type="text/javascript">
+				bsDate.init(); // 日期
+				// 分页
+				paging.init({
+					index: 1, //	当前页
+					pageItem: 10, //  每页条数
+					allItem: 100, //  总条数
+					showCount: 5, //  显示的页码数目
+					selector: ".paging", //分页父元素
+					isAnimation: true, //是否显示动画
+					isShowSkip: true, // 是否显示跳转页
+					isShowCount: true, // 是否显示总页数
+					isShowAllItems: true, // 是否显示总条目
 				});
 
-			}
+				// 显示第一页
+				getDtatById(1);
 
-			// 删除数据
-			$(".all-del").on("click", function() {
+				//点击事件
+				$(document).on("paging_click", function(event, id) {
+					//id 当前点击的元素的页码	
+					//alert(id);	
+					getDtatById(id);
 
-				var $lists = $("tbody .list-item input[type=checkbox]:checked");
+				});
 
-				if($lists.length <= 0) {
-					alert("你还没有选择数据？");
-					return;
-				}
-				if(confirm("你确认要删除数据？")) {
-					$lists.each(function() {
-						$(this).closest(".list-item").remove();
+				// 异步加载数据
+				function getDtatById(id) {
+					$.get("json/report-kehu.json", {
+						id: id
+					}, function(data) {
+
+						data = data.constructor === Array ? data : $.parseJSON(data);
+
+						common.list.map(data, function(obj) {
+							obj.a1 = id + "-" + obj.a1;
+							return obj;
+						});
+
+						var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template2({
+							lists: data
+						});
+
+						$(".system-list .table tbody").html(html);
+
+						// checkbox
+						$('input').iCheck({
+							checkboxClass: 'icheckbox_flat-blue',
+							radioClass: 'iradio_flat-blue',
+							increaseArea: '20%' // optional
+						});
+						$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
+						system.check();
+
 					});
+
 				}
 
-			})
-		</script>
+				// 删除数据
+				$(".all-del").on("click", function() {
+
+					var $lists = $("tbody .list-item input[type=checkbox]:checked");
+
+					if($lists.length <= 0) {
+						alert("你还没有选择数据？");
+						return;
+					}
+					if(confirm("你确认要删除数据？")) {
+						$lists.each(function() {
+							$(this).closest(".list-item").remove();
+						});
+					}
+
+				})
+			</script>
 	</body>
 
 </html>

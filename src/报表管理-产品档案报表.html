@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>搬运统计</title>
+		<title>产品档案报表</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,7 +21,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				搬运统计
+				产品档案报表
 			</h4>
 
 			<!--查询表单-->
@@ -29,20 +29,17 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">仓库:</label>
-					<select class="form-control rd-no" name="">
-						<option value="">==请选择仓库==</option>
-					</select>
+					<label for="txt_1">商品名称:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
+				</div>
+				<div class="form-group">
+					<label for="txt_2">商品型号:</label>
+					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
 
 				</div>
 				<div class="form-group">
-					<label for="txt_2">搬运队:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==搬运队==" />
-
-				</div>
-				<div class="form-group">
-					<label for="txt_3">日期:</label>
-					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />
+					<label for="txt_3">生产商:</label>
+					<input class="form-control rd-no " type="text" name="" id="txt_3" value="" placeholder="==生产商==" />
 
 				</div>
 
@@ -73,49 +70,49 @@
 			<!--列表 -->
 			<div class="system-list report">
 
-				<h4 class="ttl-1">(2017)年(12)月 搬运统计</h4>
+				<h4 class="ttl-1">产品档案</h4>
 
 				<table class="table  ">
 					<thead>
 						<tr>
 
-							<th class="width-1">
-								日期
+							<th class="col-xs-2">
+								商品名称
 							</th>
-							<th class="width-1">
-								搬运队
+							<th class="col-xs-1">
+								商品型号
 							</th>
-							<th class="width-1">
-								仓库
-							</th>
-
-							<th class="width-1">
-								单号
+							<th class="col-xs-1">
+								商品产地
 							</th>
 
-							<th class="width-1">
-								产品名称
-							</th>
-
-							<th class="width-1">
+							<th class="col-xs-1">
 								规格
 							</th>
 
-							<th class="width-0-5">
-								数量
+							<th class="col-xs-1">
+								生产商
 							</th>
 
-							<th class="width-0-5">
-								总量
+							<th class="col-xs-1">
+								计量单位
 							</th>
-							<th class="width-1">
-								搬运队提出数量
+
+							<th class="col-xs-1">
+								商品属性
 							</th>
-							<th class="width-1">
-								搬运队加班费
+
+							<th class="col-xs-1">
+								租金单价
 							</th>
-							<th class="width-1">
-								合计
+							<th class="col-xs-1">
+								装卸单价
+							</th>
+							<th class="col-xs-1">
+								搬运队工资
+							</th>
+							<th class="col-xs-1">
+								产品价值
 							</th>
 
 						</tr>
@@ -123,43 +120,7 @@
 
 					<tbody>
 
-						<!-- 
-						<tr class="list-item">
-							<td>
-								<input type="checkbox" name="" id="" value="" />
-
-							</td>
-							<td class="overflow-1">475</td>
-							<td class="overflow-1">B级</td>
-							<td class="overflow-1">自产</td>
-							<td class="overflow-1">02502</td>
-							<td class="overflow-1">嘉旺</td>
-							<td class="overflow-1">吨</td>
-							<td class="overflow-1">
-								再生原料
-							</td>
-
-							<td class="overflow-1">
-
-								68.00
-							</td>
-
-							<td class="overflow-1">
-
-								5008.00
-							</td>
-							<td class="overflow-1">
-
-								5008.00
-							</td>
-
-							<td class="overflow-1">
-
-								20000.00
-							</td>
-
-						</tr>-->
-
+					
 					</tbody>
 				</table>
 
@@ -168,52 +129,51 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						<!--日期-->
-						<td class="overflow-1">
-								{{#date a1 "yyyy-MM-dd"}} {{a1}} {{/date}}
-						
+						<!--商品名称-->
+						<td class="overflow-2">
+							 {{a1}}
 						</td>
-						
-						<!--搬运队-->
+
+						<!--商品型号-->
 						<td class="overflow-1">
 							{{a2}}
 						</td>
-						
+
 						<td class="overflow-1">
-							<!--仓库-->
+							<!--商品产地-->
 							{{a3}}
 						</td>
-						<!--单号-->
-						<td class="overflow-1">{{a4}}</td>
-						
-						<!--产品名称-->
-						<td class="overflow-1">{{a5}}</td>
-						
 						<!--规格-->
+						<td class="overflow-1">{{a4}}</td>
+
+						<!--生产商-->
+						<td class="overflow-1">{{a5}}</td>
+
+						<!--计量单位-->
 						<td class="overflow-1">{{a6}}</td>
-						
-						<!--数量-->
+
+						<!--商品属性-->
 						<td class="overflow-1">
 							{{a7}}
 						</td>
-						<!--总量-->
+						<!--租金单价-->
 						<td class="overflow-1">
 							{{a8}}
 						</td>
 
-						<!--搬运队提出数量-->
+						<!--装卸单价-->
 						<td class="overflow-1">
 							{{a9}}
 						</td>
 
-						<!--搬运队加班费-->
+						<!--搬运队工资-->
 						<td class="overflow-1">
 							{{a10}}
 						</td>
 
-						<!--合计-->
+						<!--产品价值-->
 						<td class="overflow-1 op">
-							合计
+							{{a11}}
 						</td>
 
 					</tr>
@@ -358,16 +318,16 @@
 
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/report-banyun.json", {
+				$.get("json/report-prod.json", {
 					id: id
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					com.list.map(data,function(item){
-						item.a2=id+"-"+item.a2;
+					com.list.map(data, function(item) {
+						item.a1 = id + "-" + item.a1;
 						return item;
 					});
-					
+
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({
 						lists: data
