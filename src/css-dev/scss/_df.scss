@@ -5,6 +5,7 @@ body {
     font-size: 12px;
     font-family: "微软雅黑", "宋体";
     background: $body-bg;
+    color:$text-df;
 }
 
 .container-12 {
@@ -396,6 +397,26 @@ input:-moz-placeholder {}
 
 input::-moz-placeholder {}
 
+/*ellipsis*/
+.ellipsis {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.ellipsis-no {
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.table-fixed{
+    table-layout: fixed;
+}
+.table-auto{
+    
+    table-layout: auto;
+}
+
 //超出隐藏为
 .overflow-0-5 {
     max-width: 50px;
@@ -514,14 +535,7 @@ input::-moz-placeholder {}
 }
 
 
-/*ellipsis*/
-
-.ellipsis {
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
+/*padding*/
 
 .padding-l-no {
     padding-left: 0;

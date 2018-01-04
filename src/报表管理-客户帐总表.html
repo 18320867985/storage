@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="塑金仓储信息管理系统" />
 		<meta name="Description" content="塑金仓储信息管理系统" />
-		<title>产品档案报表</title>
+		<title>客户帐总表</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/all.css" />
 		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
@@ -21,7 +21,7 @@
 			<!--标题-->
 			<h4 class="system-ttl">
 				<span class="glyphicon glyphicon-list-alt iconttl"></span>
-				产品档案报表
+				客户帐总表
 			</h4>
 
 			<!--查询表单-->
@@ -29,23 +29,32 @@
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
-					<label for="txt_1">商品名称:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_1" value="" placeholder="==商品名称==" />
-				</div>
-				<div class="form-group">
-					<label for="txt_2">商品型号:</label>
-					<input class="form-control rd-no" type="text" name="" id="txt_2" value="" placeholder="==商品型号==" />
+					<label for="txt_1">仓库:</label>
+					<select class="form-control rd-no" name="">
+						<option value="">==请选择仓库==</option>
+					</select>
 
 				</div>
-				<div class="form-group">
-					<label for="txt_3">生产商:</label>
-					<input class="form-control rd-no " type="text" name="" id="txt_3" value="" placeholder="==生产商==" />
+				
+				<div class="form-group three-date">
+				
+					<label for="txt_3">日期:</label>
+					<select class="form-control rd-no" name=""  id="date-year" data-start="1970" data-text="==选择年份==">
+						<option value="">==选择年份==</option>
+					</select>年
+					<select class="form-control rd-no" name=""  id="date-month" data-text="==选择月份==">
+						<option value="">==选择月份==</option>
+					</select>月
+					<!--<select class="form-control rd-no" name=""  id="date-day" data-text="==选择天数==">
+						<option value="">==选择天数==</option>
+					</select>日-->
+					
+					<!--<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />-->
 
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" >
 					<button class="btn btn-primary rd-no" type="button">
-					 
 					 	生产报表
 					 </button>
 
@@ -70,49 +79,84 @@
 			<!--列表 -->
 			<div class="system-list report">
 
-				<h4 class="ttl-1">产品档案</h4>
+				<h4 class="ttl-1">东莞塑金网络有限公司(仓库)</h4>
+				
+			
 
-				<table class="table  ">
+				<table class="table  table-fixed ">
 					<thead>
 						<tr>
 
-							<th class="col-xs-2">
-								商品名称
+							<th class="width-1">
+								<div class="ellipsis">
+									序号
+								</div>
+
 							</th>
-							<th class="col-xs-1">
-								商品型号
+							<th class="width-1">
+								<div class="ellipsis">
+									客户名称
+								</div>
+
 							</th>
-							<th class="col-xs-1">
-								商品产地
+							<th class="width-1">
+								<div class="ellipsis">
+									搬运费
+								</div>
+
 							</th>
 
-							<th class="col-xs-1">
-								规格
+							<th class="width-1">
+								<div class="ellipsis">
+									搬运加班费
+								</div>
+
 							</th>
 
-							<th class="col-xs-1">
-								生产商
+							<th class="width-1">
+								<div class="ellipsis">
+									转账费
+								</div>
+
 							</th>
 
-							<th class="col-xs-1">
-								计量单位
+							<th class="width-0-5">
+								<div class="ellipsis">
+									杂费
+								</div>
+
 							</th>
 
-							<th class="col-xs-1">
-								商品属性
+							<th class="width-1">
+								<div class="ellipsis">
+									仓租费
+								</div>
+
 							</th>
 
-							<th class="col-xs-1">
-								租金单价
+							<th class="width-1">
+								<div class="ellipsis">
+									总计
+								</div>
+
 							</th>
-							<th class="col-xs-1">
-								装卸单价
+							<th class="width-1">
+								<div class="ellipsis">
+									折扣值
+								</div>
+
 							</th>
-							<th class="col-xs-1">
-								搬运队工资
+							<th class="width-1">
+								<div class="ellipsis">
+									折后统计
+								</div>
+
 							</th>
-							<th class="col-xs-1">
-								产品价值
+							<th class="width-0-5">
+								<div class="ellipsis">
+									操作
+								</div>
+
 							</th>
 
 						</tr>
@@ -120,7 +164,6 @@
 
 					<tbody>
 
-					
 					</tbody>
 				</table>
 
@@ -129,51 +172,69 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						<!--商品名称-->
-						<td class="overflow-2">
-							 {{a1}}
+
+						<td class="">
+							<div class="ellipsis">
+								{{a1}}
+							</div>
+						</td>
+						<td>
+							<div class="ellipsis">
+								{{a2}}
+							</div>
+
+						</td>
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a3}}
+							</div>
+
 						</td>
 
-						<!--商品型号-->
-						<td class="overflow-1">
-							{{a2}}
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a4}}
+							</div>
 						</td>
 
-						<td class="overflow-1">
-							<!--商品产地-->
-							{{a3}}
-						</td>
-						<!--规格-->
-						<td class="overflow-1">{{a4}}</td>
-
-						<!--生产商-->
-						<td class="overflow-1">{{a5}}</td>
-
-						<!--计量单位-->
-						<td class="overflow-1">{{a6}}</td>
-
-						<!--商品属性-->
-						<td class="overflow-1">
-							{{a7}}
-						</td>
-						<!--租金单价-->
-						<td class="overflow-1">
-							{{a8}}
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a5}}
+							</div>
 						</td>
 
-						<!--装卸单价-->
-						<td class="overflow-1">
-							{{a9}}
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a6}}
+							</div>
 						</td>
 
-						<!--搬运队工资-->
-						<td class="overflow-1">
-							{{a10}}
+						<td class=" overflow-1 ">
+							<div class="ellipsis">
+								{{a7}}
+							</div>
 						</td>
 
-						<!--产品价值-->
-						<td class="overflow-1 op">
-							{{a11}}
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a8}}
+							</div>
+						</td>
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a9}}
+							</div>
+						</td>
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								{{a10}}
+							</div>
+						</td>
+						<td class=" overflow-1">
+							<div class="ellipsis">
+								<a href="javascript:;"> 查看</a>
+							</div>
+
 						</td>
 
 					</tr>
@@ -292,6 +353,7 @@
 
 		<script type="text/javascript">
 			bsDate.init(); // 日期
+			threeDate.init(); // 三级日期
 			// 分页
 			paging.init({
 				index: 1, //	当前页
@@ -316,18 +378,19 @@
 
 			});
 
-
 			// 异步加载数据
 			function getDtatById(id) {
-				$.get("json/report-prod.json", {
+				$.get("json/report-zongzhang.json", {
 					id: id
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-						for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
-
+					
+					com.list.map(data,function(item){
+						item.a1= id + "-" +item.a1;
+						return item;
+					});
+					
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({
 						lists: data

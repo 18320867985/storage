@@ -230,6 +230,7 @@
 		<![endif]-->
 
 			<script type="text/javascript">
+			
 				bsDate.init(); // 日期
 				// 分页
 				paging.init({
@@ -263,11 +264,10 @@
 
 						data = data.constructor === Array ? data : $.parseJSON(data);
 
-						common.list.map(data, function(obj) {
-							obj.a1 = id + "-" + obj.a1;
-							return obj;
-						});
-
+						for(var i in data) {
+							
+							data[i].a1= id + "-" + data[i].a1;
+						}
 						var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 						var html = template2({
 							lists: data

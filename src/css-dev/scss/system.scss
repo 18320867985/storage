@@ -68,6 +68,18 @@
     }
 }
 
+// 三级日期
+.system-form .three-date{
+    .form-control{
+        width: 140px;
+        margin-right: 3px;
+        &+.form-control{
+            margin-left: 5px;
+        }
+    }
+}
+
+
 // system-paging 分页
 .system-paging {
     padding: 15px 20px;

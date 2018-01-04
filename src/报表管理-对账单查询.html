@@ -25,7 +25,6 @@
 			</h4>
 
 			<!--查询表单-->
-
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
 				<div class="form-group">
@@ -36,15 +35,23 @@
 
 				</div>
 
-				<div class="form-group">
+				<div class="form-group three-date">
 					<label for="txt_3">日期:</label>
-					<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />
+					<select class="form-control rd-no" name="" id="date-year" data-start="1970" data-text="==选择年份==">
+						<option value="">==选择年份==</option>
+					</select>年
+					<select class="form-control rd-no" name="" id="date-month" data-text="==选择月份==">
+						<option value="">==选择月份==</option>
+					</select>月
+					<select class="form-control rd-no" name="" id="date-day" data-text="==选择天数==">
+						<option value="">==选择天数==</option>
+					</select>日
 
+					<!--<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />-->
 				</div>
 
 				<div class="form-group">
 					<button class="btn btn-primary rd-no" type="button">
-					 
 					 	生产报表
 					 </button>
 
@@ -69,7 +76,7 @@
 			<!--列表 -->
 			<div class="system-list report ">
 
-				<h4 class="ttl-1">对账单查询(2017)年(12)月</h4>
+				<h4 class="ttl-1">对账单查询(2017)年(12)月(8)日</h4>
 
 				<table class="table">
 					<thead>
@@ -237,7 +244,8 @@
 		<![endif]-->
 
 			<script type="text/javascript">
-				bsDate.init(); // 日期
+				bsDate.init(); // 日历日期
+				threeDate.init(); // 三级日期
 				// 分页
 				paging.init({
 					index: 1, //	当前页
@@ -269,11 +277,10 @@
 					}, function(data) {
 
 						data = data.constructor === Array ? data : $.parseJSON(data);
-
-						common.list.map(data, function(obj) {
-							obj.a1 = id + "-" + obj.a1;
-							return obj;
-						});
+						
+						for(var i in data) {
+							data[i].a1 = id + "-" + data[i].a1;
+						}
 
 						var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 						var html = template2({

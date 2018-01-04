@@ -1058,7 +1058,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "微软雅黑", "宋体" ， Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #323232;
@@ -5175,7 +5175,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "微软雅黑", "宋体" ， Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5288,7 +5288,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "微软雅黑", "宋体" ， Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7222,7 +7222,8 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
 co body {
   font-size: 12px;
   font-family: "微软雅黑", "宋体";
-  background: #fff; }
+  background: #fff;
+  color: #323232; }
 
 .container-12 {
   width: 1170px;
@@ -7536,6 +7537,24 @@ select option {
 /*IE10+*/
 /*Firefox4-18*/
 /*Firefox19+*/
+/*ellipsis*/
+.ellipsis {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+.ellipsis-no {
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+.table-fixed {
+  table-layout: fixed; }
+
+.table-auto {
+  table-layout: auto; }
+
 .overflow-0-5 {
   max-width: 50px;
   text-overflow: ellipsis;
@@ -7632,13 +7651,7 @@ select option {
 .width-5 {
   width: 50%; }
 
-/*ellipsis*/
-.ellipsis {
-  width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden; }
-
+/*padding*/
 .padding-l-no {
   padding-left: 0; }
 
@@ -8041,6 +8054,12 @@ select.form-control {
     .system-list .table .op a + a {
       margin-left: 5px; }
 
+.system-form .three-date .form-control {
+  width: 140px;
+  margin-right: 3px; }
+  .system-form .three-date .form-control + .form-control {
+    margin-left: 5px; }
+
 .system-paging {
   padding: 15px 20px;
   text-align: center;
@@ -8147,3 +8166,21 @@ select.form-control {
     background: #fff; }
   .system-list.report-go .table .cunku td {
     background: #f8f8f8; }
+
+.system-list.report-ku .report-ku-ttl {
+  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-left: none;
+  border-right: none; }
+
+.system-list.report-ku .report-ku-ttl-2 {
+  padding: 25px;
+  text-align: center; }
+
+.system-list.report-ku .table {
+  border-bottom: 1px solid #e1e1e1; }
+  .system-list.report-ku .table tbody td {
+    padding: 10px 15px !important;
+    background: #fff; }
+    .system-list.report-ku .table tbody td span + label {
+      margin-left: 15px; }

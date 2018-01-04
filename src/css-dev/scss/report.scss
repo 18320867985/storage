@@ -40,4 +40,32 @@
 }
 
 
-// 对账单查询
+// 客户对账单查询
+.system-list.report-ku{
+    .report-ku-ttl{
+        padding: 10px;
+        border: 1px solid $br;
+        border-left: none;
+        border-right:none;
+    }
+    
+    .report-ku-ttl-2{
+        padding: 25px;
+        text-align: center;
+    }
+    
+    .table{
+        border-bottom: 1px solid $br;;
+        tbody td{
+            padding: 10px 15px !important;
+            background: #fff;
+            
+            span+label{
+                margin-left: 15px;
+            }
+        }
+        
+    }
+}
+
+

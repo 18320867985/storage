@@ -8,11 +8,10 @@
 	var _common = window.common = window.Common = window.com;
 
 	/**创建Common对象**/
-	window.com = window.common = window.Common = function Common() {};
+	var Common = window.com = window.common = window.Common = function() {};
 
 	// 添加扩展extend
 	Common.extend = function(obj) {
-
 		if(typeof obj === "object") {
 
 			for(var i in obj) {
@@ -21,6 +20,7 @@
 		}
 
 		return this;
+
 	}
 
 	/**url对象**/
@@ -374,9 +374,27 @@
 					return 0;
 				}
 			},
+			//  splice
+			splice: function(data, startIndex, endIndex) {
+				data = data || [];
+
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if(data.length > 0) {
+
+					Array.prototype.splice.call(data, startIndex, endIndex);
+
+					return data;
+
+				} else {
+					return [];
+				}
+			},
 
 		}
 
 	});
 
-})(window.jQuery || window.Zepto);
+})();
