@@ -316,6 +316,7 @@
 
 			});
 
+
 			// 异步加载数据
 			function getDtatById(id) {
 				$.get("json/report-prod.json", {
@@ -323,10 +324,9 @@
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					com.list.map(data, function(item) {
-						item.a1 = id + "-" + item.a1;
-						return item;
-					});
+						for(var i in data) {
+						data[i].a1 = id + "-" + data[i].a1;
+					}
 
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({

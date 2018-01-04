@@ -10,6 +10,7 @@ var admin = (function($) {
 			setMenuHeight();
 		});
 
+
 		function setMenuHeight() {
 			var w_big = $(window).height();
 			var w_head = $(".head-logo").outerHeight();

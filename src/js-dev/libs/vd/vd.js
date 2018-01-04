@@ -33,11 +33,11 @@ var vd = (function($) {
 
 			this.compareEmit = function(pName, compareName, value) {
 				var el = $("" + pName + " [name=" + compareName + "]");
-				if(el.val().trim() === "") {
+				if($.trim(el.val()) === "") {
 					return;
 				}
 				for(var i = 0; i < this.arrs.length; i++) {
-					if(this.arrs[i].elName.trim() === compareName.trim()) {
+					if($.trim(this.arrs[i].elName) ===$.trim( compareName)) {
 						$(el).trigger("keyup");
 						break;
 					}
@@ -114,18 +114,18 @@ var vd = (function($) {
 				for(var i = 0; i < this.arrs.length; i++) {
 					var _obj = this.arrs[i];
 					var el = _obj.el; // document.forms[_obj.pName][_obj.elName];
-
+					var $this=this;
 					$(el).on("keyup", _obj, function(event) {
-						this.checkElement(event.data, event.target, true, true);
-						this.addVdBtnStyle(el);
-					}.bind(this));
+						$this.checkElement(event.data, event.target, true, true);
+						$this.addVdBtnStyle(el);
+					});
 
 					var remote = el.getAttribute("vd-remote");
 					if(remote === null) {
 						$(el).on("change", _obj, function(event) {
-							this.checkElement(event.data, event.target, true, true);
-							this.addVdBtnStyle(el);
-						}.bind(this));
+							$this.checkElement(event.data, event.target, true, true);
+							$this.addVdBtnStyle(el);
+						});
 					}
 
 				}
@@ -164,7 +164,7 @@ var vd = (function($) {
 				var _rd_msg = el.getAttribute("vd-rd-msg");
 
 				// 当前的值
-				var v = el.value.trim();
+				var v = $.trim(el.value);
 
 				
 
@@ -183,7 +183,7 @@ var vd = (function($) {
 
 						// 遍历选择项 设为false
 						for(var i = 0; i < this.arrs.length; i++) {
-							if(this.arrs[i].elName.trim() === _obj2.elName) {
+							if($.trim(this.arrs[i].elName) ===$.trim( _obj2.elName)) {
 								this.arrs[i].rd_req = false; // radio组是否为空  false为空
 								_obj2.bl = false;
 								_obj2.val = v;
@@ -208,7 +208,7 @@ var vd = (function($) {
 
 						// 遍历选择项 设为false
 						for(var i = 0; i < this.arrs.length; i++) {
-							if(this.arrs[i].elName.trim() === _obj2.elName) {
+							if($.trim(this.arrs[i].elName) ===$.trim( _obj2.elName)) {
 								this.arrs[i].bl = false;
 								this.arrs[i].rd_req = true; // radio组是否为空 true不为空
 							}
@@ -515,7 +515,7 @@ var vd = (function($) {
 				var obj = {}
 				for(var i = 0; i < this.arrs.length; i++) {
 
-					if(name.trim() === this.arrs[i].elName.trim()) {
+					if($.trim(name) === $.trim(this.arrs[i].elName)) {
 
 						obj = this.arrs[i];
 						break;

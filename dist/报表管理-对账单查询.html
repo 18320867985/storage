@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="塑金仓储信息管理系统" />
+		<meta name="Description" content="塑金仓储信息管理系统" />
+		<title>对账单查询</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+		<link rel="stylesheet" href="css/bs-date/css/bootstrap-datetimepicker.css" />
+	</head>
+
+	<body>
+
+		<div class="system iframe-body">
+
+			<!--标题-->
+			<h4 class="system-ttl">
+				<span class="glyphicon glyphicon-list-alt iconttl"></span>
+				对账单查询
+			</h4>
+
+			<!--查询表单-->
+			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+
+				<div class="form-group">
+					<label for="txt_1">仓库:</label>
+					<select class="form-control rd-no" name="">
+						<option value="">==请选择仓库==</option>
+					</select>
+
+				</div>
+
+				<div class="form-group three-date">
+					<label for="txt_3">日期:</label>
+					<select class="form-control rd-no" name="" id="date-year" data-start="1970" data-text="==选择年份==">
+						<option value="">==选择年份==</option>
+					</select>年
+					<select class="form-control rd-no" name="" id="date-month" data-text="==选择月份==">
+						<option value="">==选择月份==</option>
+					</select>月
+					<select class="form-control rd-no" name="" id="date-day" data-text="==选择天数==">
+						<option value="">==选择天数==</option>
+					</select>日
+
+					<!--<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />-->
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary rd-no" type="button">
+					 	生产报表
+					 </button>
+
+				</div>
+
+			</form>
+
+			<!--操作按钮-->
+			<!--<div class="form-group  system-btns ">
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class="glyphicon glyphicon-ban-circle text-white"></span>
+						作废
+					</button>
+				
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" glyphicon glyphicon-print text-white"></span>
+						打印
+				</button>
+
+			</div>-->
+
+			<!--列表 -->
+			<div class="system-list report ">
+
+				<h4 class="ttl-1">对账单查询(2017)年(12)月(8)日</h4>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="col-xs-1">
+								商品名称
+							</th>
+
+							<th class="col-xs-1">
+								日期
+
+							</th>
+
+							<th class="col-xs-1">
+								单号
+							</th>
+
+							<th class="col-xs-1">
+								包数
+							</th>
+
+							<th class="col-xs-1">
+								上月库存
+							</th>
+
+							<th class="col-xs-1">
+								入库数量
+							</th>
+
+							<th class="col-xs-1">
+								出库数量
+							</th>
+							<th class="col-xs-1">
+								实际库存包数
+							</th>
+							<th class="col-xs-1">
+								租赁方式
+							</th>
+							<th class="col-xs-1">
+								仓库
+							</th>
+							<th class="col-xs-1">
+								备注
+							</th>
+							<th class="col-xs-1">
+								操作
+							</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+
+					</tbody>
+				</table>
+
+				<!--模板-->
+				<script type="text/template" id="handlebars-templete">
+
+					{{#lists}}
+					<tr class="list-item">
+
+						<td class="overflow-1">
+							<!--商品名称 -->
+							{{a1}}
+						</td>
+
+						<td class="overflow-1-5">
+							<!--日期-->
+							{{#date a2 "yyyy-MM-dd HH:mm:ss"}} {{a2}} {{/date}}
+						</td>
+						<td class="overflow-1">
+							<!--单号 -->
+							{{a3}}
+						</td>
+						<td class="overflow-1">
+							<!--包数 -->
+							{{a4}}
+						</td>
+						<td class="overflow-1">
+							<!--上月库存 -->
+							{{a5}}
+						</td>
+						<td class="overflow-1">
+							<!--入库数量 -->
+							{{a6}}
+						</td>
+						<td class="overflow-1">
+							<!--出库数量 -->
+							{{a7}}
+						</td>
+						<td class="overflow-1">
+							<!--实际库存包数 -->
+							{{a8}}
+						</td>
+						<td class="overflow-1">
+							<!--实际库存包数 -->
+							{{a9}}
+						</td>
+						<td class="overflow-1">
+							<!--实际库存包数 -->
+							{{a10}}
+						</td>
+
+						<td class="overflow-1">
+							<!--备注 -->
+							{{a11}}
+						</td>
+						<td class="overflow-1 op">
+							<!--操作 -->
+							<a href="javascript:;">查看</a>
+						</td>
+
+					</tr>
+					{{/lists}}
+				</script>
+				<!-- 分页-->
+				<div class="system-paging paging">
+
+				</div>
+
+				<!-- 分页2-->
+				<!--<div class="system-paging2 text-right">
+
+					<div class="record">
+						共 <strong class="text-primary">10</strong>条记录
+					</div>
+
+					<div class="record">
+						<label for="record_page" class="">
+						每页
+						</label>
+
+						<select name="" id="record_page">
+							<option value="10">10</option>
+						</select>
+					</div>
+
+					<div class="record">
+						<span class="first glyphicon glyphicon-step-backward disabled"></span>
+						<span class="prev glyphicon glyphicon-backward disabled"></span>
+						<span class="num-index">1</span>
+						<span class="num-line ">/</span>
+						<span class="num-all ">2</span>
+						<span class="next glyphicon glyphicon-forward  active"></span>
+						<span class="last glyphicon glyphicon-step-forward active"></span>
+					</div>
+					<div class="record">
+						<input class="skip-txt" type="text" name="" id="" value="5" />
+						<button class="skip-btn" type="button">跳转</button>
+					</div>
+
+				</div>-->
+
+			</div>
+
+			<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+			<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
+			<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+			<!--[if lte IE 8]>
+			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+			<script type="text/javascript">
+				bsDate.init(); // 日历日期
+				threeDate.init(); // 三级日期
+				// 分页
+				paging.init({
+					index: 1, //	当前页
+					pageItem: 10, //  每页条数
+					allItem: 100, //  总条数
+					showCount: 5, //  显示的页码数目
+					selector: ".paging", //分页父元素
+					isAnimation: true, //是否显示动画
+					isShowSkip: true, // 是否显示跳转页
+					isShowCount: true, // 是否显示总页数
+					isShowAllItems: true, // 是否显示总条目
+				});
+
+				// 显示第一页
+				getDtatById(1);
+
+				//点击事件
+				$(document).on("paging_click", function(event, id) {
+					//id 当前点击的元素的页码	
+					//alert(id);	
+					getDtatById(id);
+
+				});
+
+				// 异步加载数据
+				function getDtatById(id) {
+					$.get("json/report-duizhang.json", {
+						id: id
+					}, function(data) {
+
+						data = data.constructor === Array ? data : $.parseJSON(data);
+						
+						for(var i in data) {
+							data[i].a1 = id + "-" + data[i].a1;
+						}
+
+						var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template2({
+							lists: data
+						});
+
+						$(".system-list .table tbody").html(html);
+
+						// checkbox
+						$('input').iCheck({
+							checkboxClass: 'icheckbox_flat-blue',
+							radioClass: 'iradio_flat-blue',
+							increaseArea: '20%' // optional
+						});
+						$(".ck-all").iCheck('uncheck'); //将输入框的状态设置为
+						system.check();
+
+					});
+
+				}
+
+				// 删除数据
+				$(".all-del").on("click", function() {
+
+					var $lists = $("tbody .list-item input[type=checkbox]:checked");
+
+					if($lists.length <= 0) {
+						alert("你还没有选择数据？");
+						return;
+					}
+					if(confirm("你确认要删除数据？")) {
+						$lists.each(function() {
+							$(this).closest(".list-item").remove();
+						});
+					}
+
+				})
+			</script>
+	</body>
+
+</html>

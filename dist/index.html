@@ -30,9 +30,9 @@
 								<img class="head-img" src="images/head.png" alt="头像图" />
 							</a>
 
-							<span class=" iconfont  icon-mima"></span>
+							<span class=" iconfont  icon-mima"> </span>
 							<span class=" iconfont icon-yonghu-copy"></span>
-							<span class=" iconfont icon-tuichu"></span>
+							<span class=" iconfont icon-tuichu" data-toggle="tooltip" data-placement="left" title="退出登录"></span>
 						</div>
 
 					</div>
@@ -60,7 +60,7 @@
 
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										<li >
+										<li class="active">
 											<a href="系统管理-产品档案报表.html">档案报表</a>
 										</li>
 										<li>
@@ -85,11 +85,11 @@
 										<li class="">
 											<a href="入库管理.html">入库管理</a>
 										</li>
-										
+
 										<li class="">
 											<a href="入库管理-入库单作废.html">入库单作废</a>
 										</li>
-										<li >
+										<li>
 											<a href="入库管理-录入入库单.html">录入入库单</a>
 										</li>
 
@@ -100,15 +100,15 @@
 									<a href="javascript:;">出库管理</a>
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										
-										<li >
+
+										<li>
 											<a href="出库管理.html">出库管理</a>
 										</li>
-										
-										<li >
+
+										<li>
 											<a href="出库管理-出库单作废.html">出库单作废</a>
 										</li>
-										<li >
+										<li>
 											<a href="出库管理-录入出库单.html">录入出库单</a>
 										</li>
 
@@ -120,13 +120,13 @@
 									<a href="javascript:;">转账管理</a>
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										<li >
+										<li>
 											<a href="转账管理-客户转账.html">客户转账</a>
 										</li>
-										<li >
+										<li>
 											<a href="转账管理-转账单作废.html">转账单作废</a>
 										</li>
-										<li  >
+										<li>
 											<a href="转账管理-录入客户转账信息.html">录入客户转账信息</a>
 										</li>
 
@@ -137,14 +137,14 @@
 									<a href="javascript:;">移位管理</a>
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										<li >
+										<li>
 											<a href="移位管理-货物移位.html">货物移位</a>
 										</li>
-										<li >
+										<li>
 											<a href="移位管理-移位单作废.html">转账单作废</a>
 										</li>
-									
-									<li  >
+
+										<li>
 											<a href="移位管理-录入移位单.html">录入移位单</a>
 										</li>
 
@@ -155,10 +155,10 @@
 									<a href="javascript:;">盘点管理</a>
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										<li >
+										<li>
 											<a href="盘点管理.html">盘点管理</a>
 										</li>
-										
+
 									</ul>
 								</li>
 
@@ -168,36 +168,49 @@
 
 									<!--二级菜单-->
 									<ul class="nemu-2">
-										
-										<li >
+
+										<li>
 											<a href="杂费管理.html">杂费管理</a>
 										</li>
 										<li>
 											<a href="杂费管理-消费中心.html">消费中心</a>
 										</li>
-										
+
 									</ul>
 
 								</li>
 
-								
 								<li>
 									<span class="iconfont icon-baobiaoguanli"></span>
 									<a href="javascript:;">报表中心</a>
 
 									<ul class="nemu-2">
-										<li >
+										<li>
 											<a href="报表管理-搬运统计.html">搬运统计</a>
 										</li>
-										<li >
+										<li>
 											<a href="报表管理-产品档案报表.html">产品档案报表</a>
 										</li>
-										
-										<li class="active">
+
+										<li>
 											<a href="报表管理-出库统计.html">出库统计</a>
 										</li>
-										
-										
+										<li>
+											<a href="报表管理-单数统计.html">单数统计</a>
+										</li>
+										<li>
+											<a href="报表管理-对账单查询.html">对账单查询</a>
+										</li>
+										<li>
+											<a href="报表管理-客户档案.html">客户档案</a>
+										</li>
+										<li>
+											<a href="报表管理-客户帐总表.html">客户帐总表</a>
+										</li>
+										<li>
+											<a href="报表管理-客户对账单.html">客户对账单</a>
+										</li>
+
 									</ul>
 
 								</li>
@@ -206,16 +219,16 @@
 									<a href="javascript:;">短信中心</a>
 
 									<ul class="nemu-2">
-										<li >
+										<li>
 											<a href="短信中心-操作员短信.html">操作员短信</a>
 										</li>
 										<li>
 											<a href="短信中心-短信回复.html">短信回复</a>
 										</li>
-										<li >
+										<li>
 											<a href="短信中心-短信接收.html">短信接收</a>
 										</li>
-										
+
 									</ul>
 
 								</li>
@@ -228,7 +241,7 @@
 										<li>
 											<a href="javascript:;">帮助中心</a>
 										</li>
-										
+
 									</ul>
 								</li>
 
@@ -242,11 +255,12 @@
 					<div class="admin-right pull-left">
 
 						<ul class="ttl-1 clearfix">
-							<!--	<li class="active"><span class="txt">产品档案报表 </span><span class="close">&times;</span></li>-->
+
+							<!--<li class="active"><span class="txt">产品档案报表 </span><span class="close">&times;</span></li>-->
 
 						</ul>
-						
-						<button class=" btn btn-default btn-xs-x btn-refresh  " type="button"  data-toggle="tooltip" data-placement="left" title="刷新子页面">
+
+						<button class=" btn btn-default btn-xs-x btn-refresh  " type="button" data-toggle="tooltip" data-placement="left" title="刷新子页面">
 							<span class="glyphicon glyphicon-refresh"></span>
 						</button>
 

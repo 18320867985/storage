@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="塑金仓储信息管理系统" />
+		<meta name="Description" content="塑金仓储信息管理系统" />
+		<title>客户对账单</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" href="css/icheck/skins/flat/blue.css" />
+		<link rel="stylesheet" href="css/bs-date/css/bootstrap-datetimepicker.css" />
+	</head>
+
+	<body>
+
+		<div class="system iframe-body">
+
+			<!--标题-->
+			<h4 class="system-ttl">
+				<span class="glyphicon glyphicon-list-alt iconttl"></span>
+				客户对账单
+			</h4>
+
+			<!--查询表单-->
+
+			<form class="system-form  form-inline clearfix" novalidate="novalidate">
+
+				<div class="form-group">
+					<label for="txt_1">仓库:</label>
+					<select class="form-control rd-no" name="">
+						<option value="">==请选择仓库==</option>
+					</select>
+
+				</div>
+
+				<div class="form-group three-date">
+
+					<label for="txt_3">日期:</label>
+					<select class="form-control rd-no" name="" id="date-year" data-start="1970" data-text="==选择年份==">
+						<option value="">==选择年份==</option>
+					</select>年
+					<select class="form-control rd-no" name="" id="date-month" data-text="==选择月份==">
+						<option value="">==选择月份==</option>
+					</select>月
+					<!--<select class="form-control rd-no" name=""  id="date-day" data-text="==选择天数==">
+						<option value="">==选择天数==</option>
+					</select>日-->
+
+					<!--<input class="form-control rd-no bs-date" type="text" name="" id="txt_3" value="" placeholder="==选择日期==" />-->
+
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary rd-no" type="button">
+					 	生产报表
+					 </button>
+
+				</div>
+
+			</form>
+
+			<!--操作按钮-->
+			<!--<div class="form-group  system-btns ">
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class="glyphicon glyphicon-ban-circle text-white"></span>
+						作废
+					</button>
+				
+				<button class=" btn btn-primary rd-no" type="button">
+						<span class=" glyphicon glyphicon-print text-white"></span>
+						打印
+				</button>
+
+			</div>-->
+
+			<!--列表 -->
+			<div class="system-list report report-ku">
+
+				<h4 class="ttl-1">东莞塑金网络有限公司(仓库)</h4>
+
+				<!--ttl1-->
+				<div class=" clearfix  report-ku-ttl">
+					<div class="col-xs-4  ">
+						<div class="ellipsis">
+							<label for="">地址：</label> 东莞市樟木头
+						</div>
+
+					</div>
+					<div class="col-xs-4">
+						<div class="ellipsis">
+							<label for="">联系电话：</label> 1380008888
+						</div>
+
+					</div>
+					<div class="col-xs-4">
+						<div class="ellipsis">
+							<label for="">客户传真：</label> 0769-2886-8888
+						</div>
+					</div>
+
+				</div>
+
+				<!--ttl2-->
+				<h4 class="report-ku-ttl-2">
+					2017年12月对账单
+				</h4>
+
+				<!--ttl3-->
+				<div class=" clearfix  report-ku-ttl">
+					<div class="col-xs-4  ">
+						<div class="ellipsis">
+							<label for="">客户名称：</label> 东莞市樟木头
+						</div>
+
+					</div>
+					<div class="col-xs-4">
+						<div class="ellipsis">
+							<label for="">联系电话：</label> 1380008888
+						</div>
+
+					</div>
+					<div class="col-xs-4">
+						<div class="ellipsis">
+							<label for="">客户传真：</label> 0769-2886-8888
+						</div>
+					</div>
+
+				</div>
+
+				<table class="table  table-fixed ">
+					<thead>
+						<tr>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									日期
+								</div>
+
+							</th>
+							<th class="width-1">
+								<div class="ellipsis">
+									备注
+								</div>
+
+							</th>
+							<th class="width-1">
+								<div class="ellipsis">
+									单号
+								</div>
+
+							</th>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									商品名称
+								</div>
+
+							</th>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									包数
+								</div>
+
+							</th>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									上月库存(kg/个)
+								</div>
+
+							</th>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									下月库存(kg/个)
+								</div>
+
+							</th>
+
+							<th class="width-1">
+								<div class="ellipsis">
+									出库数量(kg/个)
+								</div>
+
+							</th>
+							<th class="width-1">
+								<div class="ellipsis">
+									装卸费
+								</div>
+
+							</th>
+							<th class="width-1">
+								<div class="ellipsis">
+									装卸加班费
+								</div>
+
+							</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td colspan="10">
+								<div class="text-left">
+									<label for="">本月合计金额：</label>
+									<span>20000.00</span>
+								</div>
+
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="10">
+								<div class="text-left">
+									<label for="">总金额：</label> <span>2200.00</span>
+									<label for="">折扣值：</label> <span>200.00</span>
+									<label for="">折后金额：</label> <span>2000.00</span>
+
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="10">
+								<div class="text-left">
+									请客户核对无误后，签字并回收，并在三天内把所有费用交清。
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<div class="text-left">
+									<label for="">制表人：</label> <span>小米</span>
+
+								</div>
+							</td>
+							<td colspan="2">
+								<div class="text-left">
+									<label for="">客户回签：</label> <span>敏敏</span>
+
+							</td>
+							<td colspan="2">
+								<div class="text-left">
+									<label for="">制表日期：</label> <span>2017-12-12</span>
+
+							</td>
+							<td colspan="4">
+								<div class="text-left">
+									<label for="">日期：</label> <span>2017-12-15 12:34:46</span>
+
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="10">
+								<div class="text-left">
+									<label for="">公司账号：</label> <span>6245-5345-5435-4355-433</span>
+
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				</div>
+
+				</div>
+
+				<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+				<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+				<script src="css/icheck/icheck.min.js" type="text/javascript" charset="utf-8" id="icheck"></script>
+				<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+				<script src="css/bs-date/js/bootstrap-datetimepicker-ch.js" type="text/javascript" charset="utf-8"></script>
+				<!--[if lte IE 8]>
+			<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/ie8.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+				<script type="text/javascript">
+					bsDate.init(); // 日期
+					threeDate.init(); // 三级日期
+				</script>
+	</body>
+
+</html>

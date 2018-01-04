@@ -77,7 +77,7 @@ var paths = {
 		
 		//"src/js-dev/libs/jq/jquery.touchSwipe.min.js",	//jquery.touchSwipe.min.js 
 		
-		"src/js-dev/libs/jq/jquery-Effect.min.js",  		//jquery-Effect.min.js
+		//"src/js-dev/libs/jq/jquery-Effect.min.js",  		//jquery-Effect.min.js
 		
 		//"src/js-dev/libs/jq/jquery.superslide.2.1.1.js",  //jquery.superslide.2.1.1.js
 		
@@ -158,11 +158,11 @@ gulp.task('release', ['concat'], function() {
 	//pipe是进入流管道
 	//gulp.dest() 是复制文件
 
-	gulp.src(['./src/**/*.html', './src/**/*.json']).pipe(gulp.dest('./dist/')); //复制html
+	gulp.src(['./src/*.html']).pipe(gulp.dest('./dist/')); //复制html
 	gulp.src('./src/css/**/*.*').pipe(gulp.dest('./dist/css'));  //复制css
 	gulp.src('./src/js/**/*.*').pipe(gulp.dest('./dist/js/'));  //复制js
 	gulp.src('./src/images/**/*.*')
-	//.pipe(img())                     // 压缩图片
+	.pipe(img())                     // 压缩图片
 	.pipe(gulp.dest('./dist/images/')); //复制img
 	
 //	gulp.src('./src/en/**/*.*').pipe(gulp.dest('./dist/en/')); //复制 en

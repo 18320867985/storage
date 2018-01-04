@@ -32,7 +32,7 @@
 					<label for="txt_1">日期:</label>
 					<input class="form-control rd-no  bs-date" type="text" name="" id="txt_3" value="" placeholder="==开始日期==" />
 					<span>--</span>
-					<input class="form-control rd-no  bs-date" type="text" name=""  value="" placeholder="==结束日期==" />
+					<input class="form-control rd-no  bs-date" type="text" name="" value="" placeholder="==结束日期==" />
 
 				</div>
 				<div class="form-group">
@@ -58,7 +58,7 @@
 
 			<!--操作按钮-->
 			<div class="form-group  system-btns ">
-				<button class=" btn btn-primary rd-no" type="button" data-toggle="modal" data-target="#modal1" >
+				<button class=" btn btn-primary rd-no" type="button" data-toggle="modal" data-target="#modal1">
 						<span class=" icon-plus text-white"></span>
 						新增
 				</button>
@@ -70,7 +70,7 @@
 				<table class="table  ">
 					<thead>
 						<tr>
-							
+
 							<th class="width-1">
 								客户
 							</th>
@@ -95,7 +95,6 @@
 							<th class="width-1">
 								操作员
 							</th>
-							
 
 							<th class="width-1">
 								操作
@@ -114,7 +113,6 @@
 
 					{{#lists}}
 					<tr class="list-item">
-						
 
 						<td class="overflow-1">
 							<!--客户 -->
@@ -137,10 +135,8 @@
 						</td>
 						<td class="overflow-1-5">
 							<!--发送时间 -->
-							{{#date a5 "yyyy-MM-dd HH:mm:ss"}}
-								{{a5}}
-							{{/date}}
-							
+							{{#date a5 "yyyy-MM-dd HH:mm:ss"}} {{a5}} {{/date}}
+
 						</td>
 						<td class="overflow-1">
 							<!--发送状态 -->
@@ -150,7 +146,6 @@
 							<!--操作员 -->
 							{{a7}}
 						</td>
-						
 
 						<td class="overflow-1 op">
 							<!--操作 -->
@@ -203,6 +198,7 @@
 
 		</div>
 
+		
 		<!--modal 弹出框-->
 		<div class="modal fade" id="modal1" data-backdrop="false">
 			<div class="modal-dialog modal-md">
@@ -214,29 +210,29 @@
 						<h4 class="modal-title">添加商品信息</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-address" action="" novalidate="novalidate">
+						<form class="form-address " action="" novalidate="novalidate">
 
 							<div class="form-group vd-box">
-								<label for="">商品名称：</label>
-								<input class="form-control rd-no vd-item" type="text" placeholder="==商品名称==" />
+								<label for="">商品名称：</label> <span class="vd-req "></span>
+								<input class="form-control rd-no vd-item" type="text" placeholder="==商品名称==" vd-req vd-req-msg="商品名称不能为空" name="prodName" />
 
 							</div>
 
-							<div class="form-group">
-								<label for="">商品编号：</label>
-								<input class="form-control rd-no" type="text" placeholder="==商品编号==" />
+							<div class="form-group vd-box">
+								<label for="">商品编号：</label> <span class="vd-req "></span>
+								<input class="form-control rd-no vd-item" type="text" placeholder="==商品编号==" vd-req vd-req-msg="商品编号不能为空" name="prodNo" />
 
 							</div>
 
-							<div class="form-group">
-								<label for="">税号：</label>
-								<input class="form-control rd-no" type="text" placeholder="==税号==" />
+							<div class="form-group vd-box">
+								<label for="">税号：</label> <span class="vd-req "></span>
+								<input class="form-control rd-no vd-item" type="text" placeholder="==税号==" vd-req vd-req-msg="税号不能为空" name="shuiNo" />
 
 							</div>
 
-							<div class="form-group">
-								<label for="">地址及电话号码：</label>
-								<input class="form-control rd-no" type="text" placeholder="==地址及电话号码==" />
+							<div class="form-group vd-box">
+								<label for="">地址及电话号码：</label> <span class="vd-req "></span>
+								<input class="form-control rd-no vd-item" type="text" placeholder="==地址及电话号码==" vd-req vd-req-msg="地址及电话号码不能为空" name="addrTel" />
 
 							</div>
 
@@ -306,11 +302,11 @@
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
 
-					common.list.map(data,function(obj){
-							obj.a1=id+"-"+obj.a1;
-							return obj;
+					common.list.map(data, function(obj) {
+						obj.a1 = id + "-" + obj.a1;
+						return obj;
 					});
-					
+
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({
 						lists: data
@@ -346,7 +342,43 @@
 					});
 				}
 
-			})
+			});
+			/****数据验证****/
+			// 初始化验证对象
+			var vd1 = vd.create(".form-address");
+			vd1.init();
+			$(".vd-btn").on("click", function() {
+
+				// 是否验证成功
+				var $this = this;
+				vd1.isSuccess(function(obj) {
+
+						vd1.disabled($this); //禁用
+						//vd1.enabled($this); //激活
+						$($this).text("提交中...");
+						alert(JSON.stringify(obj));
+
+					},
+					// 失败
+					function(obj) {
+
+						//alert(obj.errorMsg)
+						// error 
+						//	mui.alert(obj.errorMsg," ","确认",function(){
+						obj.el.focus();
+						//					});
+						//					
+
+					});
+			});
+
+			document.onkeydown = function(event) {
+				if(event.keyCode == 13) {
+
+					$(".vd-btn").triggerHandler("click");
+
+				}
+			}
 		</script>
 	</body>
 
