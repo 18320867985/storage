@@ -23,9 +23,7 @@
  * 
  * */
 
-
-
-+function() {
+var threeDate = (function() {
 
 	var _init = function() {
 
@@ -187,10 +185,9 @@
 
 	}
 
-
-	window.threeDate = {
+	return {
 		init: _init
 	}
 
 
-}();
+})();

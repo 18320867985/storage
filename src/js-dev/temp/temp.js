@@ -375,7 +375,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * 
  */
 
-+function ($) {
+var bsDate = function ($) {
 
 	var _init = function _init() {
 		// bs 日历插件
@@ -397,7 +397,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		});
 	};
 
-	window.bsDate = {
+	return {
 		init: _init
 	};
 }(window.jQuery);
@@ -432,7 +432,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * data-src="images/Home/板块图片1.png"
  * > 
  * */
-+function ($) {
+
+var lazy = function ($) {
 
 	var _init = function _init() {
 
@@ -464,7 +465,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		});
 	};
 
-	window.lazy = {
+	return {
 		init: _init
 	};
 }(window.jQuery || window.Zepto);
@@ -490,7 +491,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	 </body>
  */
 
-+function ($) {
+var scroll = function ($) {
 
 	var obj = {
 
@@ -604,7 +605,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	};
 
-	window.scroll = {
+	return {
 		init: function init(top) {
 			obj.init(top);
 		},
@@ -632,7 +633,7 @@ var el_select3 = document.getElementById("address_3");
 
  * */
 
-+function () {
+var threeAddress = function () {
 
 	var _init = function _init(v1, v2, v3) {
 		var el_select1 = document.getElementById("address_1");
@@ -704,7 +705,7 @@ var el_select3 = document.getElementById("address_3");
 		}
 	};
 
-	window.threeAddress = {
+	return {
 		init: _init
 	};
 }();
@@ -733,7 +734,7 @@ var el_select3 = document.getElementById("address_3");
  * 
  * */
 
-+function () {
+var threeDate = function () {
 
 	var _init = function _init() {
 
@@ -886,7 +887,7 @@ var el_select3 = document.getElementById("address_3");
 		}
 	};
 
-	window.threeDate = {
+	return {
 		init: _init
 	};
 }();
@@ -1302,7 +1303,7 @@ $("[data-toggle=tooltip]").tooltip();
 	});
 }(window.jQuery || window.Zepto);
 /**admin**/
-+function ($) {
+var admin = function ($) {
 
 	var _init = function _init() {
 
@@ -1517,12 +1518,12 @@ $("[data-toggle=tooltip]").tooltip();
 		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
-	window.admin = {
+	return {
 		init: _init,
 		showIframeActive: _showIframeActive
 	};
 }(window.jQuery);
-+function ($) {
+var system = function ($) {
 
 	var _check = function _check() {
 
@@ -1540,7 +1541,7 @@ $("[data-toggle=tooltip]").tooltip();
 		});
 	};
 
-	window.system = {
+	return {
 		check: _check
 	};
 }(window.jQuery);

@@ -6,7 +6,7 @@
  */
 
 
-+function($) {
+var bsDate = (function($) {
 
 	var _init = function() {
 		// bs 日历插件
@@ -29,8 +29,8 @@
 
 	}
 
-	window.bsDate = {
+	return  {
 		init: _init
 	}
 
-}(window.jQuery);
+})(window.jQuery);

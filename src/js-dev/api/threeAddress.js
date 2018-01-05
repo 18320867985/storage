@@ -17,7 +17,7 @@ var el_select3 = document.getElementById("address_3");
 
  * */
 
-+function() {
+var threeAddress = (function() {
 
 	var _init = function(v1, v2, v3) {
 		var el_select1 = document.getElementById("address_1");
@@ -93,9 +93,8 @@ var el_select3 = document.getElementById("address_3");
 		}
 	}
 
-	window.threeAddress = {
+	return {
 		init: _init
 	}
 
-
-}();
+})();

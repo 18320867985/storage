@@ -1,5 +1,5 @@
 /**admin**/
-+function($) {
+ var admin=(function($) {
 
 
 	var _init = function() {
@@ -227,9 +227,9 @@
 		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
-	window.admin = {
+	return  {
 		init: _init,
 		showIframeActive: _showIframeActive
 	}
 
-}(window.jQuery);
+})(window.jQuery);

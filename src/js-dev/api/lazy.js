@@ -8,7 +8,8 @@
  * data-src="images/Home/板块图片1.png"
  * > 
  * */
-+function($) {
+
+var lazy = (function($) {
 
 	var _init = function() {
 
@@ -42,8 +43,8 @@
 		});
 	}
 
-	window.lazy = {
+	return {
 		init: _init
 	}
 
-}(window.jQuery || window.Zepto);
+})(window.jQuery || window.Zepto);

@@ -1,4 +1,4 @@
-+function($) {
+var system= (function($) {
 
 	var _check = function() {
 
@@ -18,10 +18,10 @@
 
 	}
 
-	window.system = {
+	  return  {
 		check: _check
 	}
 	
 
 
-}(window.jQuery)
+})(window.jQuery)

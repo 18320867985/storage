@@ -20,7 +20,8 @@
 	 </body>
  */
 
-+function($) {
+
+var scroll =(function($) {
 
 	var obj = {
 
@@ -149,7 +150,7 @@
 
 	}
 
-	window.scroll = {
+		return {
 		init: function(top) {
 			obj.init(top);
 		},
@@ -158,4 +159,4 @@
 		}
 	}
 
-}(window.jQuery || window.Zepto);
+})(window.jQuery || window.Zepto);
