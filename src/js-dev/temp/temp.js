@@ -3,8 +3,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /*
  *	公共类库
  */
-
-(function ($) {
+;(function ($) {
 
 	// 冲突common兼容
 	var _common = window.common = window.Common = window.com;
@@ -376,7 +375,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * 
  */
 
-;(function ($) {
++function ($) {
 
 	var _init = function _init() {
 		// bs 日历插件
@@ -401,12 +400,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	window.bsDate = {
 		init: _init
 	};
-})(window.jQuery);
+}(window.jQuery);
 /**
  * iframe
  * **/
 
 //
+
 //var iframe = (function($) {
 //	
 //	// 设置iframe 高度
@@ -432,7 +432,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * data-src="images/Home/板块图片1.png"
  * > 
  * */
-var lazy = function ($) {
++function ($) {
 
 	var _init = function _init() {
 
@@ -490,7 +490,7 @@ var lazy = function ($) {
 	 </body>
  */
 
-;(function ($) {
++function ($) {
 
 	var obj = {
 
@@ -612,7 +612,7 @@ var lazy = function ($) {
 			obj.setOffsetTop(top);
 		}
 	};
-})(window.jQuery || window.Zepto);
+}(window.jQuery || window.Zepto);
 /*
 
 三级联动地址
@@ -632,7 +632,7 @@ var el_select3 = document.getElementById("address_3");
 
  * */
 
-;(function () {
++function () {
 
 	var _init = function _init(v1, v2, v3) {
 		var el_select1 = document.getElementById("address_1");
@@ -707,7 +707,7 @@ var el_select3 = document.getElementById("address_3");
 	window.threeAddress = {
 		init: _init
 	};
-})();
+}();
 /*
  三级地址
  * 
@@ -733,7 +733,7 @@ var el_select3 = document.getElementById("address_3");
  * 
  * */
 
-;(function () {
++function () {
 
 	var _init = function _init() {
 
@@ -889,7 +889,7 @@ var el_select3 = document.getElementById("address_3");
 	window.threeDate = {
 		init: _init
 	};
-})();
+}();
 
 /*单个按钮组件
  * 
@@ -1302,7 +1302,7 @@ $("[data-toggle=tooltip]").tooltip();
 	});
 }(window.jQuery || window.Zepto);
 /**admin**/
-;(function ($) {
++function ($) {
 
 	var _init = function _init() {
 
@@ -1521,8 +1521,8 @@ $("[data-toggle=tooltip]").tooltip();
 		init: _init,
 		showIframeActive: _showIframeActive
 	};
-})(window.jQuery);
-;(function ($) {
+}(window.jQuery);
++function ($) {
 
 	var _check = function _check() {
 
@@ -1543,4 +1543,4 @@ $("[data-toggle=tooltip]").tooltip();
 	window.system = {
 		check: _check
 	};
-})(window.jQuery);
+}(window.jQuery);

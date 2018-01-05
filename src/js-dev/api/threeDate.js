@@ -23,7 +23,9 @@
  * 
  * */
 
-;(function() {
+
+
++function() {
 
 	var _init = function() {
 
@@ -185,8 +187,10 @@
 
 	}
 
+
 	window.threeDate = {
 		init: _init
 	}
 
-})();
+
+}();

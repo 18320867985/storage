@@ -1,5 +1,6 @@
 /**admin**/
-;(function($) {
++function($) {
+
 
 	var _init = function() {
 
@@ -195,6 +196,7 @@
 
 		}
 
+
 		function showIframe(index) {
 
 			$(".admin-right .iframe-big .iframe-box").removeClass("active");
@@ -230,4 +232,4 @@
 		showIframeActive: _showIframeActive
 	}
 
-})(window.jQuery);
+}(window.jQuery);

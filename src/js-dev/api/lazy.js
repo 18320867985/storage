@@ -8,7 +8,7 @@
  * data-src="images/Home/板块图片1.png"
  * > 
  * */
-var lazy = (function($) {
++function($) {
 
 	var _init = function() {
 
@@ -46,4 +46,4 @@ var lazy = (function($) {
 		init: _init
 	}
 
-})(window.jQuery || window.Zepto);
+}(window.jQuery || window.Zepto);

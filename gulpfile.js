@@ -71,7 +71,7 @@ var paths = {
 		
 		"src/js-dev/libs/modernizr/modernizr-2.6.2.min.js",  // modernizr  检测css3和h5
 		
-		"src/js-dev/libs/jq/jquery-1.11.0.min.js",  // jquery.js
+		//"src/js-dev/libs/jq/jquery-1.11.0.js",  // jquery.js
 		
 		//"src/js-dev/libs/jq/jquery-drag.min.js",	// 拖动元素
 		
@@ -88,8 +88,6 @@ var paths = {
 		"src/js-dev/libs/bs-3/bootstrap.js",  // bootstrap.js 3.0
 		
 		//"src/js-dev/libs/bs-4/bootstrap.js",  // bootstrap.js 4.0
-		
-		//"src/js-dev/libs/ie/respond.js",  // 兼容ie8 响应式
 		
 		//"src/js-dev/libs/vue/vue.min.js",  // vue.min.js
 
@@ -226,7 +224,7 @@ gulp.task("t_minjs", ["t_temp"], function() {
 	// 合并js
 	gulp.src(paths.jsCommon)
 		.pipe(concat('all.js'))
-		//.pipe(minJs("all.js")) //压缩js文件
+		.pipe(minJs("all.js")) //压缩js文件
 		.pipe(gulp.dest('./src/js/'));
 
 	gulp.src(paths.jsPath).pipe(connect.reload());

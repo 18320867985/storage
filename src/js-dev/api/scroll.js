@@ -20,7 +20,7 @@
 	 </body>
  */
 
-;(function($) {
++function($) {
 
 	var obj = {
 
@@ -158,4 +158,4 @@
 		}
 	}
 
-})(window.jQuery || window.Zepto);
+}(window.jQuery || window.Zepto);

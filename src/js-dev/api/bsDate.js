@@ -5,7 +5,8 @@
  * 
  */
 
-;(function($) {
+
++function($) {
 
 	var _init = function() {
 		// bs 日历插件
@@ -32,4 +33,4 @@
 		init: _init
 	}
 
-})(window.jQuery);
+}(window.jQuery);

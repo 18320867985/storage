@@ -1,8 +1,7 @@
 /*
  *	公共类库
  */
-
-(function($) {
+;(function($) {
 
 	// 冲突common兼容
 	var _common = window.common = window.Common = window.com;
