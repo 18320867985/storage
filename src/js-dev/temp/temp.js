@@ -376,7 +376,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * 
  */
 
-var bsDate = function ($) {
+;(function ($) {
 
 	var _init = function _init() {
 		// bs 日历插件
@@ -398,10 +398,10 @@ var bsDate = function ($) {
 		});
 	};
 
-	return {
+	window.bsDate = {
 		init: _init
 	};
-}(window.jQuery);
+})(window.jQuery);
 /**
  * iframe
  * **/
@@ -464,11 +464,10 @@ var lazy = function ($) {
 		});
 	};
 
-	return {
+	window.lazy = {
 		init: _init
 	};
 }(window.jQuery || window.Zepto);
-
 /*
 	 滚动监听
 	 <body data-spy="spy" data-target="#scroll_ttl">
@@ -491,129 +490,129 @@ var lazy = function ($) {
 	 </body>
  */
 
-var scroll = function ($) {
+;(function ($) {
 
-			var obj = {
+	var obj = {
 
-						init: function init(top) {
+		init: function init(top) {
 
-									var _top = Number(top);
-									_top = isNaN(_top) ? 0 : _top;
+			var _top = Number(top);
+			_top = isNaN(_top) ? 0 : _top;
 
-									this.offsetTop = _top;
-									this.bindEvent(this.offsetTop);
-									this.onLoad();
-									this.onReset();
-						},
+			this.offsetTop = _top;
+			this.bindEvent(this.offsetTop);
+			this.onLoad();
+			this.onReset();
+		},
 
-						offsetTop: 0,
+		offsetTop: 0,
 
-						setOffsetTop: function setOffsetTop(top) {
-									this.offsetTop = typeof top === "number" ? top : 0;
-						},
+		setOffsetTop: function setOffsetTop(top) {
+			this.offsetTop = typeof top === "number" ? top : 0;
+		},
 
-						onReset: function onReset() {
+		onReset: function onReset() {
 
-									$(window).resize(function () {
-												this.scrollList();
-												this.scroll(this.offsetTop);
-									}.bind(this));
-						},
-						onLoad: function onLoad() {
+			$(window).resize(function () {
+				this.scrollList();
+				this.scroll(this.offsetTop);
+			}.bind(this));
+		},
+		onLoad: function onLoad() {
 
-									$(window).load(function () {
-												this.scrollList();
-												this.scroll(this.offsetTop);
-									}.bind(this));
-						},
+			$(window).load(function () {
+				this.scrollList();
+				this.scroll(this.offsetTop);
+			}.bind(this));
+		},
 
-						selector: function selector() {
-									var _tagget = $("[data-spy=spy]").attr("data-target");
-									return $(_tagget);
-						},
+		selector: function selector() {
+			var _tagget = $("[data-spy=spy]").attr("data-target");
+			return $(_tagget);
+		},
 
-						bindEvent: function bindEvent(top) {
+		bindEvent: function bindEvent(top) {
 
-									var p = this.selector();
-									this.selector().find(" ul li  a").click(function () {
+			var p = this.selector();
+			this.selector().find(" ul li  a").click(function () {
 
-												// animation
-												var $this = $(this);
-												var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
-												$("body,html").stop().animate({
-															scrollTop: _top
-												}, 500);
-									});
-						},
+				// animation
+				var $this = $(this);
+				var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
+				$("body,html").stop().animate({
+					scrollTop: _top
+				}, 500);
+			});
+		},
 
-						scroll: function scroll(top) {
+		scroll: function scroll(top) {
 
-									var ff = this.getScrollList;
-									var p = this.selector();
-									$(window).on("scroll", function () {
+			var ff = this.getScrollList;
+			var p = this.selector();
+			$(window).on("scroll", function () {
 
-												var arrs = ff || [];
+				var arrs = ff || [];
 
-												arrs.forEach(function (item) {
+				arrs.forEach(function (item) {
 
-															var m1 = parseInt(item.top); //- parseInt(top);
-															var m2 = parseInt(item.maxTop); //- parseInt(top);
-															if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
-																		//alert(item.selector)
-																		p.find("ul li").removeClass("active");
-																		$("[href=" + item.selector + "]").parent().addClass("active");
-																		return false;
-															}
-												});
-									});
-						},
+					var m1 = parseInt(item.top); //- parseInt(top);
+					var m2 = parseInt(item.maxTop); //- parseInt(top);
+					if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
+						//alert(item.selector)
+						p.find("ul li").removeClass("active");
+						$("[href=" + item.selector + "]").parent().addClass("active");
+						return false;
+					}
+				});
+			});
+		},
 
-						scrollList: function scrollList() {
+		scrollList: function scrollList() {
 
-									var objs = [];
+			var objs = [];
 
-									var _offsetTop = this.offsetTop;
-									var els = this.selector().find("li");
-									for (var i = 0; i < els.length; i++) {
+			var _offsetTop = this.offsetTop;
+			var els = this.selector().find("li");
+			for (var i = 0; i < els.length; i++) {
 
-												var _el = $(els[i]).find("a").attr("href");
+				var _el = $(els[i]).find("a").attr("href");
 
-												if (_el) {
+				if (_el) {
 
-															var obj = {};
-															var _top = Math.floor($(_el).offset().top) - _offsetTop;
+					var obj = {};
+					var _top = Math.floor($(_el).offset().top) - _offsetTop;
 
-															var maxTop = 0;
-															if (i < els.length - 1) {
-																		var _el2 = $(els[i + 1]).find("a").attr("href");
-																		maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
-															} else {
-																		maxTop = Math.floor($(document).height());
-															}
+					var maxTop = 0;
+					if (i < els.length - 1) {
+						var _el2 = $(els[i + 1]).find("a").attr("href");
+						maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
+					} else {
+						maxTop = Math.floor($(document).height());
+					}
 
-															obj.selector = _el;
-															obj.top = _top;
-															obj.maxTop = maxTop;
-															objs.push(obj);
-												}
-									}
+					obj.selector = _el;
+					obj.top = _top;
+					obj.maxTop = maxTop;
+					objs.push(obj);
+				}
+			}
 
-									return this.getScrollList = objs;
-						},
+			return this.getScrollList = objs;
+		},
 
-						getScrollList: []
+		getScrollList: []
 
-			};
+	};
 
-			return {
-						init: function init(top) {
-									obj.init(top);
-						},
-						setOffsetTop: function setOffsetTop(top) {
-									obj.setOffsetTop(top);
-						}
-			};
-}(window.jQuery || window.Zepto);
+	window.scroll = {
+		init: function init(top) {
+			obj.init(top);
+		},
+		setOffsetTop: function setOffsetTop(top) {
+			obj.setOffsetTop(top);
+		}
+	};
+})(window.jQuery || window.Zepto);
 /*
 
 三级联动地址
@@ -633,7 +632,7 @@ var el_select3 = document.getElementById("address_3");
 
  * */
 
-var threeAddress = function () {
+;(function () {
 
 	var _init = function _init(v1, v2, v3) {
 		var el_select1 = document.getElementById("address_1");
@@ -705,10 +704,10 @@ var threeAddress = function () {
 		}
 	};
 
-	return {
+	window.threeAddress = {
 		init: _init
 	};
-}();
+})();
 /*
  三级地址
  * 
@@ -734,7 +733,7 @@ var threeAddress = function () {
  * 
  * */
 
-var threeDate = function () {
+;(function () {
 
 	var _init = function _init() {
 
@@ -887,10 +886,10 @@ var threeDate = function () {
 		}
 	};
 
-	return {
+	window.threeDate = {
 		init: _init
 	};
-}();
+})();
 
 /*单个按钮组件
  * 
@@ -1303,7 +1302,7 @@ $("[data-toggle=tooltip]").tooltip();
 	});
 }(window.jQuery || window.Zepto);
 /**admin**/
-var admin = function ($) {
+;(function ($) {
 
 	var _init = function _init() {
 
@@ -1518,12 +1517,12 @@ var admin = function ($) {
 		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
-	return {
+	window.admin = {
 		init: _init,
 		showIframeActive: _showIframeActive
 	};
-}(window.jQuery);
-var system = function ($) {
+})(window.jQuery);
+;(function ($) {
 
 	var _check = function _check() {
 
@@ -1541,7 +1540,7 @@ var system = function ($) {
 		});
 	};
 
-	return {
+	window.system = {
 		check: _check
 	};
-}(window.jQuery);
+})(window.jQuery);

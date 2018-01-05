@@ -17,18 +17,18 @@ var el_select3 = document.getElementById("address_3");
 
  * */
 
-var threeAddress = (function() {
+;(function() {
 
-	var _init = function(v1,v2,v3) {
+	var _init = function(v1, v2, v3) {
 		var el_select1 = document.getElementById("address_1");
 		var el_select2 = document.getElementById("address_2");
 		var el_select3 = document.getElementById("address_3");
 		var select_data2 = [];
 
-		v1=v1||"省区";
-		v2=v2||"市区";
-		v3=v3||"县城";
-		
+		v1 = v1 || "省区";
+		v2 = v2 || "市区";
+		v3 = v3 || "县城";
+
 		//  一级地址
 		for(var i in cityData3) {
 
@@ -46,7 +46,7 @@ var threeAddress = (function() {
 			select_data2 = getBYcityValue(cityData3, e.target.value);
 			el_select2.innerHTML = "";
 			var el_empty = document.createElement("option");
-			el_empty.innerText =v2;
+			el_empty.innerText = v2;
 			el_select2.insertBefore(el_empty, null);
 			for(var i2 in select_data2) {
 				var el_option = document.createElement("option");
@@ -92,9 +92,9 @@ var threeAddress = (function() {
 			}
 		}
 	}
-	
-	return {
-		init:_init
+
+	window.threeAddress = {
+		init: _init
 	}
 
 })();

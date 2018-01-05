@@ -23,7 +23,7 @@
  * 
  * */
 
-var threeDate = (function() {
+;(function() {
 
 	var _init = function() {
 
@@ -32,18 +32,18 @@ var threeDate = (function() {
 		var _day = document.getElementById("date-day");
 
 		createYear();
-		
+
 		_year.onchange = function() {
-			var v=_year.value||"";
-			
-			if(v==""){
+			var v = _year.value || "";
+
+			if(v == "") {
 				createMonth(0);
 				createday(0);
-			}else{
+			} else {
 				createMonth(12);
 				createday(0);
 			}
-			
+
 		}
 
 		_month.onchange = function() {
@@ -53,7 +53,7 @@ var threeDate = (function() {
 			}
 			var m = _month.value || "";
 			if(m == "") {
-					createday(0);
+				createday(0);
 				return;
 			}
 			y = Number(y);
@@ -107,7 +107,6 @@ var threeDate = (function() {
 			}
 
 			createday(d);
-		
 
 		}
 
@@ -116,7 +115,7 @@ var threeDate = (function() {
 			var fragment = document.createDocumentFragment();
 
 			var startid = _year.getAttribute("data-start") || 1970;
-			var _yearName= _year.getAttribute("data-text") || "==选择年份==";
+			var _yearName = _year.getAttribute("data-text") || "==选择年份==";
 			startid = Number(startid);
 			startid = isNaN(startid) ? 1970 : startid;
 
@@ -140,12 +139,12 @@ var threeDate = (function() {
 			_year.appendChild(fragment);
 
 		}
-	
+
 		function createMonth(max) {
-			
+
 			//max=max.constructor===Number?max:12;
 			var fragment = document.createDocumentFragment();
-			var _monthName= _month.getAttribute("data-text") || "==选择月份==";
+			var _monthName = _month.getAttribute("data-text") || "==选择月份==";
 			var _notOption = document.createElement("option");
 			_notOption.innerText = _monthName;
 			_notOption.value = "";
@@ -166,7 +165,7 @@ var threeDate = (function() {
 		function createday(max) {
 
 			var fragment = document.createDocumentFragment();
-			var _dayName= _day.getAttribute("data-text") || "==选择天数==";
+			var _dayName = _day.getAttribute("data-text") || "==选择天数==";
 			var _notOption = document.createElement("option");
 			_notOption.innerText = _dayName;
 			_notOption.value = "";
@@ -185,9 +184,9 @@ var threeDate = (function() {
 		}
 
 	}
-	
-	return {
-		init:_init
+
+	window.threeDate = {
+		init: _init
 	}
-	
+
 })();

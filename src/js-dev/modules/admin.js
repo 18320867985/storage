@@ -1,5 +1,5 @@
 /**admin**/
-var admin = (function($) {
+;(function($) {
 
 	var _init = function() {
 
@@ -9,7 +9,6 @@ var admin = (function($) {
 		$(window).resize(function() {
 			setMenuHeight();
 		});
-
 
 		function setMenuHeight() {
 			var w_big = $(window).height();
@@ -207,7 +206,7 @@ var admin = (function($) {
 
 	// 刷新子页面
 	$(".admin-right").find(".btn-refresh").on("click", function() {
-		
+
 		try {
 			var $el = $(".admin-right  .iframe-box.active");
 			if($el.length > 0) {
@@ -220,14 +219,13 @@ var admin = (function($) {
 		$(this).blur();
 	});
 
-
 	// 第一次显示页面
 	function _showIframeActive() {
 
-		$(".box-big .nemu-2 li.active a").trigger("click"); 
+		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
-	return {
+	window.admin = {
 		init: _init,
 		showIframeActive: _showIframeActive
 	}

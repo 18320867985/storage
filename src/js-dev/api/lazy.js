@@ -42,7 +42,7 @@ var lazy = (function($) {
 		});
 	}
 
-	return {
+	window.lazy = {
 		init: _init
 	}
 
