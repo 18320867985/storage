@@ -44,7 +44,7 @@
  * */
 
 
-+(function($) {
++function($) {
 
 
 	// 选项卡tag-box click 新的
@@ -82,4 +82,4 @@
 
 	});
 
-})(window.jQuery || window.Zepto)
+}(window.jQuery || window.Zepto)

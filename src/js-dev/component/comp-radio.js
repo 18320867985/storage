@@ -12,7 +12,7 @@
  * ****/
 
 
-+(function($){
++function($){
 	
 	$(".comp-radio-item").on("tap",function(){
 		var p=$(this).parents(".comp-radio");
@@ -27,4 +27,4 @@
 	
 	
 	
-})(window.jQuery||window.Zepto)
+}(window.jQuery||window.Zepto)

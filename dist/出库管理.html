@@ -67,7 +67,7 @@
 						<span class="iconfont icon-shenhe text-white"></span>
 						审核
 				</button>
-				
+
 				<button class=" btn btn-primary rd-no" type="button" data-toggle="modal" data-target="#modal1">
 						<span class=" icon-plus text-white"></span>
 						新增
@@ -81,12 +81,12 @@
 
 			<!--列表 -->
 			<div class="system-list">
-				
+
 				<table class="table  ">
 					<thead>
 
 						<tr>
-							<th class=" text-center" >
+							<th class=" text-center">
 								<input class="ck-all" type="checkbox" name="" id="" value="" />
 							</th>
 							<th class="col-xs-1">
@@ -96,7 +96,7 @@
 								出库日期
 							</th>
 							<th class="col-xs-1">
-							客户名称
+								客户名称
 							</th>
 							<th class="col-xs-1">
 								仓库名称
@@ -126,7 +126,6 @@
 								操作
 							</th>
 
-							
 						</tr>
 					</thead>
 
@@ -183,9 +182,7 @@
 						</td>
 						<td class="overflow-1">{{a1}}</td>
 						<td class="overflow-1-5">
-							{{#date a2 "yyyy-MM-dd "}}
-								{{a2}}
-							{{/date}}
+							{{#date a2 "yyyy-MM-dd "}} {{a2}} {{/date}}
 						</td>
 						<td class="overflow-1">{{a3}}</td>
 						<td class="overflow-1">{{a4}}</td>
@@ -207,8 +204,6 @@
 							<a href="javascript:;">查看</a>
 							<a href="javascript:;">编辑</a>
 						</td>
-
-					
 
 					</tr>
 					{{/lists}}
@@ -254,8 +249,7 @@
 			</div>
 
 		</div>
-		
-			
+
 		<!--modal 弹出框-->
 		<div class="modal fade" id="modal1" data-backdrop="false">
 			<div class="modal-dialog modal-md">
@@ -351,17 +345,21 @@
 			});
 
 			// 异步加载数据
-			function getDtatById(id) {
-				$.get("json/ruku.json", {
-					id: id
+			function getDtatById(id2) {
+				$.get("json/ruku.json?uid="+Math.round().toString(), {
+					id: id2
 				}, function(data) {
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
-					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-					var html = template2({
-						lists: data
+					
+					var	data2=com.list.map(data,function(item){
+						item.a1 = id2 + "-" + item.a1;
+						return item;
+						
+					});
+					
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+						lists: data2
 					});
 
 					$(".system-list .table tbody").html(html);
@@ -394,7 +392,7 @@
 				}
 
 			})
-			
+
 			/****数据验证****/
 			// 初始化验证对象
 			var vd1 = vd.create(".form-address");
@@ -404,7 +402,7 @@
 				// 是否验证成功
 				var $this = this;
 				vd1.isSuccess(function(obj) {
-					
+
 						vd1.disabled($this); //禁用
 						//vd1.enabled($this); //激活
 						$($this).text("提交中...");
@@ -423,13 +421,13 @@
 
 					});
 			});
-			
-			$(document).keydown(function(event){
-				
-				if(event.keyCode==13){
-				
+
+			$(document).keydown(function(event) {
+
+				if(event.keyCode == 13) {
+
 					$(".vd-btn").triggerHandler("click");
-					
+
 				}
 			});
 		</script>

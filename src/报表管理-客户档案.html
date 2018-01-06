@@ -28,7 +28,6 @@
 
 			<form class="system-form  form-inline clearfix" novalidate="novalidate">
 
-			
 				<div class="form-group">
 					<label for="txt_3">公司名称:</label>
 					<input class="form-control rd-no " type="text" name="" id="txt_3" value="" placeholder="==公司名称==" />
@@ -111,7 +110,7 @@
 							</th>
 
 						</tr>
-					
+
 					</thead>
 
 					<tbody>
@@ -218,7 +217,7 @@
 				</div>-->
 
 			</div>
-			
+
 			<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
@@ -231,7 +230,6 @@
 		<![endif]-->
 
 			<script type="text/javascript">
-			
 				bsDate.init(); // 日期
 				// 分页
 				paging.init({
@@ -258,19 +256,21 @@
 				});
 
 				// 异步加载数据
-				function getDtatById(id) {
-					$.get("json/report-kehu.json", {
-						id: id
+				function getDtatById(id2) {
+					$.get("json/report-kehu.json?uid=" + Math.round().toString(), {
+						id: id2
 					}, function(data) {
 
 						data = data.constructor === Array ? data : $.parseJSON(data);
 
-						for(var i in data) {
-							
-							data[i].a1= id + "-" + data[i].a1;
-						}
-						var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-						var html = template2({
+						var data2 = com.list.map(data, function(item) {
+							item.a1 = id2 + "-" + item.a1;
+							return item;
+
+						});
+						
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
 							lists: data
 						});
 

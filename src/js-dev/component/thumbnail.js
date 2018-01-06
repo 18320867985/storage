@@ -48,7 +48,7 @@
  * **/
 
 
-+(function($){
++function($){
 	
 //
 //	$.fn.thumbnail=function(){
@@ -140,4 +140,4 @@
 	
 	
 	
-})(window.jQuery||window.Zepto);
+}(window.jQuery||window.Zepto);

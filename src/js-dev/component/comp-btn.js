@@ -35,7 +35,7 @@
 
 
 
-+(function($) {
++function($) {
 
 	
 	$(".comp-btn-item").on("click",function() {
@@ -56,4 +56,4 @@
 
 	});
 
-})(window.jQuery || window.Zepto);
+}(window.jQuery || window.Zepto);

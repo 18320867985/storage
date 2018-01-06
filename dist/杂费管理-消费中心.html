@@ -285,21 +285,21 @@
 			});
 
 			// 异步加载数据
-			function getDtatById(id) {
-				$.get("json/zafei-xf.json", {
-					id: id
+			function getDtatById(id2) {
+				$.get("json/zafei-xf.json?uid="+Math.round().toString(), {
+					id: id2
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
 
-					common.list.map(data,function(obj){
-							obj.a2=id+"-"+obj.a2;
+					var data2=	common.list.map(data,function(obj){
+							obj.a2=id2+"-"+obj.a2;
 							return obj;
 					});
 					
-					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-					var html = template2({
-						lists: data
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+						lists: data2
 					});
 
 					$(".system-list .table tbody").html(html);

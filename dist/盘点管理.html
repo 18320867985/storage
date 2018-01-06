@@ -239,18 +239,21 @@
 
 
 			// 异步加载数据
-			function getDtatById(id) {
-				$.get("json/pandian.json", {
-					id: id
+			function getDtatById(id2) {
+				$.get("json/pandian.json?uid="+Math.round().toString(), {
+					id: id2
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
-					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-					var html = template2({
-						lists: data
+					
+					var	data2=com.list.map(data,function(item){
+						item.a1 = id2 + "-" + item.a1;
+						return item;
+						
+					});
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+						lists: data2
 					});
 
 					$(".system-list .table tbody").html(html);

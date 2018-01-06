@@ -19,7 +19,7 @@
 		});
 	 * */
 
-	+(function($) {
+	+function($) {
 
 		//minus
 		$(".minus").on("click", function(e) {
@@ -89,6 +89,6 @@
 
 		});
 
-	})(window.jQuery || window.Zepto);
+	}(window.jQuery || window.Zepto);
 
 	/*****数字框组件end******/

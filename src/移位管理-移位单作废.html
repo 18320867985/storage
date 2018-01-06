@@ -195,18 +195,22 @@
 			});
 
 			// 异步加载数据
-			function getDtatById(id) {
-				$.get("json/yinwei-zuofei.json", {
-					id: id
+			function getDtatById(id2) {
+				$.get("json/yinwei-zuofei.json?uid="+Math.round().toString(), {
+					id: id2
 				}, function(data) {
 
 					data = data.constructor === Array ? data : $.parseJSON(data);
-					for(var i in data) {
-						data[i].a1 = id + "-" + data[i].a1;
-					}
+					
+					var	data2=com.list.map(data,function(item){
+						item.a1 = id2 + "-" + item.a1;
+						return item;
+						
+					});
+					
 					var template2 = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template2({
-						lists: data
+						lists: data2
 					});
 
 					$(".system-list .table tbody").html(html);
