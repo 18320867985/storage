@@ -3,7 +3,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /*
  *	公共类库
  */
-;(function ($) {
+
+;
+(function ($) {
 
 	// 冲突common兼容
 	var _common = window.common = window.Common = window.com;
@@ -22,6 +24,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 		return this;
 	};
+
+	// string  trim
+	Common.extend({
+		trim: function trim(data) {
+
+			data = data || "";
+			if (typeof data !== "string") {
+				return "";
+			}
+			var str = data.replace(new RegExp("\\s*", "img"), "");
+
+			return str;
+		}
+	});
 
 	/**url对象**/
 	Common.extend({
@@ -346,6 +362,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					return 0;
 				}
 			},
+
 			//  splice
 			splice: function splice(data, startIndex, endIndex) {
 				data = data || [];
@@ -362,6 +379,191 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				} else {
 					return [];
 				}
+			},
+
+			//  not repeat
+			notRepeat: function notRepeat(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+
+				if (data.length <= 0) {
+					return [];
+				}
+				var temp = [];
+				temp.push(data[0]);
+				for (var i = 1; i < data.length; i++) {
+
+					var test = data[i];
+					var isOk = true;
+					for (var y = 0; y < temp.length; y++) {
+
+						var test2 = temp[y];
+						if (test === test2) {
+
+							isOk = false;
+							break;
+						}
+					}
+
+					if (isOk) {
+						temp.push(test);
+					}
+				}
+
+				return temp;
+			}
+
+		}
+
+	});
+
+	// cookie
+	Common.extend({
+		cookie: {
+
+			setCookie: function setCookie(cookieName, cookieValue, expiresDate) {
+				cookieName = cookieName || "";
+				if (cookieName == "") {
+					return;
+				}
+				cookieValue = cookieValue || "";
+				var dt = new Date();
+				expiresDate = typeof expiresDate === "number" ? expiresDate : 0;
+				dt.setDate(dt.getDate() + expiresDate);
+				var expires = dt;
+				document.cookie = encodeURIComponent(cookieName.replace(new RegExp("\\s*", "img"), "")) + "=" + encodeURIComponent(cookieValue) + ";expires=" + expires;
+			},
+
+			getCookie: function getCookie(cookieName) {
+
+				cookieName = cookieName || "";
+				if (cookieName == "") {
+					return;
+				}
+
+				var cookies = Common.cookie.getAllCookie();
+
+				return cookies[cookieName];
+			},
+
+			getAllCookie: function getAllCookie() {
+
+				var strs = document.cookie.split(new RegExp(";\\s*"));
+				var obj = {};
+				for (var i = 0; i < strs.length; i++) {
+
+					var strs2 = strs[i].split("=");
+					try {
+						var _name = decodeURIComponent(strs2[0]).replace(new RegExp("\\s*", "img"), "");
+						var _val = decodeURIComponent(strs2[1]).replace(new RegExp("\\s*", "img"), "");
+						obj[_name] = _val;
+					} catch (e) {}
+				}
+
+				return obj;
+			},
+
+			removeCookie: function removeCookie(cookieName) {
+
+				Common.cookie.setCookie(cookieName, "", -1);
+			}
+
+		}
+
+	});
+
+	// localStorage 与 sessionStorage
+	Common.extend({
+
+		localStorage: {
+
+			// localStorage存值永久有效
+			setItem: function setItem(item, value) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+
+				localStorage.setItem(Common.trim(item), JSON.stringify(value));
+			},
+
+			// localStorage取值
+			getItem: function getItem(item) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+				var data = JSON.parse(localStorage.getItem(Common.trim(item)));
+				return data;
+			},
+
+			//localStorage删除指定键对应的值
+			deleteItem: function deleteItem(item) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+				localStorage.removeItem(Common.trim(item));
+			},
+			clear: function clear() {
+				localStorage.clear();
+			}
+
+		},
+
+		sessionStorage: {
+
+			// sessionStorage 
+			setItem: function setItem(item, value) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+
+				sessionStorage.setItem(Common.trim(item), JSON.stringify(value));
+			},
+
+			// sessionStorage 取值
+			getItem: function getItem(item) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+				var data = JSON.parse(sessionStorage.getItem(Common.trim(item)));
+				return data;
+			},
+
+			// sessionStorage 删除指定键对应的值
+			deleteItem: function deleteItem(item) {
+				item = item || "";
+				if (typeof item !== "string") {
+					return;
+				}
+				if (Common.trim(item) === "") {
+					return;
+				}
+				sessionStorage.removeItem(Common.trim(item));
+			},
+
+			clear: function clear() {
+				sessionStorage.clear();
 			}
 
 		}
