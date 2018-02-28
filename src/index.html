@@ -57,7 +57,7 @@
 						<h4 class="ttl-1"> 菜单管理</h4>
 						<div class="box-big">
 
-							<ul class="nemu-1" data-maxcount="8">
+							<ul class="nemu-1" data-maxcount="100">
 
 								<li class="">
 									<span class="iconfont icon-ttpodicon"></span>
@@ -257,22 +257,32 @@
 					</div>
 
 					<!--右边-->
-					<div class="admin-right pull-left">
+					<div class="admin-right pull-left clearfix">
 
-						<ul class="ttl-1 clearfix">
+						<div class="wrap-ttl col-xs-11">
+							<div  class="row">
+								<ul class="ttl-1 clearfix">
+	
+									<!--<li class="active"><span class="txt">产品档案报表 </span><span class="close">&times;</span></li>-->
+	
+								</ul>
+							</div>
+							<!--左右键移动btn-->
+							<span class="warp-left-btn glyphicon glyphicon-menu-left"></span>
+							<span class="warp-right-btn glyphicon glyphicon-menu-right"></span>
+						</div>
 
-							<!--<li class="active"><span class="txt">产品档案报表 </span><span class="close">&times;</span></li>-->
-
-						</ul>
-
-						<button class=" btn btn-default btn-xs-x btn-refresh  " type="button" data-toggle="tooltip" data-placement="left" title="刷新子页面">
-							<span class="glyphicon glyphicon-refresh"></span>
+						<div class="col-xs-1 ">
+							<button class=" btn btn-default btn-xs-x btn-refresh  " type="button" data-toggle="tooltip" data-placement="left" title="刷新子页面">
+								<span class="glyphicon glyphicon-refresh"></span>
 						</button>
+
+						</div>
 
 						<!--iframe-->
 						<div class="iframe-big">
 
-							<!--	<iframe id="iframe" class="iframe-box active" src="系统管理-产品档案报表.html"></iframe>-->
+							<!--<iframe id="iframe" class="iframe-box active" src="系统管理-产品档案报表.html"></iframe>-->
 
 						</div>
 
@@ -302,13 +312,11 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			
-		
 			$(function() {
-				
+
 				admin.init();
 				admin.showIframeActive(); // 第一次显示页面  li元素 class="active"
-		
+
 			});
 		</script>
 	</body>

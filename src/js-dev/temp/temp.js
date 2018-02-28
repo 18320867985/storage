@@ -1202,17 +1202,17 @@ $("[data-toggle=tooltip]").tooltip();
 /*
   
 <div class="number" >
-    <button class="plus btn" type="button">+</button>
-  <input class="num" type="number" value="1"data-min="0" data-max="9999" data-step="1" />
    <button class="minus btn" type="button">-</button>
+<input class="num" type="number" value="1" data-min="0" data-max="9999" data-step="1" />
+<button class="plus btn" type="button">+</button>
   
- </div>
+</div>
 
  * 数字框组件start
  * 事件：number_click
  *
  * 点击事件
-	$(".number").on("number_click",function(event,element){			
+	$(document).on("number_click",function(event,element){			
 		//element 当前点击的元素	
 		var p=$(element).parents(".number");
 		alert($(p).find(".num").val());
@@ -1223,7 +1223,7 @@ $("[data-toggle=tooltip]").tooltip();
 +function ($) {
 
 	//minus
-	$(".minus").on("click", function (e) {
+	$(document).on("click", ".minus", function (e) {
 		e.stopPropagation();
 		e.preventDefault();
 
@@ -1257,7 +1257,7 @@ $("[data-toggle=tooltip]").tooltip();
 	});
 
 	//plus
-	$(".plus").on("click", function (e) {
+	$(document).on("click", ".plus", function (e) {
 		e.stopPropagation();
 		e.preventDefault();
 		var p = $(this).parents(".number");
@@ -1281,6 +1281,32 @@ $("[data-toggle=tooltip]").tooltip();
 
 		if (v >= max) {
 			v = max;
+		}
+
+		$(".num", p).val(v);
+		//点击触发自定义事件
+		$(this).trigger("number_click", [this]);
+	});
+
+	// value
+	$(document).on("blur", ".num", function (e) {
+		var p = $(this).parents(".number");
+		//最大值
+		var max = Number($(".num", p).attr("data-max"));
+		max = window.isNaN(max) ? 9999 : max;
+		//最小值
+		var min = Number($(".num", p).attr("data-min"));
+		min = window.isNaN(min) ? 0 : min;
+
+		var v = Number($(".num", p).val());
+		v = window.isNaN(v) ? min : v;
+
+		if (v > max) {
+			v = max;
+		}
+
+		if (v < min) {
+			v = min;
 		}
 
 		$(".num", p).val(v);
@@ -1563,6 +1589,96 @@ var admin = function ($) {
 			$(".admin-left .nemu-1>li").removeClass("active");
 		});
 
+		// 菜单hover show  左右的按钮
+		$(".admin-right .wrap-ttl  .ttl-1").mouseenter(function () {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w = $(".admin-right .wrap-ttl ").width();
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul = $(".admin-right .wrap-ttl ul ").width();
+
+			if (wrap_ul > wrap_w) {
+				$(".admin-right .warp-left-btn,.admin-right .warp-right-btn").show();
+			}
+		});
+
+		$(".admin-right .wrap-ttl").mouseleave(function () {
+
+			$(".admin-right .warp-left-btn,.admin-right .warp-right-btn").hide();
+		});
+
+		//菜单右btn移动
+		var wrarp_right_btn_id = 0;
+		$(".admin-right .warp-right-btn").hover(function () {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w = Number($(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul = Number($(".admin-right .wrap-ttl ul ").width());
+
+			if (wrap_ul > wrap_w) {
+
+				wrarp_right_btn_id = setInterval(function () {
+					var slide_left = wrap_ul - wrap_w;
+					var val = Number($(".admin-right .wrap-ttl .ttl-1").position().left);
+					val = Math.abs(val);
+
+					if (val >= slide_left) {
+						clearInterval(wrarp_right_btn_id);
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left": "-" + slide_left
+						});
+					} else {
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left": "-=" + 100
+						});
+					}
+
+					//		
+				}, 500);
+			}
+		}, function () {
+
+			clearInterval(wrarp_right_btn_id);
+		});
+
+		//菜单做btn移动
+		var wrarp_left_btn_id = 0;
+		$(".admin-right .warp-left-btn").hover(function () {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w = Number($(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul = Number($(".admin-right .wrap-ttl ul ").width());
+
+			if (wrap_ul > wrap_w) {
+
+				wrarp_left_btn_id = setInterval(function () {
+					var slide_left = wrap_ul - wrap_w;
+					var val = Number($(".admin-right .wrap-ttl .ttl-1").position().left);
+
+					if (val >= 0) {
+						clearInterval(wrarp_left_btn_id);
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left": 0
+						});
+					} else {
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left": "+=" + 100
+						});
+					}
+
+					//		
+				}, 500);
+			}
+		}, function () {
+
+			clearInterval(wrarp_left_btn_id);
+		});
+
 		// 二级菜单
 		$(".admin-left .nemu-2 li a").on("click", function (e) {
 			e.preventDefault();
@@ -1601,6 +1717,37 @@ var admin = function ($) {
 			addIframe(obj);
 		});
 
+		// 设置菜单大与wrap时的位置
+		function setMenuLeft(index) {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w = Number($(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul = 0; //Number( $(".admin-right .wrap-ttl ul ").width());
+			for (var i = 0; i < $(".admin-right .wrap-ttl ul li").length; i++) {
+				var el = $(".admin-right .wrap-ttl ul li").eq(i);
+				//if(i<=index){
+				var w = el.outerWidth();
+				wrap_ul += Number(w);
+				if (el.hasClass("active")) {
+					break;
+				}
+				//}
+			}
+
+			if (wrap_ul >= wrap_w) {
+				var _left = wrap_ul - wrap_w;
+				$(".admin-right .wrap-ttl ul ").animate({
+					"left": "-" + _left
+				}, 400);
+			} else {
+				$(".admin-right .wrap-ttl ul ").animate({
+					"left": 0
+				}, 400);
+			}
+		}
+
 		// 删除 添加二级菜集合项 
 		$(".admin-right .ttl-1 ").delegate(".close", "click", function () {
 
@@ -1609,6 +1756,10 @@ var admin = function ($) {
 			$this.remove();
 			srcLists.splice(_index, 1);
 			delIframe(_index);
+			//设置菜单初始位置
+			$(".admin-right .wrap-ttl ul ").animate({
+				"left": 0
+			}, 400);
 
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
@@ -1616,6 +1767,9 @@ var admin = function ($) {
 				addmenu(0);
 				showIframe(0);
 			}
+
+			// 设置菜单大与wrap时的位置
+			setMenuLeft(_index);
 			return false;
 		});
 
@@ -1658,6 +1812,9 @@ var admin = function ($) {
 				// iframe item
 				//$iframe_big.append(iframe);
 			}
+
+			// 设置菜单大与wrap时的位置
+			setMenuLeft(index);
 		}
 
 		// 检查重复项

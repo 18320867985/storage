@@ -1,6 +1,5 @@
 /**admin**/
- var admin=(function($) {
-
+var admin = (function($) {
 
 	var _init = function() {
 
@@ -61,6 +60,108 @@
 			$(".admin-left .nemu-1>li").removeClass("active");
 		})
 
+		// 菜单hover show  左右的按钮
+		$(".admin-right .wrap-ttl  .ttl-1").mouseenter(function() {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w = $(".admin-right .wrap-ttl ").width();
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul = $(".admin-right .wrap-ttl ul ").width();
+
+			if(wrap_ul > wrap_w) {
+				$(".admin-right .warp-left-btn,.admin-right .warp-right-btn").show();
+			}
+		})
+
+		$(".admin-right .wrap-ttl").mouseleave(function() {
+
+			$(".admin-right .warp-left-btn,.admin-right .warp-right-btn").hide();
+
+		});
+
+		//菜单右btn移动
+		var wrarp_right_btn_id = 0;
+		$(".admin-right .warp-right-btn").hover(function() {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w =Number( $(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul =Number( $(".admin-right .wrap-ttl ul ").width());
+
+			if(wrap_ul > wrap_w) {
+
+				wrarp_right_btn_id=setInterval(function() {
+				var slide_left = wrap_ul - wrap_w;
+				var val =Number( $(".admin-right .wrap-ttl .ttl-1").position().left);
+				val=Math.abs(val) ;
+				
+					if(val>=slide_left){
+						clearInterval(wrarp_right_btn_id);
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left":"-"+slide_left
+						});
+						
+					}else{
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left":"-="+100
+						});
+					}
+					
+//		
+				}, 500);
+
+			}
+			
+			
+
+		}, function() {
+			
+			clearInterval(wrarp_right_btn_id);
+		});
+		
+		//菜单做btn移动
+		var wrarp_left_btn_id = 0;
+		$(".admin-right .warp-left-btn").hover(function() {
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w =Number( $(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul =Number( $(".admin-right .wrap-ttl ul ").width());
+
+			if(wrap_ul > wrap_w) {
+
+				wrarp_left_btn_id=setInterval(function() {
+				var slide_left = wrap_ul - wrap_w;
+				var val =Number( $(".admin-right .wrap-ttl .ttl-1").position().left);
+				
+					if(val>=0){
+						clearInterval(wrarp_left_btn_id);
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left":0
+						});
+					
+					}else{
+						$(".admin-right .wrap-ttl ul ").animate({
+							"left":"+="+100
+						});
+					}
+					
+//		
+				}, 500);
+
+			}
+			
+			
+
+		}, function() {
+			
+			clearInterval(wrarp_left_btn_id);
+		});
+
+
 		// 二级菜单
 		$(".admin-left .nemu-2 li a").on("click", function(e) {
 			e.preventDefault();
@@ -97,9 +198,43 @@
 			addmenu(srcLists.length - 1);
 
 			// add iframe
-			addIframe(obj);
-
+			addIframe(obj);	
+			 
 		});
+		
+		
+		// 设置菜单大与wrap时的位置
+		function setMenuLeft(index){
+		
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_w =Number( $(".admin-right .wrap-ttl ").width());
+
+			// 设置菜单wrap-ttl 包裹器width
+			var wrap_ul =0;//Number( $(".admin-right .wrap-ttl ul ").width());
+			for(var i=0;i< $(".admin-right .wrap-ttl ul li").length;i++){
+				 var el=$(".admin-right .wrap-ttl ul li").eq(i);
+				//if(i<=index){
+					var w=	el.outerWidth();
+					wrap_ul+=Number(w);
+					if(el.hasClass("active")){
+						break;
+					}
+				//}
+			}
+			
+		
+			if(wrap_ul>=wrap_w){
+			var _left=	wrap_ul-wrap_w
+				$(".admin-right .wrap-ttl ul ").animate({
+				"left":"-"+_left
+				},400);
+			}else{
+				$(".admin-right .wrap-ttl ul ").animate({
+				"left":0
+				},400);
+			}
+
+		}
 
 		// 删除 添加二级菜集合项 
 		$(".admin-right .ttl-1 ").delegate(".close", "click", function() {
@@ -109,6 +244,10 @@
 			$this.remove();
 			srcLists.splice(_index, 1);
 			delIframe(_index);
+			//设置菜单初始位置
+			$(".admin-right .wrap-ttl ul ").animate({
+				"left":0
+			},400);
 
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
@@ -116,6 +255,9 @@
 				addmenu(0);
 				showIframe(0);
 			}
+			
+			// 设置菜单大与wrap时的位置
+			 setMenuLeft(_index);
 			return false;
 
 		});
@@ -160,7 +302,9 @@
 				//$iframe_big.append(iframe);
 
 			}
-
+			
+			// 设置菜单大与wrap时的位置
+			 setMenuLeft(index);
 		}
 
 		// 检查重复项
@@ -196,7 +340,6 @@
 
 		}
 
-
 		function showIframe(index) {
 
 			$(".admin-right .iframe-big .iframe-box").removeClass("active");
@@ -227,7 +370,7 @@
 		$(".box-big .nemu-2 li.active a").trigger("click");
 	}
 
-	return  {
+	return {
 		init: _init,
 		showIframeActive: _showIframeActive
 	}

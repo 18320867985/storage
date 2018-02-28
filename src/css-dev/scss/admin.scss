@@ -8,15 +8,12 @@
     height: 100%;
     width: 14%;
     .ttl-1 {
-        
         border: 1px solid $br;
         border-top: none;
-      
         height: 44px;
         line-height: 44px;
         font-size: 18px;
         text-align: center;
-       
     }
     .box-big {
         width: 100%;
@@ -30,7 +27,7 @@
             padding: 0;
             >li {
                 padding: 12px;
-                text-align:center;
+                text-align: center;
                 border-bottom: 1px solid $br;
                 transition: all .5s;
                 &:hover {
@@ -40,10 +37,10 @@
                 .iconfont {
                     margin-right: 5px;
                     font-size: 24px;
-                    
-                    &.icon-yiweizhuanhuan{ font-size: 20px;}
+                    &.icon-yiweizhuanhuan {
+                        font-size: 20px;
+                    }
                 }
-               
                 a {
                     margin-left: 10px;
                     font-size: 16px;
@@ -87,7 +84,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     transition: all .4s;
-                      text-align:left;
+                    text-align: left;
                     &:hover {
                         background: #f0f0f0;
                     }
@@ -112,15 +109,58 @@
 .admin-right {
     position: relative;
     width: 86%;
-    .ttl-1 {
+    //ttl wrap
+    .wrap-ttl {
+        position: relative;
+       //padding: 0 20px;
+         border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        box-shadow: 2px 0px 5px #f0f0f0 inset ,-2px 0px 5px #f0f0f0 inset;
+        overflow: hidden;
+    }
+    // 左右键移动btn
+    .warp-left-btn,
+    .warp-right-btn {
+        position: absolute;
+         z-index: 99;
+        top:5px;
+        display: none;
+        padding: 10px 3px;
+        color:#fff;      
+        background:#333;
+        background:rgba(#333,0.5);
+        
+        cursor: pointer;
+         outline: none;
+        
+        &:hover{
+              
+              background:rgba(#333,0.9);
+              color:#fff;
+        }
+    }
+     .warp-left-btn{
+       left: 1px;  
+     }
+     
+     .warp-right-btn{
+         right: 1px;
+     }
+     
+     
+    ul.ttl-1 {
         position: relative;
         z-index: 1;
         height: 43px;
-        width: 100%;
+        left: 0;
+       
+        float: left;
+        white-space: nowrap;
         //  border-bottom: 1px solid $br;
         li {
             position: relative;
-            float: left;
+            display: inline-block;
+            float: none;
             height: 43px;
             line-height: 43px;
             padding: 0 30px 0 20px;
@@ -142,56 +182,43 @@
                 color: $brand-primary;
                 border-bottom: 1px solid $text-white;
                 font-weight: 600;
-              
-                
+            }
+            
+            &:first-child{
+                 border-left: 1px solid $br; 
             }
         }
     }
-    
-    
     //  btn-refresh
-    .btn-refresh{
+    .btn-refresh {
         position: absolute;
         right: 20px;
-        top:10px;
+        top: 10px;
         z-index: 9;
         margin: 0;
-        color:#666;
+        color: #666;
         border: none;
         background: #f8f8f8;
         outline: none;
-       
-       &:hover{
-           color:$text-blue;
-       }
-      
+        &:hover {
+            color: $text-blue;
+        }
     }
-  
-    
     // iframe
     .iframe-big {
-     
-      
         width: 100%;
-     
         border-top: 1px solid $br;
-      
         overflow: hidden;
-        
-      
     }
-    
-      // iframe-boox
-        .iframe-box {
-             position: relative;
-           display: none;
-            border: none;
-            width: 100%  !important;
-          
-             overflow: scroll;
-            &.active{
-              
-              display: block;  
-            }
+    // iframe-boox
+    .iframe-box {
+        position: relative;
+        display: none;
+        border: none;
+        width: 100% !important;
+        overflow: scroll;
+        &.active {
+            display: block;
         }
+    }
 }
