@@ -1756,10 +1756,6 @@ var admin = function ($) {
 			$this.remove();
 			srcLists.splice(_index, 1);
 			delIframe(_index);
-			//设置菜单初始位置
-			$(".admin-right .wrap-ttl ul ").animate({
-				"left": 0
-			}, 400);
 
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
