@@ -163,11 +163,12 @@ var admin = (function($) {
 
 
 		// 二级菜单
-		$(".admin-left .nemu-2 li a").on("click", function(e) {
-			e.preventDefault();
-			$(".admin-left .nemu-2  li").removeClass("active");
-			$(this).closest("li").addClass("active");
-		});
+//		$(".admin-left .nemu-2 li a").on("click", function(e) {
+//			e.preventDefault();
+//			$(".admin-left .nemu-2  li").removeClass("active");
+//			$(this).closest("li").addClass("active");
+//			
+//		});
 
 		// 添加二级菜集合项 
 		var srcLists = [];
@@ -175,6 +176,8 @@ var admin = (function($) {
 			e.preventDefault();
 			var _text = $(this).text();
 			var _href = $(this).attr("href");
+			$(".admin-left .nemu-2  li").removeClass("active");
+			$(this).closest("li").addClass("active");
 
 			// 最大的个数
 			var _max_count = parseInt($(".admin-left .nemu-1").attr("data-maxcount"));
@@ -318,14 +321,14 @@ var admin = (function($) {
 		}
 
 		function addIframe(obj) {
-			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+			$(".admin-right .iframe-big .iframe-box").removeClass("active ");
 
-			$iframe_big = $(".admin-right .iframe-big");
+			var $iframe_big = $(".admin-right .iframe-big");
 			var iframe = document.createElement("iframe");
 			$(iframe).addClass("iframe-box");
 			$(iframe).attr("src", obj.href);
 			$iframe_big.append(iframe);
-			$(iframe).addClass("active");
+			$(iframe).addClass("active ");
 
 			setMenuHeight();
 		}
@@ -338,12 +341,13 @@ var admin = (function($) {
 
 		function showIframe(index) {
 
-			$(".admin-right .iframe-big .iframe-box").removeClass("active");
-			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
+			$(".admin-right .iframe-big .iframe-box").hide().removeClass("active  ");
+			$(".admin-right .iframe-big .iframe-box").eq(index).show().addClass("active ");
 
 		}
 
 	}
+
 
 	// 刷新子页面
 	$(".admin-right").find(".btn-refresh").on("click", function() {

@@ -1222,97 +1222,97 @@ $("[data-toggle=tooltip]").tooltip();
 
 +function ($) {
 
-	//minus
-	$(document).on("click", ".minus", function (e) {
-		e.stopPropagation();
-		e.preventDefault();
+			//minus
+			$(document).on("click", ".minus", function (e) {
+						e.stopPropagation();
+						e.preventDefault();
 
-		var p = $(this).parents(".number");
+						var p = $(this).parents(".number");
 
-		//步长
-		var step = Number($(".num", p).attr("data-step"));
-		step = window.isNaN(step) ? 1 : step;
+						//步长
+						var step = Number($(".num", p).attr("data-step"));
+						step = window.isNaN(step) ? 1 : step;
 
-		//最大值
-		//			var max=Number($(".num",p).attr("data-max"));
-		//				max=window.isNaN(max)?9999:max;
-		//最小值
-		var min = Number($(".num", p).attr("data-min"));
-		min = window.isNaN(min) ? 0 : min;
+						//最大值
+						//			var max=Number($(".num",p).attr("data-max"));
+						//				max=window.isNaN(max)?9999:max;
+						//最小值
+						var min = Number($(".num", p).attr("data-min"));
+						min = window.isNaN(min) ? 0 : min;
 
-		var v = Number($(".num", p).val());
-		v = window.isNaN(v) ? min : v;
+						var v = Number($(".num", p).val());
+						v = window.isNaN(v) ? min : v;
 
-		//计算
-		v = v > min ? v - step : min;
+						//计算
+						v = v > min ? v - step : min;
 
-		if (v <= min) {
-			v = min;
-		}
+						if (v <= min) {
+									v = min;
+						}
 
-		$(".num", p).val(v);
+						$(".num", p).val(v);
 
-		//点击触发自定义事件
-		$(this).trigger("number_click", [this]);
-	});
+						//点击触发自定义事件
+						$(this).trigger("number_click", [this]);
+			});
 
-	//plus
-	$(document).on("click", ".plus", function (e) {
-		e.stopPropagation();
-		e.preventDefault();
-		var p = $(this).parents(".number");
+			//plus
+			$(document).on("click", ".plus", function (e) {
+						e.stopPropagation();
+						e.preventDefault();
+						var p = $(this).parents(".number");
 
-		//步长
-		var step = Number($(".num", p).attr("data-step"));
-		step = window.isNaN(step) ? 1 : step;
+						//步长
+						var step = Number($(".num", p).attr("data-step"));
+						step = window.isNaN(step) ? 1 : step;
 
-		//最大值
-		var max = Number($(".num", p).attr("data-max"));
-		max = window.isNaN(max) ? 9999 : max;
-		//最小值
-		var min = Number($(".num", p).attr("data-min"));
-		min = window.isNaN(min) ? 0 : min;
+						//最大值
+						var max = Number($(".num", p).attr("data-max"));
+						max = window.isNaN(max) ? 9999 : max;
+						//最小值
+						var min = Number($(".num", p).attr("data-min"));
+						min = window.isNaN(min) ? 0 : min;
 
-		var v = Number($(".num", p).val());
-		v = window.isNaN(v) ? min : v;
+						var v = Number($(".num", p).val());
+						v = window.isNaN(v) ? min : v;
 
-		//计算
-		v = v < max ? v + step : max;
+						//计算
+						v = v < max ? v + step : max;
 
-		if (v >= max) {
-			v = max;
-		}
+						if (v >= max) {
+									v = max;
+						}
 
-		$(".num", p).val(v);
-		//点击触发自定义事件
-		$(this).trigger("number_click", [this]);
-	});
+						$(".num", p).val(v);
+						//点击触发自定义事件
+						$(this).trigger("number_click", [this]);
+			});
 
-	// value
-	$(document).on("blur", ".num", function (e) {
-		var p = $(this).parents(".number");
-		//最大值
-		var max = Number($(".num", p).attr("data-max"));
-		max = window.isNaN(max) ? 9999 : max;
-		//最小值
-		var min = Number($(".num", p).attr("data-min"));
-		min = window.isNaN(min) ? 0 : min;
+			// value
+			$(document).on("blur", ".num", function (e) {
+						var p = $(this).parents(".number");
+						//最大值
+						var max = Number($(".num", p).attr("data-max"));
+						max = window.isNaN(max) ? 9999 : max;
+						//最小值
+						var min = Number($(".num", p).attr("data-min"));
+						min = window.isNaN(min) ? 0 : min;
 
-		var v = Number($(".num", p).val());
-		v = window.isNaN(v) ? min : v;
+						var v = Number($(".num", p).val());
+						v = window.isNaN(v) ? min : v;
 
-		if (v > max) {
-			v = max;
-		}
+						if (v > max) {
+									v = max;
+						}
 
-		if (v < min) {
-			v = min;
-		}
+						if (v < min) {
+									v = min;
+						}
 
-		$(".num", p).val(v);
-		//点击触发自定义事件
-		$(this).trigger("number_click", [this]);
-	});
+						$(".num", p).val(v);
+						//点击触发自定义事件
+						$(this).trigger("number_click", [this]);
+			});
 }(window.jQuery || window.Zepto);
 
 /*****数字框组件end******/
@@ -1680,11 +1680,12 @@ var admin = function ($) {
 		});
 
 		// 二级菜单
-		$(".admin-left .nemu-2 li a").on("click", function (e) {
-			e.preventDefault();
-			$(".admin-left .nemu-2  li").removeClass("active");
-			$(this).closest("li").addClass("active");
-		});
+		//		$(".admin-left .nemu-2 li a").on("click", function(e) {
+		//			e.preventDefault();
+		//			$(".admin-left .nemu-2  li").removeClass("active");
+		//			$(this).closest("li").addClass("active");
+		//			
+		//		});
 
 		// 添加二级菜集合项 
 		var srcLists = [];
@@ -1692,6 +1693,8 @@ var admin = function ($) {
 			e.preventDefault();
 			var _text = $(this).text();
 			var _href = $(this).attr("href");
+			$(".admin-left .nemu-2  li").removeClass("active");
+			$(this).closest("li").addClass("active");
 
 			// 最大的个数
 			var _max_count = parseInt($(".admin-left .nemu-1").attr("data-maxcount"));
@@ -1828,14 +1831,14 @@ var admin = function ($) {
 		}
 
 		function addIframe(obj) {
-			$(".admin-right .iframe-big .iframe-box").removeClass("active");
+			$(".admin-right .iframe-big .iframe-box").removeClass("active ");
 
-			$iframe_big = $(".admin-right .iframe-big");
+			var $iframe_big = $(".admin-right .iframe-big");
 			var iframe = document.createElement("iframe");
 			$(iframe).addClass("iframe-box");
 			$(iframe).attr("src", obj.href);
 			$iframe_big.append(iframe);
-			$(iframe).addClass("active");
+			$(iframe).addClass("active ");
 
 			setMenuHeight();
 		}
@@ -1847,8 +1850,8 @@ var admin = function ($) {
 
 		function showIframe(index) {
 
-			$(".admin-right .iframe-big .iframe-box").removeClass("active");
-			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
+			$(".admin-right .iframe-big .iframe-box").hide().removeClass("active  ");
+			$(".admin-right .iframe-big .iframe-box").eq(index).show().addClass("active ");
 		}
 	};
 
