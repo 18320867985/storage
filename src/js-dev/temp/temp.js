@@ -1831,7 +1831,7 @@ var admin = function ($) {
 		}
 
 		function addIframe(obj) {
-			$(".admin-right .iframe-big .iframe-box").removeClass("active ");
+			$(".admin-right .iframe-big .iframe-box").removeClass("active");
 
 			var $iframe_big = $(".admin-right .iframe-big");
 			var iframe = document.createElement("iframe");
@@ -1850,8 +1850,8 @@ var admin = function ($) {
 
 		function showIframe(index) {
 
-			$(".admin-right .iframe-big .iframe-box").hide().removeClass("active  ");
-			$(".admin-right .iframe-big .iframe-box").eq(index).show().addClass("active ");
+			$(".admin-right .iframe-big .iframe-box").removeClass("active  ");
+			$(".admin-right .iframe-big .iframe-box").eq(index).addClass("active");
 		}
 	};
 

@@ -189,6 +189,7 @@
             }
         }
     }
+    
     //  btn-refresh
     .btn-refresh {
         position: absolute;
@@ -219,7 +220,7 @@
         overflow: scroll;
         &.active {
             display: block;
-             animation:  showIframe .5s  linear  both;
+            animation:  showIframe .5s  linear  both;
         }
     }
     @keyframes showIframe{
