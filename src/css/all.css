@@ -10392,8 +10392,8 @@ select.form-control {
 .admin-left {
   position: relative;
   height: 100%;
-  width: 12%;
-  float: left;
+  width: 11%;
+  min-width: 200px;
   -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.075);
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.075); }
   .admin-left .ttl-1 {
