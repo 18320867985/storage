@@ -251,8 +251,9 @@ var admin = (function($) {
 			// 判断 是否有active	
 			var has_len = $(".admin-right .ttl-1").has(".active");
 			if(has_len.length == 0) {
-				addmenu(0);
-				showIframe(0);
+				var _len=$(".admin-right .ttl-1 li").length;
+				addmenu(_len-1);
+				showIframe(_len-1);
 			}
 			
 			// 设置菜单大与wrap时的位置

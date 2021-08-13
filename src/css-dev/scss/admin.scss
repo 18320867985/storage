@@ -1,12 +1,12 @@
 /**admin**/
 
-.admin {}
-
 // 左边标题
 .admin-left {
     position: relative;
     height: 100%;
-    width: 14%;
+    width: 12%;
+    float: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,.075);
     .ttl-1 {
         border: 1px solid $br;
         border-top: none;
@@ -25,11 +25,11 @@
         .nemu-1 {
             margin: 0;
             padding: 0;
-            >li {
+            > li {
                 padding: 12px;
                 text-align: center;
                 border-bottom: 1px solid $br;
-                transition: all .5s;
+                transition: all 0.5s;
                 &:hover {
                     cursor: pointer;
                 }
@@ -45,7 +45,7 @@
                     margin-left: 10px;
                     font-size: 16px;
                 }
-                &+li {
+                & + li {
                     border-top: none;
                 }
                 &.active {
@@ -53,13 +53,13 @@
                     span {
                         color: $text-white;
                     }
-                    >a {
+                    > a {
                         color: $text-white !important;
                     }
                 }
             }
         }
-        // 二级菜单 
+        // 二级菜单
         .nemu-2 {
             position: absolute;
             left: 100%;
@@ -73,7 +73,7 @@
             background: $text-white;
             box-shadow: 2px 2px 5px #999, 2px -2px 5px #ccc;
             li {
-                >a {
+                > a {
                     display: block;
                     width: 100%;
                     margin: 0;
@@ -83,14 +83,14 @@
                     text-overflow: ellipsis;
                     overflow: hidden;
                     white-space: nowrap;
-                    transition: all .4s;
+                    transition: all 0.4s;
                     text-align: left;
                     &:hover {
                         background: #f0f0f0;
                     }
                 }
-                &.active>a {
-                    background: lighten( $bg-head, 10%);
+                &.active > a {
+                    background: lighten($bg-head, 10%);
                     color: $text-white;
                 }
             }
@@ -108,52 +108,47 @@
 // 右边内容
 .admin-right {
     position: relative;
-    width: 86%;
+    overflow: hidden;
     //ttl wrap
     .wrap-ttl {
         position: relative;
-       //padding: 0 20px;
-         border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        box-shadow: 2px 0px 5px #f0f0f0 inset ,-2px 0px 5px #f0f0f0 inset;
+        margin-right: 60px;
         overflow: hidden;
+        box-shadow:  0 2px 4px rgba(0, 0, 0, 0.075) inset,-4px -2px 4px rgba(0, 0, 0, 0.075) inset;
+       
     }
     // 左右键移动btn
     .warp-left-btn,
     .warp-right-btn {
         position: absolute;
-         z-index: 99;
-        top:5px;
+        z-index: 99;
+        top: 5px;
         display: none;
         padding: 10px 3px;
-        color:#fff;      
-        background:#333;
-        background:rgba(#333,0.5);
-        
+        color: #fff;
+        background: #333;
+        background: rgba(#333, 0.5);
         cursor: pointer;
-         outline: none;
-        
-        &:hover{
-              
-              background:rgba(#333,0.9);
-              color:#fff;
+        outline: none;
+
+        &:hover {
+            background: rgba(#333, 0.9);
+            color: #fff;
         }
     }
-     .warp-left-btn{
-       left: 1px;  
-     }
-     
-     .warp-right-btn{
-         right: 1px;
-     }
-     
-     
+    .warp-left-btn {
+        left: 1px;
+    }
+
+    .warp-right-btn {
+        right: 1px;
+    }
+
     ul.ttl-1 {
         position: relative;
         z-index: 1;
         height: 43px;
         left: 0;
-       
         float: left;
         white-space: nowrap;
         //  border-bottom: 1px solid $br;
@@ -164,7 +159,7 @@
             height: 43px;
             line-height: 43px;
             padding: 0 30px 0 20px;
-            border-right: 1px solid $br;
+            border-right: 1px solid #e2e2e2;
             font-size: 14px;
             &:hover {
                 cursor: pointer;
@@ -180,16 +175,15 @@
             }
             &.active {
                 color: $brand-primary;
-                border-bottom: 1px solid $text-white;
                 font-weight: 600;
             }
-            
-            &:first-child{
-                 border-left: 1px solid $br; 
+
+            &:first-child {
+                border-left: 1px solid $br;
             }
         }
     }
-    
+
     //  btn-refresh
     .btn-refresh {
         position: absolute;
@@ -220,17 +214,17 @@
         overflow: scroll;
         &.active {
             display: block;
-            animation:  showIframe .5s  linear  both;
+            animation: showIframe 0.5s linear both;
         }
     }
-    @keyframes showIframe{
-        0%{
+    @keyframes showIframe {
+        0% {
             opacity: 0;
             transform: translateX(50px);
         }
-           100%{
-               opacity: 1;
-             transform: translateX(0px);  
-           }
+        100% {
+            opacity: 1;
+            transform: translateX(0px);
+        }
     }
 }
